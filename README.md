@@ -1,3 +1,7 @@
+# Wadge-BackEnd
+
+[![Build Status](https://img.shields.io/travis/RomainVacheret/Wadge-FrontEnd/master.svg?style=flat-square)](https://travis-ci.org/RomainVacheret/Wadge-FrontEnd)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
