@@ -1,4 +1,4 @@
-# Wadge-BackEnd
+# Wadge-FrontEnd
 
 [![Build Status](https://img.shields.io/travis/RomainVacheret/Wadge-FrontEnd/master.svg?style=flat-square)](https://travis-ci.org/RomainVacheret/Wadge-FrontEnd)
 
