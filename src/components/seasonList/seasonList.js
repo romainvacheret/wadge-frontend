@@ -12,7 +12,7 @@ const SeasonList = () => {
         })
         .catch(err => console.log('Error: ', err))
         .then(response => response.json())
-        .then(response => {console.log("R", response); setFoodList([...response['Food']])}), 
+        .then(response => setFoodList([...response['Food']])), 
     []);
     
     return (<ul> {foodList.map((element, idx) => {console.log(element); return (<li key={idx}>{element}</li>)})} </ul>);
