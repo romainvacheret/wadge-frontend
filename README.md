@@ -2,71 +2,26 @@
 
 [![Build Status](https://img.shields.io/travis/RomainVacheret/Wadge-FrontEnd/master.svg?style=flat-square)](https://travis-ci.org/RomainVacheret/Wadge-FrontEnd)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Que faisons nous ?
+Une application proposant des recettes de cuisine à partir de fruits et légumes de saison tout en prennant en compte ce que vous possédez déjà dans votre frigo !
 
-## Available Scripts
+# Installation
+## Prérequis
 
-In the project directory, you can run:
+* [Télécharger NodeJs](https://nodejs.org/en/download/)
+* [Télécharger Git](https://git-scm.com/downloads)
 
-### `npm start`
+Clonez le repository et lancez le projet. 
+L'application sera visible à l'adresse [http://localhost:3000](http://localhost:3000). <br>
+Vous devez lancer la partie back end en parallèle pour que l'application fonctionne correctement.
+```Bash
+git clone git@github.com:RomainVacheret/Wadge-FrontEnd.git
+npm start
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+# Un projet découpé en deux parties
+Ce repository contient la partie front end de notre application web. Vous trouverez le back end à [cette adresse](https://github.com/RomainVacheret/Wadge-BackEnd).
+# Auteurs
+* **Fanny Lourioux** - [Github](https://github.com/FannyLourioux) - [LinkedIn](https://www.linkedin.com/in/fanny-lourioux-4744941a0/)
+* **Trystan Roches** - [Github](https://github.com/Trystan4) - [LinkedIn](https://www.linkedin.com/in/trystan-roches-4a6ba0171/)
+* **Romain Vacheret** - [Github](https://github.com/RomainVacheret) - [LinkedIn](https://www.linkedin.com/in/romain-vacheret-b58270189/)
