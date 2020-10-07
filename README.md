@@ -25,3 +25,6 @@ Ce repository contient la partie front end de notre application web. Vous trouve
 * **Fanny Lourioux** - [Github](https://github.com/FannyLourioux) - [LinkedIn](https://www.linkedin.com/in/fanny-lourioux-4744941a0/)
 * **Trystan Roches** - [Github](https://github.com/Trystan4) - [LinkedIn](https://www.linkedin.com/in/trystan-roches-4a6ba0171/)
 * **Romain Vacheret** - [Github](https://github.com/RomainVacheret) - [LinkedIn](https://www.linkedin.com/in/romain-vacheret-b58270189/)
+
+## Plus d'informations
+Retrouvez notre [page de présentation](https://romainvacheret.github.io/Wadge-FrontEnd/)
