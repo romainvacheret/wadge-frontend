@@ -16,6 +16,7 @@ L'application sera visible à l'adresse [http://localhost:3000](http://localhost
 Vous devez lancer la partie back end en parallèle pour que l'application fonctionne correctement.
 ```Bash
 git clone git@github.com:RomainVacheret/Wadge-FrontEnd.git
+cd Wadge-FrontEnd
 npm start
 ```
 
@@ -25,6 +26,8 @@ Ce repository contient la partie front end de notre application web. Vous trouve
 * **Fanny Lourioux** - [Github](https://github.com/FannyLourioux) - [LinkedIn](https://www.linkedin.com/in/fanny-lourioux-4744941a0/)
 * **Trystan Roches** - [Github](https://github.com/Trystan4) - [LinkedIn](https://www.linkedin.com/in/trystan-roches-4a6ba0171/)
 * **Romain Vacheret** - [Github](https://github.com/RomainVacheret) - [LinkedIn](https://www.linkedin.com/in/romain-vacheret-b58270189/)
+* **Maodo Laba Sow** - [Github](https://github.com/sowJamndg) - [LinkedIn](https://www.linkedin.com/in/maodo-laba-sow-668244184/)
+
 
 ## Plus d'informations
 Retrouvez notre [page de présentation](https://romainvacheret.github.io/Wadge-FrontEnd/)
