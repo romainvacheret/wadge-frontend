@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.1.13",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/user-event": "^7.2.1",
+    "google-map-react": "^2.1.8",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3"
   },
   "scripts": {
@@ -32,7 +35,9 @@
   },
   "devDependencies": {
     "@testing-library/react": "^9.5.0",
+    "css-loader": "^5.0.0",
     "jest-dom": "^4.0.0",
-    "react-test-renderer": "^16.13.1"
+    "react-test-renderer": "^16.13.1",
+    "style-loader": "^2.0.0"
   }
 }
