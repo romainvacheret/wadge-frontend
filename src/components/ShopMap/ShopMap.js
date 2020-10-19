@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import GoogleMapReact from 'google-map-react';
-// import config from '../../key.json';
-// import fs from 'fs';
+
+import data from './shops.json';
 
 import './ShopMap.css';
 import { API_KEY } from '../../env';
@@ -13,29 +13,39 @@ const ShopMap = (props) => {
         accurate: 0
     });
 
-    const [zoom, setZoom] = useState(10);
+    const [zoom, setZoom] = useState(12);
 
-    // fs.readFile('../../key.json', 'utf-8', (err, string) => console.log(string));
+    const [markers, setMarkers] = useState([{
+        lat: 48.855050,
+        lng: 2.306350,
+        text: 'Naturalia'
+    }]);
 
-    // const initMap = () => {
-    //     const map = new google.maps.Map(
-    //         document.getElementById(`map`), 
-    //         {zoom: 4, center: currentPosition}
-    //     );
-    //     const marker = new google.maps.Marker({ position: currentPosition, map})
-    // }
+    const AnyReactComponent = ({ text }) => <div style={{ height: 15, width: 50 }}className="Marker"><div>{text}</div></div>
 
-    // initMap(); 
-
+    useEffect(() => setMarkers([...data]), []);
 
     return (
-        <div style={{ height: 600, width: 800 }}>
-            <GoogleMapReact
-                bootstrapURLKeys={{ key:API_KEY }}
-                defaultCenter={ currentPosition }
-                defaultZoom={ zoom }
-            />
-        </div>
+        <>
+            <h1 className="Title">Liste des magasins</h1>
+            <div className="Map" style={{ height: 600, width: 800 }}>
+                <GoogleMapReact
+                    bootstrapURLKeys={{ key: API_KEY }}
+                    defaultCenter={ currentPosition }
+                    defaultZoom={ zoom }
+                >
+
+                {markers.map((marker, idx) => (
+                    <AnyReactComponent
+                    key={idx}
+                    lat={marker.lat}
+                    lng={marker.lng}
+                    text={marker.name}/>
+                ))}
+
+                </GoogleMapReact>
+            </div>
+        </>
     );
 }
 

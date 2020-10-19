@@ -1,0 +1,17 @@
+.Marker  {
+    background-color:lightgreen;
+    text-align: center;
+}
+
+.Map {
+    margin: auto;
+    width: 50%;
+    border: 1.5px solid green;
+    padding: 10px;
+}
+
+.Title {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
