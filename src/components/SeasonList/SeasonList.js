@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './SeasonList.css';
 
 const SeasonList = () => {
     const [foodList, setFoodList] = useState([]);
@@ -12,10 +13,31 @@ const SeasonList = () => {
         })
         .catch(err => console.log('Error: ', err))
         .then(response => response.json())
-        .then(response => setFoodList([...response['Food']])), 
+        .then(response => setFoodList([...response])), 
     []);
     
-    return (<ul> {foodList.map((element, idx) => {console.log(element); return (<li key={idx}>{element}</li>)})} </ul>);
+    return (
+        <>
+            <h3 className='Title'> Liste des fruits et légumes </h3>
+            <ul> {
+            foodList.map(({ consommation, nom, type,}, idx) => {
+                consommation = JSON.parse(consommation).join(', ');
+                return ( 
+                    <div className="List"key={idx}> { 
+                        <>
+                            <ul>
+                                <li>{ nom }</li>
+                                <li>{ `Type : ${ type }` }</li>
+                                <li>{ `Mois de consommation: ${ consommation }` }</li>
+                            </ul>
+                            <br></br>
+                        </>
+                    } </div> 
+                )
+                })
+            } </ul>
+        </>
+    );
 }
 
 export default SeasonList;
