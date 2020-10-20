@@ -1,6 +1,7 @@
 # Wadge-FrontEnd
 
 [![Build Status](https://img.shields.io/travis/RomainVacheret/Wadge-FrontEnd/master.svg?style=flat-square)](https://travis-ci.org/RomainVacheret/Wadge-FrontEnd)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/RomainVacheret/Wadge-FrontEnd)
 
 # Que faisons nous ?
 Une application proposant des recettes de cuisine à partir de fruits et légumes de saison tout en prennant en compte ce que vous possédez déjà dans votre frigo !
