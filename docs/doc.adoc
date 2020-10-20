@@ -1,0 +1,8 @@
+= Wadge-FrontEnd
+Doc Writer <projet.wadge@gmail.com>
+
+== Les différents URLs
+
+* `/` -> Page d'accueil
+* `/map` -> Carte des magasins bio Naturalia à Paris
+* `/food_list` -> Liste des fruits et légumes de saison
