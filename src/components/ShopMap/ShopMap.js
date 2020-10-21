@@ -4,7 +4,8 @@ import GoogleMapReact from 'google-map-react';
 import data from './shops.json';
 
 import './ShopMap.css';
-import { API_KEY } from '../../env';
+
+const API_KEY = process.env.REACT_APP_GOOGLE_API;
 
 const ShopMap = (props) => {
     const [currentPosition, setCurrentPosition] = useState({
