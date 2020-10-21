@@ -10,3 +10,4 @@ Cependant, si le code source vous intéresse, vous pouvez le front end [ici](htt
 * **Fanny Lourioux** - [Github](https://github.com/FannyLourioux) - [LinkedIn](https://www.linkedin.com/in/fanny-lourioux-4744941a0/)
 * **Trystan Roches** - [Github](https://github.com/Trystan4) - [LinkedIn](https://www.linkedin.com/in/trystan-roches-4a6ba0171/)
 * **Romain Vacheret** - [Github](https://github.com/RomainVacheret) - [LinkedIn](https://www.linkedin.com/in/romain-vacheret-b58270189/)
+* **Maodo Laba Sow** - [Github](https://github.com/sowJamndg) - [LinkedIn](https://www.linkedin.com/in/maodo-laba-sow-668244184/)
