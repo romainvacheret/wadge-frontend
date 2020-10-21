@@ -27,4 +27,4 @@ yarn-error.log*
 .vscode
 
 # Local variables
-env.js
+.env
