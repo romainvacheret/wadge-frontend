@@ -20,6 +20,7 @@ Vous devez lancer la partie back end en parallèle pour que l'application foncti
 ```Bash
 git clone git@github.com:RomainVacheret/Wadge-FrontEnd.git
 cd Wadge-FrontEnd
+npm install
 npm start
 ```
 
