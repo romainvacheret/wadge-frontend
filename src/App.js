@@ -1,15 +1,36 @@
 import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
+
+// Components
 import SeasonList from './components/SeasonList/SeasonList';
+import Home from './components/Home/Home';
+import ShopMap from './components/ShopMap/ShopMap';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <Button label="click me!"></Button> */}
-        <SeasonList data-testid="food_list"></SeasonList>
-      </header>
-    </div>
+    <>
+        <BrowserRouter>
+          <Switch>
+            <Route
+              exact
+              path='/'
+              render={ (props) => <Home {...props}/> }
+            />
+            <Route
+              exact
+              path='/food_list'
+              render={ () => <SeasonList data-testid="food_list"></SeasonList> }
+            />
+            <Route
+            exact
+            path='/map'
+            render={ (props) => <ShopMap {...props}/> }
+          />
+          </Switch>
+        </BrowserRouter>
+    </>
+    
   );
 }
 

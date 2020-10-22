@@ -25,3 +25,6 @@ yarn-error.log*
 
 # Editors
 .vscode
+
+# Local variables
+.env
