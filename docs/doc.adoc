@@ -5,4 +5,4 @@ Doc Writer <projet.wadge@gmail.com>
 
 * `/` -> Page d'accueil
 * `/map` -> Carte des magasins bio Naturalia à Paris
-* `/food_list` -> Liste des fruits et légumes de saison
+* `/food_list` -> Liste des fruits et légumes de saison avec leurs mois de consommation
