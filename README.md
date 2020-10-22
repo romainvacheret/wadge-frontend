@@ -32,6 +32,5 @@ Ce repository contient la partie front end de notre application web. Vous trouve
 * **Romain Vacheret** - [Github](https://github.com/RomainVacheret) - [LinkedIn](https://www.linkedin.com/in/romain-vacheret-b58270189/)
 * **Maodo Laba Sow** - [Github](https://github.com/sowJamndg) - [LinkedIn](https://www.linkedin.com/in/maodo-laba-sow-668244184/)
 
-
 ## Plus d'informations
 Retrouvez notre [page de présentation](https://romainvacheret.github.io/Wadge-FrontEnd/)
