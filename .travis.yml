@@ -17,7 +17,7 @@ addons:
 script:
   - npm run build
   - npm test 
-  - sonar-scanner
+#   - sonar-scanner
 
 
 after_success:
