@@ -19,32 +19,3 @@ const SeasonList = () => {
 }
 
 export default SeasonList;
-
-
-
-const [value, setValue] = useState("Janvier");
-const onClick = (value_) => { setValue(value_); };
-function FilterMonth(props){
-    return (
-        <>
-            <label>
-                Choisissez un Mois:
-                <select value={} onChange={ () => onClick(value) }>
-                    <option value="Janvier">Janvier</option>
-                    <option value="Fevrier">Fevrier</option>
-                    <option value="Mars">Mars</option>
-                    <option value="Avril">Avril</option>
-                    <option value="Mai">Mai</option>
-                    <option value="Juin">Juin</option>
-                    <option value="Juillet">Juillet</option>
-                    <option value="Aout">Aout</option>
-                    <option value="Septembre">Septembre</option>
-                    <option value="Octobre">Octobre</option>
-                    <option value="Novembre">Novembre</option>
-                    <option value="Decembre">Decembre</option>
-                </select>
-            </label>
-            <input type="submit" value="Submit" />
-        </>
-    );
-}
