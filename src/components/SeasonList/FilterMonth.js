@@ -1,28 +1,31 @@
 import React, {useState, useEffect} from "react";
 
 const FilterMonth = () => {
-    const [value, setValue] = useState("Janvier");
+    const [foodList, setFoodList] = useState([]);
 
-    /*useEffect(() => fetch("http://localhost:8080/filter", {
-        method: "POST",
+    const onClick = (month) => {
+        fetch("http://localhost:8080/filter", {
+           method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
+            body: JSON.stringify(`{month: ${month}}`)
         })
-        .catch(err => console.log('Error: ', err))
         .then(response => response.json())
-        .then(response => setFoodListFilter([...response['Food']])),
-    []);*/
+        .then(response => setFoodList([...response])) 
+        .catch(err => console.log('ERROR', err));
+    }
 
+    useEffect(() => {
 
+    }, [foodList]);
 
-    const onClick = (month) => setValue(month);
     return (
         <>
             <label>
                 Choisissez un Mois:
-                <select value={'Janvier'} onChange={ () => onClick(value) }>
+                <select value={'Janvier'} onChange={ (value) => onClick(value) }>
                     <option value="Janvier">Janvier</option>
                     <option value="Fevrier">Fevrier</option>
                     <option value="Mars">Mars</option>
@@ -37,6 +40,24 @@ const FilterMonth = () => {
                     <option value="Decembre">Decembre</option>
                 </select>
             </label>
+            {!foodList.length ? <></> :( <>
+                    <h3 className='Title'> Liste des fruits et légumes </h3>
+                    <ul> {
+                    foodList.map(({ nom, type }, idx) => {
+                        return ( 
+                            <div className="List"key={idx}> { 
+                                <>
+                                    <ul>
+                                        <li>{ nom }</li>
+                                        <li>{ `Type : ${ type }` }</li>
+                                    </ul>
+                                    <br></br>
+                                </>
+                            } </div> 
+                        )
+                        })
+                    } </ul>
+            </>)}
         </>
     );}
 
