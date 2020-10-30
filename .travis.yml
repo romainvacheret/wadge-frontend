@@ -1,3 +1,6 @@
+env:
+  CI=false
+
 language: node_js
 
 node_js: 

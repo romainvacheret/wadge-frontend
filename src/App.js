@@ -5,7 +5,10 @@ import './App.css';
 // Components
 import SeasonList from './components/SeasonList/SeasonList';
 import Home from './components/Home/Home';
+
 import FilterMonth from "./components/SeasonList/FilterMonth";
+
+import ShopMap from './components/ShopMap/ShopMap';
 
 function App() {
   return (
@@ -26,7 +29,12 @@ function App() {
               exact
               path='/filter'
               render={ () => <FilterMonth data-testid="filter"></FilterMonth> }
-              />
+            />
+            <Route
+            exact
+            path='/map'
+            render={ (props) => <ShopMap {...props}/> }
+          />
           </Switch>
         </BrowserRouter>
     </>
