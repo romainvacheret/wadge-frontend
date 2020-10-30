@@ -1,23 +1,23 @@
 import React, {useState, useEffect} from "react";
 
 const FilterMonth = () => {
-    const [filter, setFoodListFilter] = useState([]);
+    const [value, setValue] = useState("Janvier");
 
-    useEffect(() => fetch("http://localhost:8080/filter", {
+    /*useEffect(() => fetch("http://localhost:8080/filter", {
         method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
         })
-            .catch(err => console.log('Error: ', err))
-            .then(response => response.json())
-            .then(response => setFoodListFilter([...response['Food']])),
-        []);
+        .catch(err => console.log('Error: ', err))
+        .then(response => response.json())
+        .then(response => setFoodListFilter([...response['Food']])),
+    []);*/
 
 
-    const [value, setValue] = useState("Janvier");
-    const onClick = (value_) => { setValue(value_); };
+
+    const onClick = (month) => setValue(month);
     return (
         <>
             <label>
@@ -37,7 +37,6 @@ const FilterMonth = () => {
                     <option value="Decembre">Decembre</option>
                 </select>
             </label>
-            <input type="submit" value="Submit" />
         </>
     );}
 
