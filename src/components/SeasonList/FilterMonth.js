@@ -4,16 +4,16 @@ const FilterMonth = () => {
     const [foodList, setFoodList] = useState([]);
 
     const onClick = (month) => {
-        fetch("http://localhost:8080/filter", {
-           method: "POST",
+        month = document.getElementById("monthSelect").value;
+        fetch(`http://localhost:8080/filter/${month}`, {
+           method: "GET",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(`{month: ${month}}`)
+            }
         })
         .then(response => response.json())
-        .then(response => setFoodList([...response])) 
+        .then(response => setFoodList([...response]))
         .catch(err => console.log('ERROR', err));
     }
 
@@ -25,7 +25,7 @@ const FilterMonth = () => {
         <>
             <label>
                 Choisissez un Mois:
-                <select value={'Janvier'} onChange={ (value) => onClick(value) }>
+                <select id="monthSelect" onChange={ (value) => onClick(value) }>
                     <option value="Janvier">Janvier</option>
                     <option value="Fevrier">Fevrier</option>
                     <option value="Mars">Mars</option>
