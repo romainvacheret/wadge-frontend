@@ -5,6 +5,9 @@ import './App.css';
 // Components
 import SeasonList from './components/SeasonList/SeasonList';
 import Home from './components/Home/Home';
+
+import FilterMonth from "./components/SeasonList/FilterMonth";
+
 import ShopMap from './components/ShopMap/ShopMap';
 
 function App() {
@@ -21,6 +24,11 @@ function App() {
               exact
               path='/food_list'
               render={ () => <SeasonList data-testid="food_list"></SeasonList> }
+            />
+            <Route
+              exact
+              path='/filter'
+              render={ () => <FilterMonth data-testid="filter"></FilterMonth> }
             />
             <Route
             exact
