@@ -17,11 +17,12 @@ addons:
 script:
   - npm run build
   - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox --code-coverage
-  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 #   - sonar-scanner
 
 
+
 after_success:
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
 cache:
   directories:
