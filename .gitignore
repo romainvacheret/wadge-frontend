@@ -25,9 +25,7 @@ yarn-error.log*
 
 # Editors
 .vscode
+.idea
 
 # Local variables
 .env
-
-# Coveralls
-/coverage
