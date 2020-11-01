@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 
-const FilterMonth = () => {
+const MonthFilter = () => {
     const [foodList, setFoodList] = useState([]);
 
     const onClick = (month) => {
@@ -61,4 +61,4 @@ const FilterMonth = () => {
         </>
     );}
 
-    export default FilterMonth;
+    export default MonthFilter;

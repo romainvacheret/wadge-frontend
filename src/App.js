@@ -6,7 +6,7 @@ import './App.css';
 import SeasonList from './components/SeasonList/SeasonList';
 import Home from './components/Home/Home';
 
-import FilterMonth from "./components/SeasonList/FilterMonth";
+import MonthFilter from "./components/MonthFilter/MonthFilter";
 
 import ShopMap from './components/ShopMap/ShopMap';
 
@@ -28,7 +28,7 @@ function App() {
             <Route
               exact
               path='/filter'
-              render={ () => <FilterMonth data-testid="filter"></FilterMonth> }
+              render={ () => <MonthFilter data-testid="filter"></MonthFilter> }
             />
             <Route
             exact
