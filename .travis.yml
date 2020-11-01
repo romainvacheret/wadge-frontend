@@ -16,13 +16,13 @@ addons:
 
 script:
   - npm run build
-  - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox --code-coverage
+  - npm test -- --coverage
 #   - sonar-scanner
 
 
 
 after_success:
-  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - COVERALLS_REPO_TOKEN=$Coveralls-Token npm run coveralls
 
 cache:
   directories:
