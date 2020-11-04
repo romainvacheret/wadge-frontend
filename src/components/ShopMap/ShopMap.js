@@ -52,7 +52,7 @@ const ShopMap = (props) => {
 
     return (
         <>
-            <h1 className="Title">Liste des magasins à moins de 2kms</h1>
+            <h1 className="Title">Liste des magasins Naturalia à Paris</h1>
             <div className="Map" style={{ height: 600, width: 800 }}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: API_KEY }}
@@ -72,7 +72,7 @@ const ShopMap = (props) => {
             </div>
             {!localStores.length ? <></> : (
                 <>
-                    <h3 className='Title'> Liste des magasins proches </h3>
+                    <h3 className='Title'> Liste des magasins à moins de 2kms</h3>
                     <ul> {
                     localStores.map(({ formatted_address, opening_hours }, idx) => {
                         return ( 
