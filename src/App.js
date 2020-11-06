@@ -6,6 +6,7 @@ import './App.css';
 import SeasonList from './components/SeasonList/SeasonList';
 import Home from './components/Home/Home';
 import ShopMap from './components/ShopMap/ShopMap';
+import Myfoods from './components/ProductList/mesAliments';
 
 function App() {
   return (
@@ -26,6 +27,11 @@ function App() {
             exact
             path='/map'
             render={ (props) => <ShopMap {...props}/> }
+          />
+          <Route
+          exact
+          path='/my_food'
+          render={ () => <Myfoods data-testid="food_list"></Myfoods> }
           />
           </Switch>
         </BrowserRouter>
