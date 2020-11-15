@@ -1,5 +1,5 @@
 import React from 'react'
-
+import axios from 'axios'
 
 const foodlists=[];
 class GetFoods extends React.Component { 
@@ -38,9 +38,18 @@ class FoodList extends React.Component{
 		
 		console.log(foodlists)
     if(foodlists.length>1)
-    alert('Aliments ajoutés au Frigo avec succes')
-    else
+    {
+      alert('Aliments ajoutés au Frigo avec succes')
+    // axios.post('https://localhost:8080/fridge',foodlists).then((response) => {
+    //   console.log(response);
+      
+    // }).catch((error) => {
+    //     console.log(error);
+    // });
+  }
+    else{
     alert('Vous devz d\'abord ajouter des aliments au frigo')
+    }
     this.setState({foodsFridge:foodlists})
     //on doi envoyer foodlist sur la partie back pour apres afficher cette liste de food rencenser
 	}
@@ -66,7 +75,7 @@ class FoodList extends React.Component{
           <h4>Rencenser Les Aliments</h4>
         </div>
         <div className="panel-body">
-        <section class="col-sm-12 table-responsive">
+        <section className="col-sm-12 table-responsive">
         <table className="table table-bordered table-striped table-condensed" >
         <thead><tr><th className="info">Nom</th><th className="info">Type</th><th className="info">Vie</th><th className="info">Quantité</th><th className="info">Recenser</th></tr></thead>
 				<tbody>
@@ -114,7 +123,7 @@ handlechecked(e) {
       }
     };
 
-    if (this.state.ischecked === false) {
+    if ((this.state.ischecked === false)&&(this.state.quantity!=0)) {
       tab.products.dateAjoutee = this.state.date.toLocaleDateString()
       tab.products.quantity = this.state.quantity;
 	  tab.nom = this.state.food.nom;
@@ -163,7 +172,9 @@ class MyFood extends React.Component{
 	constructor(props){
     super(props)
 		this.myFoods=this.props.myFoods
-	}
+  }
+
+
 	render(){
 		return (
       <div className="container">
@@ -188,9 +199,9 @@ class MyFood extends React.Component{
            <td>{element.products.quantity}</td>
            <td>{element.products.dateAjoutee}</td>
            <td>{element.products.datelimite}</td>
-           <div className="col-xs-3"><td className="btn btn-success"><span className="glyphicon glyphicon-pencil"></span></td></div>
+           {/* <td className="btn btn-success"><span className="glyphicon glyphicon-pencil"></span></td>
     
-           <div className="col-xs-3"><td className="btn btn-danger"><span className="glyphicon glyphicon-trash"></span></td></div>
+           <td className="btn btn-danger"><span className="glyphicon glyphicon-trash"></span></td> */}
     </tr>
       )   
     })
