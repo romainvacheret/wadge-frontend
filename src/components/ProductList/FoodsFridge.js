@@ -188,9 +188,9 @@ class MyFood extends React.Component{
            <td>{element.products.quantity}</td>
            <td>{element.products.dateAjoutee}</td>
            <td>{element.products.datelimite}</td>
-           <td className="btn btn-success"><span className="glyphicon glyphicon-pencil"></span></td>
+           <div className="col-xs-3"><td className="btn btn-success"><span className="glyphicon glyphicon-pencil"></span></td></div>
     
-    <td className="btn btn-danger"><span className="glyphicon glyphicon-trash"></span></td>
+           <div className="col-xs-3"><td className="btn btn-danger"><span className="glyphicon glyphicon-trash"></span></td></div>
     </tr>
       )   
     })
