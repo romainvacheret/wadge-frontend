@@ -42,7 +42,7 @@ function App() {
           <Route
           exact
           path='/foods'
-          render={ () => <GetFoods data-testid="food_list"></GetFoods> }
+          render={ () => <GetFoods /> }
           />
             
             <Route
