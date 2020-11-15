@@ -119,7 +119,7 @@ handlechecked(e) {
       tab.products.quantity = this.state.quantity;
 	  tab.nom = this.state.food.nom;
 	  var dl=new Date()
-		  dl.setDate(dl.getDate()+parseInt(this.state.food.vie))
+		  dl.setDate(dl.getDate()+(this.state.food.vie))
 		  tab.products.datelimite=dl.toLocaleDateString()
 	  console.log("dl="+ tab.products.datelimite)	  
 	  foodlists.push(tab);

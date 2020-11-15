@@ -1,9 +1,13 @@
 # Wadge-FrontEnd
 
-[![Build Status](https://img.shields.io/travis/RomainVacheret/Wadge-FrontEnd/master.svg?style=flat-square)](https://travis-ci.org/RomainVacheret/Wadge-FrontEnd)
+[![Build Status](https://img.shields.io/travis/com/RomainVacheret/Wadge-FrontEnd/master)](https://travis-ci.com/github/RomainVacheret/Wadge-FrontEnd)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/RomainVacheret/Wadge-FrontEnd)
+[![License](https://img.shields.io/github/license/RomainVacheret/Wadge-FrontEnd.svg?style=flat-square)](LICENSE)
 [![Code Quality](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-FrontEnd&metric=alert_status)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-FrontEnd)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-FrontEnd&metric=sqale_index)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-FrontEnd)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-FrontEnd&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-FrontEnd)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-FrontEnd&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-FrontEnd)
+[![Coverage Status](https://coveralls.io/repos/github/RomainVacheret/Wadge-FrontEnd/badge.svg?branch=master)](https://coveralls.io/github/RomainVacheret/Wadge-FrontEnd?branch=master)
 
 # Que faisons nous ?
 Une application proposant des recettes de cuisine à partir de fruits et légumes de saison tout en prennant en compte ce que vous possédez déjà dans votre frigo !
