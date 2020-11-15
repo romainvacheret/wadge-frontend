@@ -30,8 +30,8 @@ function App() {
           />
           <Route
           exact
-          path='/my_food'
-          render={ () => <Myfoods data-testid="food_list"></Myfoods> }
+          path='/'
+          render={ () => <GetFoods data-testid="food_list"></GetFoods> }
           />
           </Switch>
         </BrowserRouter>
