@@ -8,7 +8,7 @@ import Home from './components/Home/Home';
 import MonthFilter from "./components/MonthFilter/MonthFilter";
 import ShopMap from './components/ShopMap/ShopMap';
 
-import GetFoods from './components/ProductList/FoodsFridge';
+import GetFoods from './components/FoodsFridge/FoodsFridge';
 
 import ExpirationAlerts from './components/ExpirationAlerts/ExpirationAlerts';
 
