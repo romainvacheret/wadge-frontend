@@ -20,9 +20,7 @@ const SeasonList = () => {
         <>
             <h3 className='Title'> Liste des fruits et légumes </h3>
             <ul> {
-            foodList.map(({ consommation, nom, type,}, idx) => {
-                consommation = JSON.parse(consommation).join(', ');
-                return ( 
+            foodList.map(({ consommation, nom, type,}, idx) => ( 
                     <div className="List"key={idx}> { 
                         <>
                             <ul>
@@ -34,7 +32,7 @@ const SeasonList = () => {
                         </>
                     } </div> 
                 )
-                })
+                )
             } </ul>
         </>
     );
