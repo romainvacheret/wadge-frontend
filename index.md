@@ -11,6 +11,7 @@ Cependant, si le code source vous intéresse, vous pouvez le front end [ici](htt
 * Liste des magasins bio Naturalia à à une distance de moins de 2km de la position actuelle de l'utilisateur
 * Liste des fruits et légumes avec leurs mois de disponibilité
 * Liste des fruits et légumes par mois 
+* Liste des dates de péremption des aliments aux différentes dates
 
 ## L'équipe est composée de :
 * **Fanny Lourioux** - [Github](https://github.com/FannyLourioux) - [LinkedIn](https://www.linkedin.com/in/fanny-lourioux-4744941a0/)
