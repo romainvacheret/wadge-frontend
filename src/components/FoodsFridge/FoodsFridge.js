@@ -10,12 +10,20 @@ class GetFoods extends React.Component {
 	}
 
 	componentDidMount() {
-		fetch('http://localhost:8080/food_list')
-      .then(res => res.json())
-      .then((data) => {
-          this.setState({ foods: data })
-      })
-      .catch(console.log)
+    axios.get('http://localhost:8080/food_list')
+    .then(resp => {
+      this.setState({ foods: resp.data })
+        console.log(resp.data);
+    })
+    .catch(err => {
+        console.error(err);
+    });
+		// fetch('http://localhost:8080/food_list')
+    //   .then(res => res.json())
+    //   .then((data) => {
+    //       this.setState({ foods: data })
+    //   })
+    //   .catch(console.log)
 	}
 
 	render() { 
@@ -34,23 +42,37 @@ class FoodList extends React.Component{
     }
     this.onsave=this.onsave.bind(this)
   }
+  
+    
+  
 	onsave(){
 		
 		console.log(foodlists)
     if(foodlists.length>1)
     {
       alert('Aliments ajoutés au Frigo avec succes')
-    // axios.post('https://localhost:8080/fridge',foodlists).then((response) => {
-    //   console.log(response);
+      axios.post('http://localhost:8080/food',foodlists)
+    .then(resp => {
+      this.setState({ foodsFridge: resp.data })
+        console.log(resp.data);
+    })
+    .catch(err => {
+        console.error(err);
+        console.log("erreur")
+    });
+    // axios.post('http://localhost:8080/food',foodlists).then((response) => {
+    //   console.log(response)
+    //   console.log("envoi de la requete post vers le controler")
       
     // }).catch((error) => {
-    //     console.log(error);
+    //     console.log(error)
+    //     console.log("erreur de transmission des données")
     // });
   }
     else{
     alert('Vous devz d\'abord ajouter des aliments au frigo')
-    }
-    this.setState({foodsFridge:foodlists})
+}
+    // this.setState({foodsFridge:foodlists})
     //on doi envoyer foodlist sur la partie back pour apres afficher cette liste de food rencenser
 	}
 	
@@ -119,7 +141,7 @@ handlechecked(e) {
       products: {
         dateAjoutee: '',
         datelimite: '',
-        quantity: ''
+        quantity: '0'
       }
     };
 
@@ -128,11 +150,12 @@ handlechecked(e) {
       tab.products.quantity = this.state.quantity;
 	  tab.nom = this.state.food.nom;
 	  var dl=new Date()
-		  dl.setDate(dl.getDate()+(this.state.food.vie))
+		  dl.setDate(dl.getDate()+parseInt(this.state.food.vie))
 		  tab.products.datelimite=dl.toLocaleDateString()
 	  console.log("dl="+ tab.products.datelimite)	  
 	  foodlists.push(tab);
-	  console.log(foodlists);	  
+    console.log(foodlists);	  
+    //console.log("parseur json give"+JSON.parse(foodlists));
     }   
     console.log(this.state.ischecked);
   }
@@ -171,9 +194,18 @@ handlechecked(e) {
 class MyFood extends React.Component{
 	constructor(props){
     super(props)
-		this.myFoods=this.props.myFoods
+    this.state={
+      myFoods:this.props.myFoods
+    }
+    this.delete=this.delete.bind(this)
+		
   }
-
+delete=(element)=>{
+  var v=this.state.myFoods.pop()
+  this.setDate({
+    myFoods: v.pop(element)
+  })
+}
 
 	render(){
 		return (
@@ -199,13 +231,12 @@ class MyFood extends React.Component{
            <td>{element.products.quantity}</td>
            <td>{element.products.dateAjoutee}</td>
            <td>{element.products.datelimite}</td>
-           {/* <td className="btn btn-success"><span className="glyphicon glyphicon-pencil"></span></td>
+           {/* <td className="btn btn-success"><span className="glyphicon glyphicon-pencil"></span></td> */}
     
-           <td className="btn btn-danger"><span className="glyphicon glyphicon-trash"></span></td> */}
+           {/* <td><button onClick="{delete(element)}"><span className="glyphicon glyphicon-trash"></span></button></td> */}
     </tr>
       )   
-    })
-    
+    })   
     }</tbody>
   </table>
   </div>
