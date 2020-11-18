@@ -7,7 +7,11 @@ import SeasonList from './components/SeasonList/SeasonList';
 import Home from './components/Home/Home';
 import MonthFilter from "./components/MonthFilter/MonthFilter";
 import ShopMap from './components/ShopMap/ShopMap';
+
+import GetFoods from './components/FoodsFridge/FoodsFridge';
+
 import ExpirationAlerts from './components/ExpirationAlerts/ExpirationAlerts';
+
 
 function App() {
   return (
@@ -33,12 +37,20 @@ function App() {
             exact
             path='/map'
             render={ (props) => <ShopMap {...props}/> }
-            />
+
+          />
+          <Route
+          exact
+          path='/foods'
+          render={ () => <GetFoods/>  }
+          />
+            
             <Route
             exact
             path='/alerts'
             render={ (props) => <ExpirationAlerts {...props}/> }
             />
+
           </Switch>
         </BrowserRouter>
     </>
