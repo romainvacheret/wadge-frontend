@@ -60,14 +60,7 @@ class FoodList extends React.Component{
         console.error(err);
         console.log("erreur")
     });
-    // axios.post('http://localhost:8080/food',foodlists).then((response) => {
-    //   console.log(response)
-    //   console.log("envoi de la requete post vers le controler")
-      
-    // }).catch((error) => {
-    //     console.log(error)
-    //     console.log("erreur de transmission des données")
-    // });
+  
   }
     else{
     alert('Vous devez d\'abord donner la quantité des aliments à ajouter au frigo')
@@ -197,15 +190,9 @@ class MyFood extends React.Component{
     this.state={
       myFoods:this.props.myFoods
     }
-    // this.delete=this.delete.bind(this)
 		
   }
-// delete=(element)=>{
-//   var v=this.state.myFoods.pop()
-//   this.setDate({
-//     myFoods: v.pop(element)
-//   })
-// }
+
 
 	render(){
 		return (
