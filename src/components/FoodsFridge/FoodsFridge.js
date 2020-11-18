@@ -53,7 +53,7 @@ class FoodList extends React.Component{
       alert('Aliments ajoutés au Frigo avec succes')
       axios.post('http://localhost:8080/food',foodlists)
     .then(resp => {
-      this.setState({ foodsFridge: resp.data })
+        this.setState({foodsFridge:resp.data})
         console.log(resp.data);
     })
     .catch(err => {
@@ -72,7 +72,7 @@ class FoodList extends React.Component{
     else{
     alert('Vous devz d\'abord ajouter des aliments au frigo')
 }
-    // this.setState({foodsFridge:foodlists})
+     this.setState({foodsFridge:foodlists})
     //on doi envoyer foodlist sur la partie back pour apres afficher cette liste de food rencenser
 	}
 	
@@ -80,7 +80,7 @@ class FoodList extends React.Component{
 		const foods = this.props.foods.map(food =>
 			<Food key={food.nom} food={food}/>
     )
-     if(this.state.foodsFridge.length<1){
+     if(foodlists.length<1){
 		return (
 		
 			<div>
@@ -197,15 +197,15 @@ class MyFood extends React.Component{
     this.state={
       myFoods:this.props.myFoods
     }
-    this.delete=this.delete.bind(this)
+    // this.delete=this.delete.bind(this)
 		
   }
-delete=(element)=>{
-  var v=this.state.myFoods.pop()
-  this.setDate({
-    myFoods: v.pop(element)
-  })
-}
+// delete=(element)=>{
+//   var v=this.state.myFoods.pop()
+//   this.setDate({
+//     myFoods: v.pop(element)
+//   })
+// }
 
 	render(){
 		return (
