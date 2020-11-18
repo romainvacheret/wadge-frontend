@@ -70,10 +70,10 @@ class FoodList extends React.Component{
     // });
   }
     else{
-    alert('Vous devz d\'abord ajouter des aliments au frigo')
+    alert('Vous devez d\'abord donner la quantité des aliments à ajouter au frigo')
 }
      this.setState({foodsFridge:foodlists})
-    //on doi envoyer foodlist sur la partie back pour apres afficher cette liste de food rencenser
+    
 	}
 	
 	render() {
@@ -90,7 +90,7 @@ class FoodList extends React.Component{
              </div> */}
              <div className="container">
         <div className="col-xd-12">
-          <img src="logo.png" className="imgcircle" style={{ width: 200, height: 200 }}/>
+          <img src="logo.png" className="imgcircle" alt="logo img wadge" style={{ width: 200, height: 200 }}/>
         </div>
         <div className="panel panel-primary">
         <div className="panel-heading">
@@ -141,11 +141,11 @@ handlechecked(e) {
       products: {
         dateAjoutee: '',
         datelimite: '',
-        quantity: '0'
+        quantity: 0
       }
     };
 
-    if ((this.state.ischecked === false)&&(this.state.quantity!=0)) {
+    if ((this.state.ischecked === false)&&(this.state.quantity!==0)) {
       tab.products.dateAjoutee = this.state.date.toLocaleDateString()
       tab.products.quantity = this.state.quantity;
 	  tab.nom = this.state.food.nom;
@@ -211,7 +211,7 @@ class MyFood extends React.Component{
 		return (
       <div className="container">
         <div className="col-xd-12">
-          <img src="logo.png" className="imgcircle" style={{ width: 150, height: 150 }}/>
+          <img src="logo.png" className="imgcircle" alt="img logo" style={{ width: 150, height: 150 }}/>
         </div>
       <div className="panel panel-primary">
         <div className="panel-heading">
