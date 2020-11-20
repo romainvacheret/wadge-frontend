@@ -18,12 +18,7 @@ class GetFoods extends React.Component {
     .catch(err => {
         console.error(err);
     });
-		// fetch('http://localhost:8080/food_list')
-    //   .then(res => res.json())
-    //   .then((data) => {
-    //       this.setState({ foods: data })
-    //   })
-    //   .catch(console.log)
+		
 	}
 
 	render() { 
@@ -48,7 +43,7 @@ class FoodList extends React.Component{
 	onsave(){
 		
 		console.log(foodlists)
-    if(foodlists.length>1)
+    if(foodlists.length>=1)
     {
       alert('Aliments ajoutés au Frigo avec succes')
       axios.post('http://localhost:8080/food',foodlists)
@@ -138,7 +133,7 @@ handlechecked(e) {
       }
     };
 
-    if ((this.state.ischecked === false)&&(this.state.quantity!==0)) {
+    if ((this.state.ischecked === false)&&(this.state.quantity>0)) {
       tab.products.dateAjoutee = this.state.date.toLocaleDateString()
       tab.products.quantity = this.state.quantity;
 	  tab.nom = this.state.food.nom;
@@ -148,7 +143,7 @@ handlechecked(e) {
 	  console.log("dl="+ tab.products.datelimite)	  
 	  foodlists.push(tab);
     console.log(foodlists);	  
-    //console.log("parseur json give"+JSON.parse(foodlists));
+  
     }   
     console.log(this.state.ischecked);
   }
@@ -192,6 +187,17 @@ class MyFood extends React.Component{
     }
 		
   }
+  componentDidMount() {
+    axios.get('http://localhost:8080/fridge')
+    .then(resp => {
+      this.setState({ myFoods: resp.data })
+        console.log(resp.data);
+    })
+    .catch(err => {
+        console.error(err);
+    });
+		
+	}
 
 
 	render(){
@@ -211,7 +217,7 @@ class MyFood extends React.Component{
     <thead><tr className="active"><th  className="success">Nom</th><th  className="success">Quantite</th><th  className="success">Date Ajoutée</th><th  className="success">Date Limite</th></tr></thead>
     <tbody className="success">{
 
-    foodlists.map(element => {
+    this.state.myFoods.map(element => {
       return (
          <tr key={element.nom} >
            <td>{element.nom}</td>
