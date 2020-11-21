@@ -111,7 +111,7 @@ class Food extends React.Component{
 	constructor(props){
 	super(props)
     this.state = {
-      quantity: 0,
+      quantite: 0,
       ischecked: false,
       date: new Date(),
       food:props.food
@@ -126,21 +126,21 @@ handlechecked(e) {
 	this.setState({ ischecked: e.target.checked })
     var tab = {
       nom: '',
-      products: {
-        dateAjoutee: '',
-        datelimite: '',
-        quantity: 0
+      produits: {
+        dateAjout: '',
+        dateLimite: '',
+        quantite: 0
       }
     };
 
-    if ((this.state.ischecked === false)&&(this.state.quantity>0)) {
-      tab.products.dateAjoutee = this.state.date.toLocaleDateString()
-      tab.products.quantity = this.state.quantity;
+    if ((this.state.ischecked === false)&&(this.state.quantite>0)) {
+      tab.produits.dateAjout = this.state.date.toLocaleDateString()
+      tab.produits.quantite = this.state.quantite;
 	  tab.nom = this.state.food.nom;
 	  var dl=new Date()
 		  dl.setDate(dl.getDate()+parseInt(this.state.food.vie))
-		  tab.products.datelimite=dl.toLocaleDateString()
-	  console.log("dl="+ tab.products.datelimite)	  
+		  tab.produits.dateLimite=dl.toLocaleDateString()
+	  console.log("dl="+ tab.produits.dateLimite)	  
 	  foodlists.push(tab);
     console.log(foodlists);	  
   
@@ -148,8 +148,8 @@ handlechecked(e) {
     console.log(this.state.ischecked);
   }
   handleQuantity(e) {
-    this.setState({ quantity: e.target.value })
-    console.log(this.state.quantity)
+    this.setState({ quantite: e.target.value })
+    console.log(this.state.quantite)
   }
 	render() {
 		return (
@@ -221,9 +221,9 @@ class MyFood extends React.Component{
       return (
          <tr key={element.nom} >
            <td>{element.nom}</td>
-           <td>{element.products.quantity}</td>
-           <td>{element.products.dateAjoutee}</td>
-           <td>{element.products.datelimite}</td>
+           <td>{element.produits.quantite}</td>
+           <td>{element.produits.dateAjout}</td>
+           <td>{element.produits.dateLimite}</td>
            {/* <td className="btn btn-success"><span className="glyphicon glyphicon-pencil"></span></td> */}
     
            {/* <td><button onClick="{delete(element)}"><span className="glyphicon glyphicon-trash"></span></button></td> */}
