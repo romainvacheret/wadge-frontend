@@ -187,7 +187,7 @@ class MyFood extends React.Component{
     }
 		
   }
-  componentDidMount() {
+  componentDidUpdate() {
     axios.get('http://localhost:8080/fridge')
     .then(resp => {
       this.setState({ myFoods: resp.data })
