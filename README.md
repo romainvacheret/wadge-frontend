@@ -32,8 +32,7 @@ touch .env
 npm install
 npm start
 ```
-
-### API Google
+###### Note : La clef Google API n'est pas obligatoire pour faire fonctionner l'application. Seulement les parties impliquées.
 
 # Un projet découpé en deux parties
 Ce repository contient la partie front end de notre application web. Vous trouverez le back end à [cette adresse](https://github.com/RomainVacheret/Wadge-BackEnd).
