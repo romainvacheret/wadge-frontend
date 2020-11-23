@@ -18,12 +18,7 @@ class GetFoods extends React.Component {
     .catch(err => {
         console.error(err);
     });
-		// fetch('http://localhost:8080/food_list')
-    //   .then(res => res.json())
-    //   .then((data) => {
-    //       this.setState({ foods: data })
-    //   })
-    //   .catch(console.log)
+
 	}
 
 	render() { 
@@ -60,20 +55,13 @@ class FoodList extends React.Component{
         console.error(err);
         console.log("erreur")
     });
-    // axios.post('http://localhost:8080/food',foodlists).then((response) => {
-    //   console.log(response)
-    //   console.log("envoi de la requete post vers le controler")
-      
-    // }).catch((error) => {
-    //     console.log(error)
-    //     console.log("erreur de transmission des données")
-    // });
+
   }
     else{
     alert('Vous devz d\'abord ajouter des aliments au frigo')
 }
      this.setState({foodsFridge:foodlists})
-    //on doi envoyer foodlist sur la partie back pour apres afficher cette liste de food rencenser
+
 	}
 	
 	render() {
@@ -154,8 +142,8 @@ handlechecked(e) {
 		  tab.products.datelimite=dl.toLocaleDateString()
 	  console.log("dl="+ tab.products.datelimite)	  
 	  foodlists.push(tab);
-    console.log(foodlists);	  
-    //console.log("parseur json give"+JSON.parse(foodlists));
+    console.log(foodlists);
+
     }   
     console.log(this.state.ischecked);
   }
@@ -168,6 +156,7 @@ handlechecked(e) {
 			<tr>
 				<td>{this.props.food.nom}</td>
 				<td>{this.props.food.type}</td>
+
 				<td><div className="col-sm-3">
            <input className="form-control"
              type='number'
@@ -196,15 +185,20 @@ class MyFood extends React.Component{
     this.state={
       myFoods:this.props.myFoods
     }
-    // this.delete=this.delete.bind(this)
 		
   }
-// delete=(element)=>{
-//   var v=this.state.myFoods.pop()
-//   this.setDate({
-//     myFoods: v.pop(element)
-//   })
-// }
+    componentDidUpdate() {
+        axios.get('http://localhost:8080/fridge')
+            .then(resp => {
+                this.setState({ myFoods: resp.data })
+                console.log(resp.data);
+            })
+            .catch(err => {
+                console.error(err);
+            });
+
+    }
+
 
 	render(){
 		return (
