@@ -43,7 +43,9 @@ class FoodList extends React.Component{
 	onsave(){
 		
 		console.log(foodlists)
-    if(foodlists.length>0)
+
+
+    if(foodlists.length>=1)
     {
       alert('Aliments ajoutés au Frigo avec succes')
       axios.post('http://localhost:8080/food',foodlists)
@@ -58,7 +60,7 @@ class FoodList extends React.Component{
 
   }
     else{
-    alert('Vous devz d\'abord ajouter des aliments au frigo')
+    alert('Vous devez d\'abord donner la quantité des aliments à ajouter au frigo')
 }
      this.setState({foodsFridge:foodlists})
 
@@ -111,7 +113,7 @@ class Food extends React.Component{
 	constructor(props){
 	super(props)
     this.state = {
-      quantity: 0,
+      quantite: 0,
       ischecked: false,
       date: new Date(),
       food:props.food
@@ -126,30 +128,30 @@ handlechecked(e) {
 	this.setState({ ischecked: e.target.checked })
     const tab = {
       nom: '',
-      products: {
-        dateAjoutee: '',
-        datelimite: '',
-        quantity: '0'
+      produits: {
+        dateAjout: '',
+        dateLimite: '',
+        quantite: 0
       }
     };
 
-    if ((this.state.ischecked === false)&&(this.state.quantity!=0)) {
-      tab.products.dateAjoutee = this.state.date.toLocaleDateString()
-      tab.products.quantity = this.state.quantity;
+    if ((this.state.ischecked === false)&&(this.state.quantite>0)) {
+      tab.produits.dateAjout = this.state.date.toLocaleDateString()
+      tab.produits.quantite = this.state.quantite;
 	  tab.nom = this.state.food.nom;
 	  const dl=new Date()
 		  dl.setDate(dl.getDate()+parseInt(this.state.food.vie))
-		  tab.products.datelimite=dl.toLocaleDateString()
-	  console.log("dl="+ tab.products.datelimite)	  
+		  tab.produits.dateLimite=dl.toLocaleDateString()
+	  console.log("dl="+ tab.produits.dateLimite)	  
 	  foodlists.push(tab);
-    console.log(foodlists);
+    console.log(foodlists);	  
 
     }   
     console.log(this.state.ischecked);
   }
   handleQuantity(e) {
-    this.setState({ quantity: e.target.value })
-    console.log(this.state.quantity)
+    this.setState({ quantite: e.target.value })
+    console.log(this.state.quantite)
   }
 	render() {
 		return (
@@ -187,17 +189,18 @@ class MyFood extends React.Component{
     }
 		
   }
-    componentDidUpdate() {
-        axios.get('http://localhost:8080/fridge')
-            .then(resp => {
-                this.setState({ myFoods: resp.data })
-                console.log(resp.data);
-            })
-            .catch(err => {
-                console.error(err);
-            });
 
-    }
+  componentDidUpdate() {
+    axios.get('http://localhost:8080/fridge')
+    .then(resp => {
+      this.setState({ myFoods: resp.data })
+        console.log(resp.data);
+    })
+    .catch(err => {
+        console.error(err);
+    });
+		
+	}
 
 
 	render(){
@@ -217,13 +220,13 @@ class MyFood extends React.Component{
     <thead><tr className="active"><th  className="warning">Nom</th><th  className="warning">Quantite</th><th  className="warning">Date Ajoutée</th><th  className="warning">Date Limite</th></tr></thead>
     <tbody className="success">{
 
-    foodlists.map(element => {
+    this.state.myFoods.map(element => {
       return (
          <tr key={element.nom} >
            <td>{element.nom}</td>
-           <td>{element.products.quantity}</td>
-           <td>{element.products.dateAjoutee}</td>
-           <td>{element.products.datelimite}</td>
+           <td>{element.produits.quantite}</td>
+           <td>{element.produits.dateAjout}</td>
+           <td>{element.produits.dateLimite}</td>
            {/* <td className="btn btn-success"><span className="glyphicon glyphicon-pencil"></span></td> */}
     
            {/* <td><button onClick="{delete(element)}"><span className="glyphicon glyphicon-trash"></span></button></td> */}
