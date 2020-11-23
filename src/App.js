@@ -8,8 +8,12 @@ import RecipeList from './components/RecipeList/RecipeList';
 import Home from './components/Home/Home';
 import MonthFilter from "./components/MonthFilter/MonthFilter";
 import ShopMap from './components/ShopMap/ShopMap';
+
+import GetFoods from './components/FoodsFridge/FoodsFridge';
+
 import ExpirationAlerts from './components/ExpirationAlerts/ExpirationAlerts';
 import DisplayFridge from "./components/FoodsFridge/DisplayFridge";
+
 
 function App() {
   return (
@@ -52,9 +56,15 @@ function App() {
               render={ () => <MonthFilter data-testid="filter"></MonthFilter> }
             />
             <Route
-            exact
-            path='/map'
-            render={ (props) => <ShopMap {...props}/> }
+              exact
+              path='/map'
+              render={ (props) => <ShopMap {...props}/> }
+
+            />
+            <Route
+              exact
+              path='/foods'
+              render={ () => <GetFoods/>  }
             />
             <Route
             exact
@@ -66,6 +76,7 @@ function App() {
                 path='/display-fridge'
                 render={ () => <DisplayFridge data-testid="display-fridge"></DisplayFridge> }
             />
+
           </Switch>
         </BrowserRouter>
     </>

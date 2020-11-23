@@ -13,7 +13,7 @@ const DisplayFridge = () => {
         })
             .catch(err => console.log('Error: ', err))
             .then(response => response.json())
-            .then(response => setFridgeList([...response])),
+            .then(response => {setFridgeList([...response]);}),
         []);
 
     return (

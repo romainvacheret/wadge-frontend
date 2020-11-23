@@ -38,7 +38,7 @@ const RecipeList = () => {
                                         <h4>Ingredients</h4>
                                         { ingredients.map(ingredient =>{
                                             let quantity = ingredient.quantite;
-                                            return (<li> {ingredient.nom} { quantity != -1 ? (' : ' + ingredient.quantite) : ''} </li>)
+                                            return (<li> {ingredient.nom} { quantity !== -1 ? (' : ' + ingredient.quantite) : ''} </li>)
                                         })}
                                         
                                     </ul>
