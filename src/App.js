@@ -17,14 +17,14 @@ function App() {
       <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light" >
           <ul className="navbar-nav mr-auto">
-            <li><a href='/'>Accueil</a></li>
-            <li><a href='/food_list'>Fruits et légumes</a></li>
-            <li><a href='/filter'>Filtre par mois</a></li>
-            <li><a href='/map'>Magasins</a></li>
-            <li><a href='/alerts'>Alertes</a></li>
-            <li><a href='/recipes'>Recettes</a></li>
-            <li><a href='/foods'>Ajouter au Frigo</a></li>
-            <li><a href='/display-fridge'>Le Frigo</a></li>
+            <li id='nav'><a href='/'>Accueil</a></li>
+            <li id='nav'><a href='/food_list'>Fruits et légumes</a></li>
+            <li id='nav'><a href='/filter'>Filtre par mois</a></li>
+            <li id='nav'><a href='/map'>Magasins</a></li>
+            <li id='nav'><a href='/alerts'>Alertes</a></li>
+            <li id='nav'><a href='/recipes'>Recettes</a></li>
+            <li id='nav'><a href='/foods'>Ajouter au Frigo</a></li>
+            <li id='nav'><a href='/display-fridge'>Le Frigo</a></li>
           </ul>
         </nav>
         <hr/>
