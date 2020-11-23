@@ -48,7 +48,7 @@ class FoodList extends React.Component{
 	onsave(){
 		
 		console.log(foodlists)
-    if(foodlists.length>1)
+    if(foodlists.length>0)
     {
       alert('Aliments ajoutés au Frigo avec succes')
       axios.post('http://localhost:8080/food',foodlists)
@@ -99,7 +99,7 @@ class FoodList extends React.Component{
         <div className="panel-body">
             <section className="col-sm-12 table-responsive">
         <table className="table table-bordered table-striped table-condensed" >
-        <thead><tr><th className="warning">Nom</th><th className="warning">Type</th><th className="warning">Vie (en jours)</th><th className="warning">Quantité</th><th className="warning">Recenser</th></tr></thead>
+        <thead><tr><th className="warning">Nom</th><th className="warning">Type</th><th className="warning">Quantité</th><th className="warning">Recenser</th></tr></thead>
 				<tbody>
 					{foods}
 				</tbody>
@@ -136,7 +136,7 @@ class Food extends React.Component{
 handlechecked(e) {
 	console.log(this.state.ischecked);
 	this.setState({ ischecked: e.target.checked })
-    var tab = {
+    const tab = {
       nom: '',
       products: {
         dateAjoutee: '',
@@ -149,7 +149,7 @@ handlechecked(e) {
       tab.products.dateAjoutee = this.state.date.toLocaleDateString()
       tab.products.quantity = this.state.quantity;
 	  tab.nom = this.state.food.nom;
-	  var dl=new Date()
+	  const dl=new Date()
 		  dl.setDate(dl.getDate()+parseInt(this.state.food.vie))
 		  tab.products.datelimite=dl.toLocaleDateString()
 	  console.log("dl="+ tab.products.datelimite)	  
@@ -168,7 +168,6 @@ handlechecked(e) {
 			<tr>
 				<td>{this.props.food.nom}</td>
 				<td>{this.props.food.type}</td>
-				<td>{this.props.food.vie}</td>
 				<td><div className="col-sm-3">
            <input className="form-control"
              type='number'
@@ -211,9 +210,9 @@ class MyFood extends React.Component{
 		return (
       <div className="container">
         <div className="col-xd-12">
-          <img src="logo.png" className="imgcircle" style={{ width: 150, height: 150 }}/>
+          <img src="logo.png" className="imgcircle" style={{ width: 333, height: 148 }}/>
         </div>
-      <div className="panel panel-primary">
+      <div className="panel panel-success">
         <div className="panel-heading">
           <h4>Mon Frigo</h4>
         </div>
@@ -221,7 +220,7 @@ class MyFood extends React.Component{
         {/* <table className="table table-striped" ></table> */}
 			<div className="table-responsive">
   <table className="table table-striped">
-    <thead><tr className="active"><th  className="success">Nom</th><th  className="success">Quantite</th><th  className="success">Date Ajoutée</th><th  className="success">Date Limite</th></tr></thead>
+    <thead><tr className="active"><th  className="warning">Nom</th><th  className="warning">Quantite</th><th  className="warning">Date Ajoutée</th><th  className="warning">Date Limite</th></tr></thead>
     <tbody className="success">{
 
     foodlists.map(element => {
