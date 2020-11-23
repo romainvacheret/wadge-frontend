@@ -34,17 +34,16 @@ function App() {
               render={ () => <MonthFilter data-testid="filter"></MonthFilter> }
             />
             <Route
-            exact
-            path='/map'
-            render={ (props) => <ShopMap {...props}/> }
+              exact
+              path='/map'
+              render={ (props) => <ShopMap {...props}/> }
 
-          />
-          <Route
-          exact
-          path='/foods'
-          render={ () => <GetFoods/>  }
-          />
-            
+            />
+            <Route
+              exact
+              path='/foods'
+              render={ () => <GetFoods/>  }
+            />
             <Route
             exact
             path='/alerts'

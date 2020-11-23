@@ -83,23 +83,23 @@ class FoodList extends React.Component{
      if(foodlists.length<1){
 		return (
 		
-			<div>
+			<div className= 'rencensement'>
              {/* <div  className="form-group">
                  <input type="text" className="form-control" placeholder="search"/>
                 
              </div> */}
              <div className="container">
         <div className="col-xd-12">
-          <img src="logo.png" className="imgcircle" style={{ width: 200, height: 200 }}/>
+          <img src="logo.png" className="imgcircle" style={{ width: 333, height: 148 }}/>
         </div>
-        <div className="panel panel-primary">
+        <div className="panel panel-success">
         <div className="panel-heading">
           <h4>Rencenser Les Aliments</h4>
         </div>
         <div className="panel-body">
-        <section className="col-sm-12 table-responsive">
+            <section className="col-sm-12 table-responsive">
         <table className="table table-bordered table-striped table-condensed" >
-        <thead><tr><th className="info">Nom</th><th className="info">Type</th><th className="info">Vie</th><th className="info">Quantité</th><th className="info">Recenser</th></tr></thead>
+        <thead><tr><th className="warning">Nom</th><th className="warning">Type</th><th className="warning">Vie (en jours)</th><th className="warning">Quantité</th><th className="warning">Recenser</th></tr></thead>
 				<tbody>
 					{foods}
 				</tbody>
@@ -177,8 +177,8 @@ handlechecked(e) {
            />
            </div>
          </td>
-         <td>
-           <button className='btn btn-info'>
+                 <td>
+           <button className='btn btn-success'>
              <input
                type='checkbox'
                checked={this.state.ischecked}
@@ -186,7 +186,7 @@ handlechecked(e) {
              />
            </button>
          </td>
-				
+
 			</tr>
 		)
 	}
