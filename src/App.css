@@ -37,7 +37,31 @@
   }
 }
 
-li {
+.nav {
   display: inline;
   margin: 5px;
+}
+
+.nav a {
+  margin: 5px;
+  display: inline;
+  color: white;
+  text-decoration: none;
+}
+
+.nav a:not(.active) {
+  color: #4CAF50;
+}
+
+.nav a:hover {
+  color: goldenrod;
+  text-decoration: underline;
+}
+
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-decoration: solid;
 }
