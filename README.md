@@ -19,10 +19,10 @@ Une application proposant des recettes de cuisine à partir de fruits et légume
 * [Télécharger Git](https://git-scm.com/downloads)
 * [Créer une clef Google API](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
-Clonez le repository 
-Créez un fichier .env à la racine du projet
-Ajoutez la ligne `REACT_APP_GOOGLE_API="VOTRE_CLEF_API"`
-Lancez le projet
+Clonez le repository  
+Créez un fichier .env à la racine du projet  
+Ajoutez la ligne `REACT_APP_GOOGLE_API="VOTRE_CLEF_API"`  
+Lancez le projet  
 L'application sera visible à l'adresse [http://localhost:3000](http://localhost:3000). <br>
 Vous devez lancer la partie back end en parallèle pour que l'application fonctionne correctement.
 ```Bash
