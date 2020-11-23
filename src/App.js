@@ -8,6 +8,7 @@ import Home from './components/Home/Home';
 import MonthFilter from "./components/MonthFilter/MonthFilter";
 import ShopMap from './components/ShopMap/ShopMap';
 import ExpirationAlerts from './components/ExpirationAlerts/ExpirationAlerts';
+import DisplayFridge from "./components/FoodsFridge/DisplayFridge";
 
 function App() {
   return (
@@ -38,6 +39,11 @@ function App() {
             exact
             path='/alerts'
             render={ (props) => <ExpirationAlerts {...props}/> }
+            />
+            <Route
+                exact
+                path='/display-fridge'
+                render={ () => <DisplayFridge data-testid="display-fridge"></DisplayFridge> }
             />
           </Switch>
         </BrowserRouter>
