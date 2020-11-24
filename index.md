@@ -12,6 +12,9 @@ Cependant, si le code source vous intéresse, vous pouvez le front end [ici](htt
 * Liste des fruits et légumes avec leurs mois de disponibilité
 * Liste des fruits et légumes par mois 
 * Liste des dates de péremption des aliments aux différentes dates
+* Ajouter des fruits et légumes au frigo
+* Affichage du contenu du frigo
+* Liste de recettes
 
 ## L'équipe est composée de :
 * **Fanny Lourioux** - [Github](https://github.com/FannyLourioux) - [LinkedIn](https://www.linkedin.com/in/fanny-lourioux-4744941a0/)
