@@ -4,15 +4,35 @@ import './App.css';
 
 // Components
 import SeasonList from './components/SeasonList/SeasonList';
+import RecipeList from './components/RecipeList/RecipeList';
 import Home from './components/Home/Home';
 import MonthFilter from "./components/MonthFilter/MonthFilter";
 import ShopMap from './components/ShopMap/ShopMap';
+
+import GetFoods from './components/FoodsFridge/FoodsFridge';
+
 import ExpirationAlerts from './components/ExpirationAlerts/ExpirationAlerts';
 import DisplayFridge from "./components/FoodsFridge/DisplayFridge";
+
 
 function App() {
   return (
     <>
+      <div>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light" >
+          <ul className="navbar-nav mr-auto">
+            <li id='nav'><a href='/'>Accueil</a></li>
+            <li id='nav'><a href='/food_list'>Fruits et légumes</a></li>
+            <li id='nav'><a href='/filter'>Filtre par mois</a></li>
+            <li id='nav'><a href='/map'>Magasins</a></li>
+            <li id='nav'><a href='/alerts'>Alertes</a></li>
+            <li id='nav'><a href='/recipes'>Recettes</a></li>
+            <li id='nav'><a href='/foods'>Ajouter au Frigo</a></li>
+            <li id='nav'><a href='/display-fridge'>Le Frigo</a></li>
+          </ul>
+        </nav>
+        <hr/>
+      </div>
         <BrowserRouter>
           <Switch>
             <Route
@@ -27,13 +47,24 @@ function App() {
             />
             <Route
               exact
+              path='/recipes'
+              render={ () => <RecipeList data-testid="recipes"></RecipeList> }
+            />
+            <Route
+              exact
               path='/filter'
               render={ () => <MonthFilter data-testid="filter"></MonthFilter> }
             />
             <Route
-            exact
-            path='/map'
-            render={ (props) => <ShopMap {...props}/> }
+              exact
+              path='/map'
+              render={ (props) => <ShopMap {...props}/> }
+
+            />
+            <Route
+              exact
+              path='/foods'
+              render={ () => <GetFoods/>  }
             />
             <Route
             exact
@@ -45,6 +76,7 @@ function App() {
                 path='/display-fridge'
                 render={ () => <DisplayFridge data-testid="display-fridge"></DisplayFridge> }
             />
+
           </Switch>
         </BrowserRouter>
     </>
