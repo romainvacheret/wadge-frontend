@@ -51,7 +51,7 @@ function App() {
             <ListItemLink href="/food_list" id="menu">
               Fruits et Légumes
             </ListItemLink>
-            <ListItemLink href="/fridge_display" id="menu">
+            <ListItemLink href="/display-fridge" id="menu">
               Frigo
             </ListItemLink>
             <ListItemLink href="/map" id="menu">
