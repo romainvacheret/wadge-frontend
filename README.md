@@ -17,16 +17,22 @@ Une application proposant des recettes de cuisine à partir de fruits et légume
 
 * [Télécharger NodeJs](https://nodejs.org/en/download/)
 * [Télécharger Git](https://git-scm.com/downloads)
+* [Créer une clef Google API](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
-Clonez le repository et lancez le projet. 
+Clonez le repository  
+Créez un fichier .env à la racine du projet  
+Ajoutez la ligne `REACT_APP_GOOGLE_API="VOTRE_CLEF_API"`  
+Lancez le projet  
 L'application sera visible à l'adresse [http://localhost:3000](http://localhost:3000). <br>
 Vous devez lancer la partie back end en parallèle pour que l'application fonctionne correctement.
 ```Bash
 git clone git@github.com:RomainVacheret/Wadge-FrontEnd.git
 cd Wadge-FrontEnd
+touch .env
 npm install
 npm start
 ```
+###### Note : La clef Google API n'est pas obligatoire pour faire fonctionner l'application. Seulement les parties impliquées.
 
 # Un projet découpé en deux parties
 Ce repository contient la partie front end de notre application web. Vous trouverez le back end à [cette adresse](https://github.com/RomainVacheret/Wadge-BackEnd).

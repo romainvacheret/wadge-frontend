@@ -37,31 +37,20 @@
   }
 }
 
-.nav {
-  display: inline;
-  margin: 5px;
+hr.sep {
+  border-top: 1px solid limegreen;
 }
 
-.nav a {
-  margin: 5px;
-  display: inline;
-  color: white;
-  text-decoration: none;
-}
-
-.nav a:not(.active) {
-  color: #4CAF50;
-}
-
-.nav a:hover {
-  color: goldenrod;
-  text-decoration: underline;
-}
-
-.navbar {
+#nav {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  text-decoration: solid;
+  color: limegreen;
+  font-size: medium;
+  font-weight: 500;
+  background-color: #282c34;
+}
+
+#menu:hover {
+  color: darkorange;
+  background-color: transparent;
+  text-decoration: underline;
 }
