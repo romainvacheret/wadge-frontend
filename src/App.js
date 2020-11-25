@@ -12,8 +12,9 @@ import ShopMap from './components/ShopMap/ShopMap';
 import GetFoods from './components/FoodsFridge/FoodsFridge';
 
 import ExpirationAlerts from './components/ExpirationAlerts/ExpirationAlerts';
-import DisplayFridge from "./components/FoodsFridge/DisplayFridge";
-
+//import DisplayFridge from "./components/FoodsFridge/DisplayFridge";
+import FridgeMainCompo from "./components/fridge/FridgeMainCompo/FridgeMainCompo";
+import FridgeAddition from './components/fridge/FridgeAddition/FridgeAddition';
 
 function App() {
   return (
@@ -74,9 +75,9 @@ function App() {
             <Route
                 exact
                 path='/display-fridge'
-                render={ () => <DisplayFridge data-testid="display-fridge"></DisplayFridge> }
+                render={ () => <FridgeMainCompo data-testid="display-fridge"></FridgeMainCompo>}
+                //render={ () => <FridgeAddition data-testid="display-fridge"></FridgeAddition> }
             />
-
           </Switch>
         </BrowserRouter>
     </>
