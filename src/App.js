@@ -6,7 +6,8 @@ import './App.css';
 import SeasonList from './components/SeasonList/SeasonList';
 import RecipeList from './components/RecipeList/RecipeList';
 import Home from './components/Home/Home';
-import MonthFilter from "./components/MonthFilter/MonthFilter";
+//import MonthFilter from "./components/MonthFilter/MonthFilter";
+import MonthFilter from "./components/food/FoodList/MonthFilter";
 import ShopMap from './components/ShopMap/ShopMap';
 
 import GetFoods from './components/FoodsFridge/FoodsFridge';
