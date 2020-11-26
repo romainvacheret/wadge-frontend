@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../FridgeMainCompo/FridgeMainCompo.css';
+import './FridgeAddition.css';
 
 const FridgeAddition = () => {
     const [foodList, setFoodList] = useState([]);
@@ -21,7 +21,7 @@ const FridgeAddition = () => {
             <h3 className='Title'> Liste des fruits et légumes à ajouter </h3>
             <ul> {
             foodList.map(({ consommation, nom, type,}, idx) => ( 
-                    <div className="List"key={idx}> 
+                    <div className="ListAddition"key={idx}> 
                         <h4>Carré d'ajout</h4>
                             { 
                                 <>

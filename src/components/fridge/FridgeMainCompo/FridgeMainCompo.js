@@ -18,7 +18,8 @@ const DisplayFridge = () => {
 
     return (
         <>
-            <img className='Image' src="logo.png" style={{ width: 225, height: 100 }}/>
+            {//<img className='Image' src="logo.png" style={{ width: 225, height: 100 }}/>
+            }
             <h3 className='Title'> Frigo de l'utilisateur </h3>
             <ul> {
                 fridgeList.map(({nom,produits}, idx) => {console.log(produits); return(

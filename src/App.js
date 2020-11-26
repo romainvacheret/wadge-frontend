@@ -75,9 +75,14 @@ function App() {
             <Route
                 exact
                 path='/display-fridge'
-                render={ () => <FridgeMainCompo data-testid="display-fridge"></FridgeMainCompo>}
+                //render={ () => <FridgeMainCompo data-testid="display-fridge"></FridgeMainCompo>}
                 //render={ () => <FridgeAddition data-testid="display-fridge"></FridgeAddition> }
-            />
+                render={props =>
+                  <div id="global">
+                    <FridgeMainCompo id="droite"/>
+                    <FridgeAddition id="gauche"/>
+                  </div>
+                 } />
           </Switch>
         </BrowserRouter>
     </>
