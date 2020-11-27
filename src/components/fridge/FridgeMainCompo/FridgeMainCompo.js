@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './FridgeMainCompo.css';
+import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import { red} from '@material-ui/core/colors';
 
 const DisplayFridge = () => {
     const [fridgeList, setFridgeList] = useState([]);
@@ -15,6 +18,17 @@ const DisplayFridge = () => {
             .then(response => response.json())
             .then(response => {setFridgeList([...response]);}),
         []);
+        const useStyles = makeStyles((theme) => ({
+            margin: {
+              margin: theme.spacing(1),
+            },
+          }));
+          const theme = createMuiTheme({
+            palette: {
+              primary: red,
+            },
+          });
+          const classes = useStyles();
 
     return (
         <>
@@ -42,6 +56,11 @@ const DisplayFridge = () => {
                     );}
                 )
             } </ul>
+             <ThemeProvider theme={theme}>
+        <Button variant="contained" color="primary" className={classes.margin}>
+          Supprimer
+        </Button>
+      </ThemeProvider>
         </>
     );
 }

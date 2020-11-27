@@ -28,8 +28,8 @@ function App() {
             <li id='nav'><a href='/map'>Magasins</a></li>
             <li id='nav'><a href='/alerts'>Alertes</a></li>
             <li id='nav'><a href='/recipes'>Recettes</a></li>
-            <li id='nav'><a href='/foods'>Ajouter au Frigo</a></li>
-            <li id='nav'><a href='/display-fridge'>Le Frigo</a></li>
+            <li id='nav'><a href='/fridge_addition'>Ajouter au Frigo</a></li>
+            <li id='nav'><a href='/fridge'>Le Frigo</a></li>
           </ul>
         </nav>
         <hr/>
@@ -74,15 +74,14 @@ function App() {
             />
             <Route
                 exact
-                path='/display-fridge'
-                //render={ () => <FridgeMainCompo data-testid="display-fridge"></FridgeMainCompo>}
-                //render={ () => <FridgeAddition data-testid="display-fridge"></FridgeAddition> }
-                render={props =>
-                  <div id="global">
-                    <FridgeMainCompo id="droite"/>
-                    <FridgeAddition id="gauche"/>
-                  </div>
-                 } />
+                path='/fridge'
+                render={ () => <FridgeMainCompo data-testid="fridge"></FridgeMainCompo>}
+                />
+            <Route
+                exact
+                path='/fridge_addition'
+                render={ () => <FridgeAddition data-testid="fridge_addition"></FridgeAddition>}
+            />
           </Switch>
         </BrowserRouter>
     </>
