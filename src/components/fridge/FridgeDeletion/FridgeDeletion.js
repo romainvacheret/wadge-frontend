@@ -19,9 +19,9 @@ const FridgeDeletion = () => {
             .then(response => {setFridgeList([...response]);}),
         []);
 
-        const useStyles = makeStyles((theme) => ({
+        const useStyles = makeStyles((theme2) => ({
             margin: {
-              margin: theme.spacing(1),
+              margin: theme2.spacing(1),
             },
           }));
 

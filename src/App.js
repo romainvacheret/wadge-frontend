@@ -15,7 +15,6 @@ import ExpirationAlerts from './components/ExpirationAlerts/ExpirationAlerts';
 
 import FridgeMainCompo from "./components/fridge/FridgeMainCompo/FridgeMainCompo";
 import FridgeAddition from './components/fridge/FridgeAddition/FridgeAddition';
-import FridgeDeletion from './components/fridge/FridgeDeletion/FridgeDeletion';
 
 function App() {
   return (

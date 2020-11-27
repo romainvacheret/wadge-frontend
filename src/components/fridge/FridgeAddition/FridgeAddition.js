@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './FridgeAddition.css';
 
-import Checkbox from '@material-ui/core/Checkbox';
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 
@@ -29,17 +28,17 @@ const FridgeAddition = () => {
         .then(response => setFoodList([...response])), 
     []);
 
-    const fruit = (nom,type) =>{
-        if(type === 'fruit') return true;
+    const fruit = (type) =>{
+        return type === 'fruit';
     }
 
-    const legume = (nom,type) =>{
-        if(type === 'legume') return true;
+    const legume = (type) =>{
+        return type === 'legume';
     }
 
     const useStyles = makeStyles((theme) => ({
         margin: {
-          margin: theme.spacing(1),
+          margin: theme.spacing(2),
         },
       }));
 
@@ -60,71 +59,74 @@ const FridgeAddition = () => {
                     <Typography variant="h4" gutterBottom className="label">
                         Fruits
                     </Typography>
-                                <Grid container spacing={4}>
-                                    { foodList.map(({ nom, type }, idx) => { if( fruit(nom,type) )
-                                        return (
+                    <Grid container spacing={4}>
+                        { foodList.map(({ nom, type }, idx) => { 
+                        if( fruit(type) )
+                            return (
+                                <>
+                                <Grid item className="food">
+                                    <div className="List1"key={idx}> {
+                                        <>
+                                            <Card className="nom">{ nom }</Card>
+                                        </>
+                                    } </div>
+                                <form className={classes.root} noValidate autoComplete="off">
+                                    <div>
+                                        <TextField
+                                        className="filled-number"
+                                        label="Quantité"
+                                        type="number"
+                                        InputLabelProps={{
+                                            shrink: true,
+                                        }}
+                                        variant="outlined"
+                                        />
+                                    </div>
+                                    </form>
+                                    </Grid>
+                                </>
+                            )
+                        }
+                        )
+                        }
+                    </Grid>
+                        <Typography variant="h4" gutterBottom className="label">
+                            Légumes
+                        </Typography>
+                        <Grid container spacing={4}>
+                            { foodList.map(({ nom, type }, idx) => { 
+                            if( legume(type) )
+                                return (
+                                    <>
+                                    <Grid item className="food">
+                                        <div className="List1"key={idx}> {
                                             <>
-                                            <Grid item className="food">
-                                                <div className="List1"key={idx}> {
-                                                    <>
-                                                        <Card className="nom">{ nom }</Card>
-                                                    </>
-                                                } </div>
-                                            <form className={classes.root} noValidate autoComplete="off">
-                                                <div>
-                                                    <TextField
-                                                    className="filled-number"
-                                                    label="Quantité"
-                                                    type="number"
-                                                    InputLabelProps={{
-                                                        shrink: true,
-                                                    }}
-                                                    variant="outlined"
-                                                    />
-                                                </div>
-                                                </form>
-                                                </Grid>
+                                                <Card className="nom">{ nom }</Card>
                                             </>
-                                        )
-                                    })
-                                    }
-                                </Grid>
-                                <Typography variant="h4" gutterBottom className="label">
-                                    Légumes
-                                </Typography>
-                                <Grid container spacing={4}>
-                                   { foodList.map(({ nom, type }, idx) => { if( legume(nom,type) )
-                                        return (
-                                            <>
-                                            <Grid item className="food">
-                                                <div className="List1"key={idx}> {
-                                                    <>
-                                                        <Card className="nom">{ nom }</Card>
-                                                    </>
-                                                } </div>
-                                                
-                                            <form className={classes.root} noValidate autoComplete="off">
-                                                <div>
-                                                    <TextField
-                                                    className="filled-number"
-                                                    label="Quantité"
-                                                    type="number"
-                                                    InputLabelProps={{
-                                                        shrink: true,
-                                                    }}
-                                                    variant="outlined"
-                                                    />
-                                                </div>
-                                                </form>
-                                            </Grid>
-                                            </>
-                                            
-                                        )
-                                    })
-                                }
-                                </Grid>
-                                
+                                        } </div>
+                                        
+                                    <form className={classes.root} noValidate autoComplete="off">
+                                        <div>
+                                            <TextField
+                                            className="filled-number"
+                                            label="Quantité"
+                                            type="number"
+                                            InputLabelProps={{
+                                                shrink: true,
+                                            }}
+                                            variant="outlined"
+                                            />
+                                        </div>
+                                        </form>
+                                    </Grid>
+                                    </>
+                                    
+                                )
+                            })
+                        }
                         </Grid>
+                        
+                    </Grid>
                        
                 </div>)}
             </div>
