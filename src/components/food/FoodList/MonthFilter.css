@@ -1,0 +1,58 @@
+.contBtn {
+    display: flex;
+    justify-content: center;
+}
+
+.onglet {
+    font-size: medium;
+    width: 200px;
+    height: 30px;
+    background: #282c34;
+    color: limegreen;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    cursor: pointer;
+    border: 1px solid #333;
+    margin: 1px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: 500;
+}
+
+.container {
+    width: auto;
+    height: auto;
+
+}
+.active {
+    background: #282c34;
+    color: #f19300;
+    font-weight: 500;
+}
+
+.label {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    color: #282c34;
+}
+.food {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.liste {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.carre {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
