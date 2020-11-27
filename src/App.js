@@ -12,9 +12,10 @@ import ShopMap from './components/ShopMap/ShopMap';
 import GetFoods from './components/FoodsFridge/FoodsFridge';
 
 import ExpirationAlerts from './components/ExpirationAlerts/ExpirationAlerts';
-//import DisplayFridge from "./components/FoodsFridge/DisplayFridge";
+
 import FridgeMainCompo from "./components/fridge/FridgeMainCompo/FridgeMainCompo";
 import FridgeAddition from './components/fridge/FridgeAddition/FridgeAddition';
+import FridgeDeletion from './components/fridge/FridgeDeletion/FridgeDeletion';
 
 function App() {
   return (
@@ -75,7 +76,7 @@ function App() {
             <Route
                 exact
                 path='/fridge'
-                render={ () => <FridgeMainCompo data-testid="fridge"></FridgeMainCompo>}
+                render={ () => <FridgeMainCompo data-testid="fridge"></FridgeMainCompo> }
                 />
             <Route
                 exact

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './FridgeMainCompo.css';
-import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import { red} from '@material-ui/core/colors';
+
+
+import Card from "@material-ui/core/Card";
 
 const DisplayFridge = () => {
     const [fridgeList, setFridgeList] = useState([]);
@@ -18,18 +18,6 @@ const DisplayFridge = () => {
             .then(response => response.json())
             .then(response => {setFridgeList([...response]);}),
         []);
-        const useStyles = makeStyles((theme) => ({
-            margin: {
-              margin: theme.spacing(1),
-            },
-          }));
-          const theme = createMuiTheme({
-            palette: {
-              primary: red,
-            },
-          });
-          const classes = useStyles();
-
     return (
         <>
             {//<img className='Image' src="logo.png" style={{ width: 225, height: 100 }}/>
@@ -39,8 +27,8 @@ const DisplayFridge = () => {
                 fridgeList.map(({nom,produits}, idx) => {console.log(produits); return(
                         <div className="List"key={idx}> {
                             <>
-                            <h4>Carré d'info</h4>
-                                <li>{ nom }</li>
+                            <h4>Alerte</h4>
+                                <Card className="frigofood">{ nom }
                                 <ul> {produits.map(({ quantite, dateAjout, dateLimite}) => (
                                     <>
                                     <li>{ `Quantite : ${quantite}` }</li>
@@ -48,19 +36,14 @@ const DisplayFridge = () => {
                                     <li>{ `Date limite: ${dateLimite}` }</li>
                                     </>
                                     ) )}
-
                                 </ul>
+                                </Card>
                                 <br></br>
                             </>
                         } </div>
                     );}
                 )
             } </ul>
-             <ThemeProvider theme={theme}>
-        <Button variant="contained" color="primary" className={classes.margin}>
-          Supprimer
-        </Button>
-      </ThemeProvider>
         </>
     );
 }
