@@ -21,26 +21,36 @@
 
 .container {
     width: auto;
-    border: 1px solid #444;
-    border-top: none;
+    height: auto;
 
 }
 .active {
-    background: darkorange;
-    color: #282c34;
+    background: #282c34;
+    color: #f19300;
 }
 
 .label {
+    display: flex;
+    align-content: center;
+    justify-content: center;
     color: #282c34;
-    font-size: large;
 }
 .food {
     display: flex;
-    justify-content: center;
     align-content: center;
+    justify-content: center;
 }
-List {
-    display: inline-flex;
-    justify-content: center;
+.liste {
+    display: flex;
     align-content: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.carre {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
