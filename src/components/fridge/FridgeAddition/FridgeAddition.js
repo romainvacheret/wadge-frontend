@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from 'react';
+
+import { Grid, Container, Button, Typography } from '@material-ui/core';
+
+import ModifiableFood from '../ModifiableFood/ModifiableFood';
+import colorList from '../../food/FoodList/color_list.json';
 import './FridgeAddition.css';
 
-import Grid from "@material-ui/core/Grid";
-import Card from "@material-ui/core/Card";
-
-import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import { green} from '@material-ui/core/colors';
-
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-
-
+import axios from 'axios'
 
 const FridgeAddition = () => {
     const [foodList, setFoodList] = useState([]);
+    const [counters, setCounters] = useState( Array.from({ length: Object.keys(colorList).length}, (v, n) => { return { val: 0 } }));
 
     useEffect(() => fetch("http://localhost:8080/food_list", {
         method: "GET",
@@ -28,113 +24,95 @@ const FridgeAddition = () => {
         .then(response => setFoodList([...response])), 
     []);
 
-    const fruit = (type) =>{
-        return type === 'fruit';
+    const handlePlus = (idx) => {
+		const newArray = [...counters];
+		newArray[idx].val += 1;
+		setCounters(newArray);
+	};
+
+    const handleMinus = (idx) => {
+		if(counters[idx].val !== 0){
+			const newArray = [...counters];
+			newArray[idx].val -= 1;
+			setCounters(newArray);
+		}
+	};
+
+    const addFoodToFridge = () => {
+        const result = []
+        counters.forEach((counter, idx) => {
+            if(counter.val !== 0) {
+                const date = new Date()
+                const currentDate = new Date().toLocaleDateString()
+                const { nom, vie } = foodList[idx];
+                date.setDate(date.getDate() + parseInt(vie));
+                const quantity = counters[idx].val;
+                const info = { 
+                    nom, 
+                    produits: {
+                        dateAjout: currentDate,
+                        dateLimite: date.toLocaleDateString(), 
+                        quantite: quantity
+                    }
+                };
+                result.push(info);
+            }
+        });
+        console.log(result);
+        axios.post('http://localhost:8080/food',result);
     }
 
-    const legume = (type) =>{
-        return type === 'legume';
-    }
-
-    const useStyles = makeStyles((theme) => ({
-        margin: {
-          margin: theme.spacing(2),
-        },
-      }));
-
-      const theme = createMuiTheme({
-        palette: {
-          primary: green,
-        },
-      });
-
-      const classes = useStyles();
+    const vegetables = [];
+    const fruits = [];
+    
+    const sortFood = () => {
+        foodList.map(({ nom, type }, idx) => {
+            const element = (
+                <Grid item className="food" key={ idx }>
+                    <ModifiableFood
+                        foodAttributes={{ word: nom, color: colorList[nom] }}
+                        data = {{}}
+                        counterProps = {{ handlePlus, handleMinus, counters, idx }}
+                    />
+                </Grid>
+            );
+            type === 'fruit' ? fruits.push(element) : vegetables.push(element);
+        })
+    };
+    sortFood();
 
     return (
         <>
-        <h3 className="Title">Liste des fruits et légumes a ajoueter</h3>
-        <div className="container">
-                {!foodList.length ? <></> :( <div className="firstlist">
+        <Typography variant="h3" className="Title">
+            Liste des fruits et légumes à ajouter
+        </Typography>
+        <Container className="container"> {
+            foodList.length ? ( 
+                <Container className="firstlist">
                     <Grid container spacing={2} className="liste">
                     <Typography variant="h4" gutterBottom className="label">
                         Fruits
                     </Typography>
                     <Grid container spacing={4}>
-                        { foodList.map(({ nom, type }, idx) => { 
-                        if( fruit(type) )
-                            return (
-                                <>
-                                <Grid item className="food">
-                                    <div className="List1"key={idx}> {
-                                        <>
-                                            <Card className="nom">{ nom }</Card>
-                                        </>
-                                    } </div>
-                                <form className={classes.root} noValidate autoComplete="off">
-                                    <div>
-                                        <TextField
-                                        className="filled-number"
-                                        label="Quantité"
-                                        type="number"
-                                        InputLabelProps={{
-                                            shrink: true,
-                                        }}
-                                        variant="outlined"
-                                        />
-                                    </div>
-                                    </form>
-                                    </Grid>
-                                </>
-                            )
-                        }
-                        )
-                        }
-                    </Grid>
+                        {fruits}
+                    </Grid> 
                         <Typography variant="h4" gutterBottom className="label">
                             Légumes
                         </Typography>
                         <Grid container spacing={4}>
-                            { foodList.map(({ nom, type }, idx) => { 
-                            if( legume(type) )
-                                return (
-                                    <>
-                                    <Grid item className="food">
-                                        <div className="List1"key={idx}> {
-                                            <>
-                                                <Card className="nom">{ nom }</Card>
-                                            </>
-                                        } </div>
-                                        
-                                    <form className={classes.root} noValidate autoComplete="off">
-                                        <div>
-                                            <TextField
-                                            className="filled-number"
-                                            label="Quantité"
-                                            type="number"
-                                            InputLabelProps={{
-                                                shrink: true,
-                                            }}
-                                            variant="outlined"
-                                            />
-                                        </div>
-                                        </form>
-                                    </Grid>
-                                    </>
-                                    
-                                )
-                            })
-                        }
+                            {vegetables}
                         </Grid>
-                        
                     </Grid>
-                       
-                </div>)}
-            </div>
-            <ThemeProvider theme={theme}>
-                <Button variant="contained" color="primary" className={classes.margin}>
-                Enregistrer
-                </Button>
-            </ThemeProvider>
+                </Container>)
+            : (<></>)}
+        </Container>
+        <Button 
+            onClick={addFoodToFridge}
+            variant="contained" 
+            color="primary" 
+        >
+            Enregistrer
+        </Button>
         </>
     );}
 

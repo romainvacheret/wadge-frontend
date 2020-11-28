@@ -45,31 +45,45 @@ const DisplayFridge = () => {
             .then(response => { console.log(response); setFridgeList({...response}); }),
         []);
 
+    // const delteFromFridge = () => {
+    //     const result = []
+    //     counters.forEach((counter, idx) => {
+    //         if(counter.val !== 0) {
+    //             const { nom, }
+    //             const info = {
+    //                 nom: fridgeList[idx].nom,
+    //                 dateAjout: 
+    //             }
+    //         }
+    //     })
+    // }
 
-    console.log("Compteur 1", counters);
 
     return (
         <>
             <Typography variant="h2" className='Title'> Frigo de l'utilisateur </Typography>
             <Grid >{
                 Object.keys(fridgeList).map((key, idx) => {
-                    console.log("Coucou je suis la clef", key);
                     return fridgeList[key].length ? (
                         <div key={ idx }> 
                             <Typography variant="h4">{ key === 'EXPIRED' ? textFromKey[key] : `Produits à manger au plus tard dans ${textFromKey[key]}`}</Typography>
                             <Grid container
-                                item
-                                direction='row'
                                 alignItems='center'>
                                 {fridgeList[key].map((product, idx_) => {
-                                    console.log("iddd", idx_);
                                     const { nom, dateAjout, quantite } = product;
-                                    return <ModifiableFood
-                                        key={ idx_ }
-                                        foodAttributes={{ word: nom, color: colorList[nom] }}
-                                        data= {{ "Date d'ajout": dateAjout, "Quantité": quantite }}
-                                        counterProps = {{ handlePlus, handleMinus, counters, idx: idx_ }}
-                                    />
+                                    return ( 
+                                    <Grid
+                                        item
+                                        direction='row'
+                                        alignItems='center'
+                                    >
+                                        <ModifiableFood
+                                            key={ idx_ }
+                                            foodAttributes={{ word: nom, color: colorList[nom] }}
+                                            data= {{ "Date d'ajout": dateAjout, "Quantité": quantite }}
+                                            counterProps = {{ handlePlus, handleMinus, counters, idx: idx_ }}
+                                        />
+                                        </Grid>);
 
                                 })}
                             </Grid>
