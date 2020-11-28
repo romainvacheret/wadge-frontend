@@ -6,7 +6,8 @@ import './App.css';
 import SeasonList from './components/SeasonList/SeasonList';
 import RecipeList from './components/RecipeList/RecipeList';
 import Home from './components/Home/Home';
-import MonthFilter from "./components/MonthFilter/MonthFilter";
+//import MonthFilter from "./components/MonthFilter/MonthFilter";
+import MonthFilter from "./components/food/FoodList/MonthFilter";
 import ShopMap from './components/ShopMap/ShopMap';
 
 import GetFoods from './components/FoodsFridge/FoodsFridge';
@@ -16,7 +17,6 @@ import ExpirationAlerts from './components/ExpirationAlerts/ExpirationAlerts';
 import ListItem from '@material-ui/core/ListItem';
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-
 
 import FridgeMainCompo from "./components/fridge/FridgeMainCompo/FridgeMainCompo";
 import FridgeAddition from './components/fridge/FridgeAddition/FridgeAddition';
@@ -35,10 +35,10 @@ function App() {
             <ListItemLink href="/" id="menu">
               <img src="logo.png" id="logo" width="180" height="80"/>
             </ListItemLink>
-            <ListItemLink href="/food_list" id="menu">
+            <ListItemLink href="/filter" id="menu">
               Fruits et Légumes
             </ListItemLink>
-            <ListItemLink href="/display-fridge" id="menu">
+            <ListItemLink href="/fridge" id="menu">
               Frigo
             </ListItemLink>
             <ListItemLink href="/map" id="menu">
