@@ -12,27 +12,14 @@ import ShopMap from './components/ShopMap/ShopMap';
 import GetFoods from './components/FoodsFridge/FoodsFridge';
 
 import ExpirationAlerts from './components/ExpirationAlerts/ExpirationAlerts';
-import DisplayFridge from "./components/FoodsFridge/DisplayFridge";
 
-import List from '@material-ui/core/List';
-import ListItemText from '@material-ui/core/ListItemText';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
-import { green } from '@material-ui/core/colors';
-import SvgIcon from '@material-ui/core/SvgIcon';
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Paper from "@material-ui/core/Paper";
-import MenuList from "@material-ui/core/MenuList";
-import Grow from "@material-ui/core/Grow";
-import Popper from "@material-ui/core/Popper";
-import MenuItem from "@material-ui/core/MenuItem";
-import Button from "@material-ui/core/Button";
-import makeStyles from "@material-ui/core/styles/makeStyles";
-import {Typography} from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
+
+
+import FridgeMainCompo from "./components/fridge/FridgeMainCompo/FridgeMainCompo";
+import FridgeAddition from './components/fridge/FridgeAddition/FridgeAddition';
 
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
@@ -101,10 +88,14 @@ function App() {
             />
             <Route
                 exact
-                path='/display-fridge'
-                render={ () => <DisplayFridge data-testid="display-fridge"></DisplayFridge> }
+                path='/fridge'
+                render={ () => <FridgeMainCompo data-testid="fridge"></FridgeMainCompo> }
+                />
+            <Route
+                exact
+                path='/fridge_addition'
+                render={ () => <FridgeAddition data-testid="fridge_addition"></FridgeAddition>}
             />
-
           </Switch>
         </BrowserRouter>
     </>
