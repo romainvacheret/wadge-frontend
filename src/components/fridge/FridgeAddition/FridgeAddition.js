@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { Grid, Container, Button, Typography } from '@material-ui/core';
 
-import ModifiableFood from '../ModifiableFood/ModifiableFood';
+import ModifiableFood from '../../food/ModifiableFood/ModifiableFood';
 import colorList from '../../food/FoodList/color_list.json';
 import './FridgeAddition.css';
 

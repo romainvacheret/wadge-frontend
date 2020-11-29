@@ -1,18 +1,21 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import './App.css';
 
-// Components
-import RecipeList from './components/RecipeList/RecipeList';
+// Router components
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+// Material-ui components
+import { AppBar, Toolbar, ListItem } from '@material-ui/core';
+
+// Custom components
+import RecipeList from './components/recipe/RecipeList/RecipeList';
 import Home from './components/Home/Home';
 import MonthFilter from "./components/food/FoodList/MonthFilter";
-import ShopMap from './components/ShopMap/ShopMap';
-import ListItem from '@material-ui/core/ListItem';
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-
+import ShopMap from './components/map/ShopMap/ShopMap';
 import FridgeMainCompo from "./components/fridge/FridgeMainCompo/FridgeMainCompo";
 import FridgeAddition from './components/fridge/FridgeAddition/FridgeAddition';
+
+// Style
+import './App.css';
 
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
@@ -39,6 +42,9 @@ function App() {
             </ListItemLink>
             <ListItemLink href="/map" id="menu">
               Carte des Magasins
+            </ListItemLink>
+            <ListItemLink href="/recipes" id="menu">
+              Recettes
             </ListItemLink>
           </Toolbar>
         </AppBar>

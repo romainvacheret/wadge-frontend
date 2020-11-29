@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import './MonthFilter.css';
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import FoodCard from "../../fridge/FoodCard/FoodCard";
+import FoodCard from "../FoodCard/FoodCard";
 import colorList from "./color_list.json";
 
 const MonthFilter = () => {
