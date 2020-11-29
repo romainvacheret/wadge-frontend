@@ -41,16 +41,4 @@ hr.sep {
   border-top: 1px solid limegreen;
 }
 
-#nav {
-  list-style-type: none;
-  color: limegreen;
-  font-size: medium;
-  font-weight: 500;
-  background-color: #282c34;
-}
 
-#menu:hover {
-  color: darkorange;
-  background-color: transparent;
-  text-decoration: underline;
-}
