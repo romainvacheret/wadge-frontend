@@ -3,17 +3,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 
 // Components
-import SeasonList from './components/SeasonList/SeasonList';
 import RecipeList from './components/RecipeList/RecipeList';
 import Home from './components/Home/Home';
-//import MonthFilter from "./components/MonthFilter/MonthFilter";
 import MonthFilter from "./components/food/FoodList/MonthFilter";
 import ShopMap from './components/ShopMap/ShopMap';
-
-import GetFoods from './components/FoodsFridge/FoodsFridge';
-
-import ExpirationAlerts from './components/ExpirationAlerts/ExpirationAlerts';
-
 import ListItem from '@material-ui/core/ListItem';
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -41,6 +34,9 @@ function App() {
             <ListItemLink href="/fridge" id="menu">
               Frigo
             </ListItemLink>
+            <ListItemLink href="/fridge_addition" id="menu">
+              Ajout au frigo
+            </ListItemLink>
             <ListItemLink href="/map" id="menu">
               Carte des Magasins
             </ListItemLink>
@@ -57,11 +53,6 @@ function App() {
             />
             <Route
               exact
-              path='/food_list'
-              render={ () => <SeasonList data-testid="food_list"></SeasonList> }
-            />
-            <Route
-              exact
               path='/recipes'
               render={ () => <RecipeList data-testid="recipes"></RecipeList> }
             />
@@ -75,16 +66,6 @@ function App() {
               path='/map'
               render={ (props) => <ShopMap {...props}/> }
 
-            />
-            <Route
-              exact
-              path='/foods'
-              render={ () => <GetFoods/>  }
-            />
-            <Route
-            exact
-            path='/alerts'
-            render={ (props) => <ExpirationAlerts {...props}/> }
             />
             <Route
                 exact
