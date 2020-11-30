@@ -63,8 +63,8 @@ const FoodCard = ({ foodAttributes, data }) => {
                 onMouseLeave={ handleClose }
                 disableRestoreFocus
             >
-                { Object.keys(data).map(key => 
-                    <Typography>
+                { Object.keys(data).map((key, idx) => 
+                    <Typography key={ idx }>
                         {`${key}: ${data[key]}`}
                     </Typography>
                 )}

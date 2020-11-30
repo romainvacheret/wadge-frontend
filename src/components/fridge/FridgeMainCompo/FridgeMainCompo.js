@@ -5,6 +5,7 @@ import './FridgeMainCompo.css';
 import ModifiableFood from '../../food/ModifiableFood/ModifiableFood';
 import colorList from '../../food/FoodList/color_list.json';
 
+import { fetchFromUrl } from 'utils'; 
 
 const DisplayFridge = () => {
     const [fridgeList, setFridgeList] = useState({});
@@ -33,17 +34,9 @@ const DisplayFridge = () => {
         'OTHER': 'plus de quatorze jours'
     };
 
-    useEffect(() => fetch("http://localhost:8080/alerts", {
-            method: "GET",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-        })
-            .catch(err => console.log('Error: ', err))
-            .then(response => response.json())
-            .then(response => { console.log(response); setFridgeList({...response}); }),
-        []);
+    useEffect(() => {
+        fetchFromUrl('alerts', setFridgeList);
+    });
 
     // const delteFromFridge = () => {
     //     const result = []
@@ -57,7 +50,6 @@ const DisplayFridge = () => {
     //         }
     //     })
     // }
-
 
     return (
         <>

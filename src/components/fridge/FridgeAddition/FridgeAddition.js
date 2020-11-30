@@ -9,22 +9,15 @@ import FruitsAndVegetables from '../../food/FruitsAndVegetables/FruitsAndVegetab
 import './FridgeAddition.css';
 
 import axios from 'axios'
+import { fetchFromUrl } from 'utils'; 
 
 const FridgeAddition = () => {
     const [foodList, setFoodList] = useState([]);
     const [counters, setCounters] = useState( Array.from({ length: Object.keys(colorList).length}, (v, n) => { return { val: 0 } }));
 
-    useEffect(() => fetch("http://localhost:8080/food_list", {
-        method: "GET",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-        })
-        .catch(err => console.log('Error: ', err))
-        .then(response => response.json())
-        .then(response => setFoodList([...response])), 
-    []);
+    useEffect(() => {
+        fetchFromUrl('food_list', setFoodList);
+    }, []);
 
     const handlePlus = (idx) => {
 		const newArray = [...counters];
@@ -60,7 +53,6 @@ const FridgeAddition = () => {
                 result.push(info);
             }
         });
-        console.log(result);
         axios.post('http://localhost:8080/food',result);
     }
 
@@ -70,7 +62,7 @@ const FridgeAddition = () => {
     const sortFood = () => {
         foodList.map(({ nom, type }, idx) => {
             const element = (
-                <Grid item className="food" key={ idx }>
+                <Grid item className='food' key={ idx }>
                     <ModifiableFood
                         foodAttributes={{ word: nom, color: colorList[nom] }}
                         data = {{}}
@@ -85,18 +77,19 @@ const FridgeAddition = () => {
 
     return (
         <>
-        <Typography variant="h3" className="Title">
+        <Typography variant='h3' className='Title'>
             Liste des fruits et légumes à ajouter
         </Typography> 
         <FruitsAndVegetables fruits={ fruits } vegetables={ vegetables }/>
         <Button 
-            onClick={addFoodToFridge}
-            variant="contained" 
-            color="primary" 
+            onClick={ addFoodToFridge }
+            variant='contained' 
+            color='primary' 
         >
             Enregistrer
         </Button>
         </>
-    );}
+    );
+}
 
 export default FridgeAddition;

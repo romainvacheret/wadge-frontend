@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography } from '@material-ui/core';
 
-import colorList from "./color_list.json";
+import colorList from './color_list.json';
 import './MonthFilter.css';
 
 import FoodCard from "../FoodCard/FoodCard";
@@ -19,13 +19,8 @@ const MonthFilter = () => {
     const sortFood = () => {
         foodList.map(({ nom, type, vie }, idx) => {
             const element = (
-                <Grid item className="food">
-                    <div className="List1"key={idx}> {
-                        <>
-
-                            <FoodCard foodAttributes={{ word: nom, color: colorList[nom] }} data= {{ "vie": `${vie} jours`  }}/>
-                        </>
-                    } </div>
+                <Grid item className='food' key={ idx } >
+                    <FoodCard foodAttributes={{ word: nom, color: colorList[nom] }} data= {{ 'vie': `${vie} jours` }}/>
                 </Grid>
             );
             type === 'fruit' ? fruits.push(element): vegetables.push(element);
@@ -36,7 +31,7 @@ const MonthFilter = () => {
     return (
         <>
 
-            <Typography variant="h3" gutterBottom className="label">
+            <Typography variant='h3' gutterBottom className='label'>
                 Liste des fruits et légumes
             </Typography>
             <Filter stateOnglet = { stateOnglet }setStateOnglet={ setStateOnglet } setFoodList={ setFoodList }/>
