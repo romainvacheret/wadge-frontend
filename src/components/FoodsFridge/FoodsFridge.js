@@ -6,7 +6,9 @@ class GetFoods extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {foods: []};
+    this.state = {foods: [],
+      filterText:""};
+      this.handleChange=this.handleChange.bind(this);
 	}
 
 	componentDidMount() {
@@ -19,12 +21,25 @@ class GetFoods extends React.Component {
         console.error(err);
     });
 
-	}
+  }
+  handleChange(e){
+    this.setState({filterText:e.target.value});
+  }
 
 	render() { 
 		
 		return (
-			<FoodList foods={this.state.foods}/>
+      <div>
+        <div className='col-xs-4'>
+      <div className='form-group has-success"' >
+      <div class="input-group">
+      <span  className="glyphicon glyphicon-eye-open">  <input type='text' value={this.state.filterText} className='form-control' onChange={this.handleChange} placeholder='Recherche' aria-describedby="inputSuccess2Status"/>
+      </span>
+       </div>
+       </div>
+       </div>
+      <FoodList foods={this.state.foods} filterText={this.state.filterText}/>
+      </div>
 		)
 		
 	}
@@ -33,7 +48,8 @@ class FoodList extends React.Component{
   constructor(props){
     super(props)
     this.state={
-        foodsFridge:[]
+        foodsFridge:[],
+        
     }
     this.onsave=this.onsave.bind(this)
   }
@@ -67,9 +83,17 @@ class FoodList extends React.Component{
 	}
 	
 	render() {
-		const foods = this.props.foods.map(food =>
-			<Food key={food.nom} food={food}/>
-    )
+
+  const foods=[];
+  this.props.foods.forEach(food=>{
+    if(food.nom.indexOf(this.props.filterText)===-1){
+      return
+    }
+        
+    foods.push(<Food key={food.nom} food= {food}/>);
+
+  })
+
      if(foodlists.length<1){
 		return (
 		
