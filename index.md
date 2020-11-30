@@ -15,6 +15,9 @@ Cependant, si le code source vous intéresse, vous pouvez le front end [ici](htt
 * Ajouter des fruits et légumes au frigo
 * Affichage du contenu du frigo
 * Liste de recettes
+* Ajout représentation graphique les fruits et légumes
+* Affichage intuitif du frigo
+* Affichage intuitif des aliments filtrés par mois
 
 ## L'équipe est composée de :
 * **Fanny Lourioux** - [Github](https://github.com/FannyLourioux) - [LinkedIn](https://www.linkedin.com/in/fanny-lourioux-4744941a0/)
