@@ -7,8 +7,8 @@ class GetFoods extends React.Component {
 	constructor(props) {
 		super(props);
     this.state = {foods: [],
-      filterText:""};
-      this.handleChange=this.handleChange.bind(this);
+      };
+     
 	}
 
 	componentDidMount() {
@@ -22,23 +22,14 @@ class GetFoods extends React.Component {
     });
 
   }
-  handleChange(e){
-    this.setState({filterText:e.target.value});
-  }
 
 	render() { 
 		
 		return (
       <div>
-        <div className='col-xs-4'>
-      <div className='form-group has-success"' >
-      <div class="input-group">
-      <span  className="glyphicon glyphicon-eye-open">  <input type='text' value={this.state.filterText} className='form-control' onChange={this.handleChange} placeholder='Recherche' aria-describedby="inputSuccess2Status"/>
-      </span>
-       </div>
-       </div>
-       </div>
-      <FoodList foods={this.state.foods} filterText={this.state.filterText}/>
+       
+      <FoodList foods={this.state.foods} /> 
+  
       </div>
 		)
 		
@@ -49,12 +40,16 @@ class FoodList extends React.Component{
     super(props)
     this.state={
         foodsFridge:[],
+        searchfood:''
         
     }
     this.onsave=this.onsave.bind(this)
+    this.handlesearch=this.handlesearch.bind(this)
   }
   
-    
+    handlesearch(e){
+      this.setState({searchfood:e.target.value})
+    }
   
 	onsave(){
 		
@@ -86,7 +81,7 @@ class FoodList extends React.Component{
 
   const foods=[];
   this.props.foods.forEach(food=>{
-    if(food.nom.indexOf(this.props.filterText)===-1){
+    if(food.nom.indexOf(this.state.searchfood)===-1){
       return
     }
         
@@ -96,12 +91,17 @@ class FoodList extends React.Component{
 
      if(foodlists.length<1){
 		return (
-		
+
+      <div>
+      <div className='col-xs-4'>
+      <div className='form-group has-success"' >
+      <div class="input-group">
+       <input type='text' value={this.state.searchfood} className='form-control' onChange={this.handlesearch} placeholder='Recherche par nom' aria-describedby="inputSuccess2Status"/>
+       </div>
+       </div>
+       </div>
 			<div className= 'rencensement'>
-             {/* <div  className="form-group">
-                 <input type="text" className="form-control" placeholder="search"/>
-                
-             </div> */}
+           
              <div className="container">
         <div className="col-xd-12">
           <img src="logo.png" className="imgcircle" style={{ width: 333, height: 148 }}/>
@@ -122,6 +122,7 @@ class FoodList extends React.Component{
         </div>
         </div>
         <button className="btn btn-success" onClick={this.onsave} ><span className="glyphicon glyphicon-ok-sign">Enregistrer</span> </button>
+        </div>
         </div>
         </div>
     )
