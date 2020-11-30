@@ -8,7 +8,9 @@ import FruitsAndVegetables from '../../food/FruitsAndVegetables/FruitsAndVegetab
 
 import './FridgeAddition.css';
 
-import axios from 'axios'
+import axios from 'axios';
+import { Redirect } from "react-router-dom";
+import { BrowserRouter, Route } from 'react-router-dom';
 
 const FridgeAddition = () => {
     const [foodList, setFoodList] = useState([]);
@@ -68,12 +70,12 @@ const FridgeAddition = () => {
     const fruits = [];
     
     const sortFood = () => {
-        foodList.map(({ nom, type }, idx) => {
+        foodList.map(({ nom, type, vie }, idx) => {
             const element = (
                 <Grid item className="food" key={ idx }>
                     <ModifiableFood
                         foodAttributes={{ word: nom, color: colorList[nom] }}
-                        data = {{}}
+                        data = {{vie}}
                         counterProps = {{ handlePlus, handleMinus, counters, idx }}
                     />
                 </Grid>
@@ -90,10 +92,12 @@ const FridgeAddition = () => {
 
         </Typography> 
         <FruitsAndVegetables fruits={ fruits } vegetables={ vegetables }/>
-        <Button 
+        <Button
             onClick={addFoodToFridge}
             variant="contained" 
-            color="primary" 
+            color="primary"
+            className="bouton"
+            href="/fridge"
         >
             Enregistrer
         </Button>
