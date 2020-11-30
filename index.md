@@ -15,7 +15,7 @@ Cependant, si le code source vous intéresse, vous pouvez le front end [ici](htt
 * Ajouter des fruits et légumes au frigo
 * Affichage du contenu du frigo
 * Liste de recettes
-* Ajout représentation graphique les fruits et légumes
+* Ajout représentation graphique des fruits et légumes
 * Affichage intuitif du frigo
 * Affichage intuitif des aliments filtrés par mois
 
