@@ -4,6 +4,8 @@ import { Grid, Container, Button, Typography } from '@material-ui/core';
 
 import ModifiableFood from '../../food/ModifiableFood/ModifiableFood';
 import colorList from '../../food/FoodList/color_list.json';
+import FruitsAndVegetables from '../../food/FruitsAndVegetables/FruitsAndVegetables';
+
 import './FridgeAddition.css';
 
 import axios from 'axios'
@@ -85,27 +87,9 @@ const FridgeAddition = () => {
         <>
         <Typography variant="h3" className="label">
             Liste des fruits et légumes à ajouter
-        </Typography>
-        <Container className="container"> {
-            foodList.length ? ( 
-                <Container className="firstlist">
-                    <Grid container spacing={2} className="liste" >
-                        <Typography variant="h3" gutterBottom className="label">
-                            Fruits
-                        </Typography>
-                        <Grid container spacing={4}>
-                            {fruits}
-                        </Grid>
-                        <Typography variant="h3" gutterBottom className="label">
-                            Légumes
-                        </Typography>
-                        <Grid container spacing={4}>
-                            {vegetables}
-                        </Grid>
-                    </Grid>
-                </Container>)
-            : (<></>)}
-        </Container>
+
+        </Typography> 
+        <FruitsAndVegetables fruits={ fruits } vegetables={ vegetables }/>
         <Button 
             onClick={addFoodToFridge}
             variant="contained" 
