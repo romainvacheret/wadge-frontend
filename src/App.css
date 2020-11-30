@@ -37,7 +37,8 @@
   }
 }
 
-#nav {
-  display: inline;
-  margin: 5px;
+hr.sep {
+  border-top: 1px solid limegreen;
 }
+
+
