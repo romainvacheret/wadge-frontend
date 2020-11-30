@@ -30,14 +30,11 @@ const MonthFilter = () => {
 
     return (
         <>
-
-            <Typography variant='h3' gutterBottom className='label'>
+            <Typography variant="h3" gutterBottom className="label">
                 Liste des fruits et légumes
             </Typography>
             <Filter stateOnglet = { stateOnglet }setStateOnglet={ setStateOnglet } setFoodList={ setFoodList }/>
-            
             <FruitsAndVegetables fruits={ fruits } vegetables={ vegetables }/>
-
         </>
     );}
 

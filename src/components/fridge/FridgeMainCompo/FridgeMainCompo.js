@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Grid } from '@material-ui/core'; 
+import {Typography, Grid, Container} from '@material-ui/core';
 import './FridgeMainCompo.css';
 
 import ModifiableFood from '../../food/ModifiableFood/ModifiableFood';
@@ -30,7 +30,7 @@ const DisplayFridge = () => {
         'FIVE_DAYS': 'cinq jours',
         'SEVEN_DAYS': 'sept jours',
         'FORTEEN_DAYS': 'quatorze jours',
-        'EXPIRED': 'Produits prérimés',
+        'EXPIRED': 'Produits périmés',
         'OTHER': 'plus de quatorze jours'
     };
 
@@ -53,36 +53,36 @@ const DisplayFridge = () => {
 
     return (
         <>
-            <Typography variant="h2" className='Title'> Frigo de l'utilisateur </Typography>
-            <Grid >{
-                Object.keys(fridgeList).map((key, idx) => {
-                    return fridgeList[key].length ? (
-                        <div key={ idx }> 
-                            <Typography variant="h4">{ key === 'EXPIRED' ? textFromKey[key] : `Produits à manger au plus tard dans ${textFromKey[key]}`}</Typography>
-                            <Grid container
-                                alignItems='center'>
-                                {fridgeList[key].map((product, idx_) => {
-                                    const { nom, dateAjout, quantite } = product;
-                                    return ( 
-                                    <Grid
-                                        item
-                                        direction='row'
-                                        alignItems='center'
-                                    >
-                                        <ModifiableFood
+            <Typography variant="h2" className='label' > Frigo de l'utilisateur </Typography>
+            <Container className="container">
+                <Grid >{
+                    Object.keys(fridgeList).map((key, idx) => {
+                        return fridgeList[key].length ? (
+                            <div key={ idx }>
+                                <Typography className='label' variant="h4">{ key === 'EXPIRED' ? textFromKey[key] : `Produits à manger au plus tard dans ${textFromKey[key]}`}</Typography>
+                                <Grid container justify="center"
+                                    alignItems='center'>
+                                    {fridgeList[key].map((product, idx_) => {
+                                        const { nom, dateAjout, quantite } = product;
+                                        return (
+                                        <Grid
                                             key={ idx_ }
-                                            foodAttributes={{ word: nom, color: colorList[nom] }}
-                                            data= {{ "Date d'ajout": dateAjout, "Quantité": quantite }}
-                                            counterProps = {{ handlePlus, handleMinus, counters, idx: idx_ }}
-                                        />
+                                            item
+                                        >
+                                            <ModifiableFood
+                                                foodAttributes={{ word: nom, color: colorList[nom] }}
+                                                data= {{ "Date d'ajout": dateAjout, "Quantité": quantite }}
+                                                counterProps = {{ handlePlus, handleMinus, counters, idx: idx_ }}
+                                            />
                                         </Grid>);
 
-                                })}
-                            </Grid>
-                        </div>
-                    ) : '';
-                })
-            }</Grid>
+                                    })}
+                                </Grid>
+                            </div>
+                        ) : '';
+                    })
+                }</Grid>
+            </Container>
         </>
     );
 }
