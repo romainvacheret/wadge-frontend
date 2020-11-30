@@ -9,8 +9,6 @@ import FruitsAndVegetables from '../../food/FruitsAndVegetables/FruitsAndVegetab
 import './FridgeAddition.css';
 
 import axios from 'axios';
-import { Redirect } from "react-router-dom";
-import { BrowserRouter, Route } from 'react-router-dom';
 
 const FridgeAddition = () => {
     const [foodList, setFoodList] = useState([]);
