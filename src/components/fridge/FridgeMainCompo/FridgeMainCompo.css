@@ -1,0 +1,19 @@
+.Title {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    align-content: center;
+    justify-content: center;
+}
+
+.frigofood{
+    width: 25%;
+    height: auto;
+    display: flex;
+}
+.label {
+    color: #282c34;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
