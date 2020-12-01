@@ -10,7 +10,7 @@ import axios from 'axios'
 import { fetchFromUrl } from 'utils'; 
 
 const FridgeAddition = () => {
-    const [searchfood,setSearchFood]=useState('an');
+    const [searchfood,setSearchFood]=useState('');
     const handlechange=(e)=>{
         setSearchFood(e.target.value);
     }
@@ -66,9 +66,11 @@ const FridgeAddition = () => {
     const sortFood = () => {
         foodList.forEach(({ nom, type, vie }, idx) => {
            
+            if(searchfood.length>=1){
             if((nom.indexOf(searchfood)===-1)){
                 return
             }
+        }
             const element = (
                 <Grid item className='food' key={ idx }>
                     <ModifiableFood
