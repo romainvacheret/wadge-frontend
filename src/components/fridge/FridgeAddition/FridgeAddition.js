@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
 import { Grid, Container, Button, Typography } from '@material-ui/core';
-
 import ModifiableFood from '../../food/ModifiableFood/ModifiableFood';
 import colorList from '../../food/FoodList/color_list.json';
 import FruitsAndVegetables from '../../food/FruitsAndVegetables/FruitsAndVegetables';
@@ -12,8 +10,14 @@ import axios from 'axios'
 import { fetchFromUrl } from 'utils'; 
 
 const FridgeAddition = () => {
+    const [searchfood,setSearchFood]=useState('an');
+    const handlechange=(e)=>{
+        setSearchFood(e.target.value);
+    }
     const [foodList, setFoodList] = useState([]);
     const [counters, setCounters] = useState( Array.from({ length: Object.keys(colorList).length}, (v, n) => { return { val: 0 } }));
+
+    
 
     useEffect(() => {
         fetchFromUrl('food_list', setFoodList);
@@ -60,7 +64,11 @@ const FridgeAddition = () => {
     const fruits = [];
     
     const sortFood = () => {
-        foodList.map(({ nom, type, vie }, idx) => {
+        foodList.forEach(({ nom, type, vie }, idx) => {
+           
+            if((nom.indexOf(searchfood)===-1)){
+                return
+            }
             const element = (
                 <Grid item className='food' key={ idx }>
                     <ModifiableFood
@@ -77,6 +85,15 @@ const FridgeAddition = () => {
 
     return (
         <>
+      
+      <div className='col-xs-4'>
+        <div className='form-group has-success"' >
+        <div className="input-group">
+         <input type='text' value={searchfood} className='form-control' onChange={handlechange} placeholder='Recherche par nom' aria-describedby="inputSuccess2Status"/>
+         </div>
+         </div>
+         </div>
+   
         <Typography variant="h3" className="label">
             Liste des fruits et légumes à ajouter
         </Typography> 
