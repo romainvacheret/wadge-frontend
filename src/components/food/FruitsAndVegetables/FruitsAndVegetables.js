@@ -17,7 +17,7 @@ const FruitsAndVegetables = ({ fruits, vegetables }) => {
                             {fruits}
                         </Grid> 
                       <Typography variant="h4" gutterBottom className="label">
-                           Vegetables
+                           Legumes
                         </Typography>
                         <Grid container spacing={4}>
                             {vegetables}
