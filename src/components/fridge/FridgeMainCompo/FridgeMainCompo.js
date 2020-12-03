@@ -36,7 +36,7 @@ const DisplayFridge = () => {
 
     useEffect(() => {
         fetchFromUrl('alerts', setFridgeList);
-    });
+    }, []);
 
     // const delteFromFridge = () => {
     //     const result = []
