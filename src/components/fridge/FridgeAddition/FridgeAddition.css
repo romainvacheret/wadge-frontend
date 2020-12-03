@@ -50,3 +50,18 @@
 .bouton:hover {
     color: white;
 }
+
+.bouton {
+    width: 100px;
+    margin: 0 auto;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.searchBar {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 0 auto;
+}
