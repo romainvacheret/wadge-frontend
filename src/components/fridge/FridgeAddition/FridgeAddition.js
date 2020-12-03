@@ -11,17 +11,14 @@ import { fetchFromUrl } from 'utils';
 
 const FridgeAddition = () => {
     const [searchfood,setSearchFood]=useState('');
-    const handlechange=(e)=>{
-        setSearchFood(e.target.value);
-    }
     const [foodList, setFoodList] = useState([]);
     const [counters, setCounters] = useState( Array.from({ length: Object.keys(colorList).length}, (v, n) => { return { val: 0 } }));
-
-    
 
     useEffect(() => {
         fetchFromUrl('food_list', setFoodList);
     }, []);
+
+    const handleChange = (event) => setSearchFood(event.target.value);
 
     const handlePlus = (idx) => {
 		const newArray = [...counters];
@@ -87,28 +84,37 @@ const FridgeAddition = () => {
 
     return (
         <>
-      
-      <div className='col-xs-4'>
-        <div className='form-group has-success"' >
-        <div className="input-group">
-         <input type='text' value={searchfood} className='form-control' onChange={handlechange} placeholder='Recherche par nom' aria-describedby="inputSuccess2Status"/>
-         </div>
-         </div>
-         </div>
-   
-        <Typography variant="h3" className="label">
-            Liste des fruits et légumes à ajouter
-        </Typography> 
-        <FruitsAndVegetables fruits={ fruits } vegetables={ vegetables }/>
-        <Button 
-            onClick={ addFoodToFridge }
-            variant='contained' 
-            color='primary'
-            className="bouton"
-            href="/fridge"
-        >
-            Enregistrer
-        </Button>
+        <Grid container direction='column'>
+            
+    
+            <Typography variant="h3" className="label">
+                Liste des fruits et légumes à ajouter
+            </Typography> 
+            <div className='col-xs-4 searchBar'>
+                <div className='form-group has-success"' >
+                    <div className="input-group">
+                        <input 
+                            type='text' 
+                            value={ searchfood } 
+                            className='form-control' 
+                            onChange={ handleChange } 
+                            placeholder='Recherche par nom' 
+                            aria-describedby="inputSuccess2Status"
+                        />
+                    </div>
+                </div>
+            </div>
+            <FruitsAndVegetables fruits={ fruits } vegetables={ vegetables }/>
+            <Button 
+                onClick={ addFoodToFridge }
+                variant='contained' 
+                color='primary'
+                className="bouton"
+                href="/fridge"
+            >
+                Enregistrer
+            </Button>
+        </Grid>
         </>
     );
 }
