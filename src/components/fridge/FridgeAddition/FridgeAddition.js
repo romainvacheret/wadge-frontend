@@ -2,22 +2,27 @@ import React, { useState, useEffect } from 'react';
 
 import { Grid, Container, Button, Typography } from '@material-ui/core';
 
+import axios from 'axios'
+
 import ModifiableFood from '../../food/ModifiableFood/ModifiableFood';
 import colorList from '../../food/FoodList/color_list.json';
 import FruitsAndVegetables from '../../food/FruitsAndVegetables/FruitsAndVegetables';
+import SearchBar from './SearchBar';
+
+import { fetchFromUrl } from 'utils'; 
 
 import './FridgeAddition.css';
 
-import axios from 'axios'
-import { fetchFromUrl } from 'utils'; 
-
 const FridgeAddition = () => {
+    const [searchFood, setSearchFood] = useState('');
     const [foodList, setFoodList] = useState([]);
     const [counters, setCounters] = useState( Array.from({ length: Object.keys(colorList).length}, (v, n) => { return { val: 0 } }));
 
     useEffect(() => {
         fetchFromUrl('food_list', setFoodList);
     }, []);
+
+    const handleChange = (event) => setSearchFood(event.target.value);
 
     const handlePlus = (idx) => {
 		const newArray = [...counters];
@@ -60,7 +65,12 @@ const FridgeAddition = () => {
     const fruits = [];
     
     const sortFood = () => {
-        foodList.map(({ nom, type, vie }, idx) => {
+        foodList.forEach(({ nom, type, vie }, idx) => {
+           
+            if(searchFood.length > 0 && nom.indexOf(searchFood) === -1) {
+                return;
+            }
+        
             const element = (
                 <Grid item className='food' key={ idx }>
                     <ModifiableFood
@@ -76,21 +86,22 @@ const FridgeAddition = () => {
     sortFood();
 
     return (
-        <>
-        <Typography variant="h3" className="label">
-            Liste des fruits et légumes à ajouter
-        </Typography> 
-        <FruitsAndVegetables fruits={ fruits } vegetables={ vegetables }/>
-        <Button 
-            onClick={ addFoodToFridge }
-            variant='contained' 
-            color='primary'
-            className="bouton"
-            href="/fridge"
-        >
-            Enregistrer
-        </Button>
-        </>
+        <Grid container direction='column'>
+            <Typography variant="h3" className="label">
+                Liste des fruits et légumes à ajouter
+            </Typography> 
+            <SearchBar searchFood={ searchFood } handleChange={ handleChange }/>
+            <FruitsAndVegetables fruits={ fruits } vegetables={ vegetables }/>
+            <Button 
+                onClick={ addFoodToFridge }
+                variant='contained' 
+                color='primary'
+                className="bouton"
+                href="/fridge"
+            >
+                Enregistrer
+            </Button>
+        </Grid>
     );
 }
 
