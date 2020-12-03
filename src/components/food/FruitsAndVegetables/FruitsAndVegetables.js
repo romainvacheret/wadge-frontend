@@ -5,26 +5,34 @@ import './FruitsAndVegetables.css';
 
 const FruitsAndVegetables = ({ fruits, vegetables }) => {
     return (
-        <Container className="container"> {
-            fruits.length || vegetables.length ? ( 
-                <Container className="firstlist">
-                    <Grid container spacing={2} className="liste">
-                       
-                      <Typography variant="h4" gutterBottom className="label">
+        <Container className="container"> 
+            <Container className="firstlist">
+                <Grid container spacing={2} className="liste"> {
+                     fruits.length ? (
+                        <>
+                        <Typography variant="h4" gutterBottom className="label">
                             Fruits
                         </Typography>
                         <Grid container spacing={4}>
                             {fruits}
                         </Grid> 
-                      <Typography variant="h4" gutterBottom className="label">
-                           Legumes
+                    </>
+                    ) : (<></>)
+                } {
+                    vegetables.length ? (
+                        <>
+                        <Typography variant="h4" gutterBottom className="label">
+                        Legumes
                         </Typography>
                         <Grid container spacing={4}>
                             {vegetables}
                         </Grid>
-                    </Grid>
-                </Container>)
-            : (<></>)}
+                        </>
+                    ) : (<></>)
+                }
+                    
+            </Grid>
+            </Container>
         </Container>
     );
 }
