@@ -19,7 +19,7 @@ const FridgeAddition = () => {
     const [counters, setCounters] = useState( Array.from({ length: Object.keys(colorList).length}, (v, n) => { return { val: 0 } }));
 
     useEffect(() => {
-        fetchFromUrl('food_list', setFoodList);
+        fetchFromUrl('foods', setFoodList);
     }, []);
 
     const handleChange = (event) => setSearchFood(event.target.value);
@@ -44,38 +44,38 @@ const FridgeAddition = () => {
             if(counter.val !== 0) {
                 const date = new Date()
                 const currentDate = new Date().toLocaleDateString()
-                const { nom, vie } = foodList[idx];
-                date.setDate(date.getDate() + parseInt(vie));
+                const { name, days } = foodList[idx];
+                date.setDate(date.getDate() + parseInt(days));
                 const quantity = counters[idx].val;
                 const info = { 
-                    nom, 
-                    produits: {
-                        dateAjout: currentDate,
-                        dateLimite: date.toLocaleDateString(), 
-                        quantite: quantity
-                    }
+                    name, 
+                    products: [{
+                        insertionDate: currentDate,
+                        peremptionDate: date.toLocaleDateString(), 
+                        quantity
+                    }]
                 };
                 result.push(info);
             }
         });
-        axios.post('http://localhost:8080/food',result);
+
+        axios.post('http://localhost:8080/fridge/addition', result);
     }
 
     const vegetables = [];
     const fruits = [];
     
     const sortFood = () => {
-        foodList.forEach(({ nom, type, vie }, idx) => {
-           
-            if(searchFood.length > 0 && nom.indexOf(searchFood) === -1) {
+        foodList.forEach(({ name, type, days }, idx) => {
+            if(searchFood.length > 0 && name.indexOf(searchFood) === -1) {
                 return;
             }
         
             const element = (
                 <Grid item className='food' key={ idx }>
                     <ModifiableFood
-                        foodAttributes={{ word: nom, color: colorList[nom] }}
-                        data = {{vie}}
+                        foodAttributes={{ word: name, color: colorList[name] }}
+                        data = {{ days }}
                         counterProps = {{ handlePlus, handleMinus, counters, idx }}
                     />
                 </Grid>
