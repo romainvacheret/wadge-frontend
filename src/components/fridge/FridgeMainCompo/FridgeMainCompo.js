@@ -62,21 +62,26 @@ const DisplayFridge = () => {
                                 <Typography className='label' variant="h4">{ key === 'EXPIRED' ? textFromKey[key] : `Produits à manger au plus tard dans ${textFromKey[key]}`}</Typography>
                                 <Grid container justify="center"
                                     alignItems='center'>
-                                    {fridgeList[key].map((product, idx_) => {
-                                        const { nom, dateAjout, quantite } = product;
-                                        return (
-                                        <Grid
-                                            key={ idx_ }
-                                            item
-                                        >
-                                            <ModifiableFood
-                                                foodAttributes={{ word: nom, color: colorList[nom] }}
-                                                data= {{ "Date d'ajout": dateAjout, "Quantité": quantite }}
-                                                counterProps = {{ handlePlus, handleMinus, counters, idx: idx_ }}
-                                            />
-                                        </Grid>);
-
-                                    })}
+                                    {
+                                        fridgeList[key].map(food => {
+                                            const { name, products } = food;
+                                            const restructuredFood = products.map(product => { return {name, ...product} })
+                                            return restructuredFood.flat();
+                                        }).map((food_, idx_) => {
+                                            const { name, insertionDate, quantity } = food_[0];
+                                            return (
+                                            <Grid
+                                                key={ idx_ }
+                                                item
+                                            >
+                                                <ModifiableFood
+                                                    foodAttributes={{ word: name, color: colorList[name] }}
+                                                    data= {{ "Date d'ajout": insertionDate, "Quantité": quantity }}
+                                                    counterProps = {{ handlePlus, handleMinus, counters, idx: idx_ }}
+                                                />
+                                            </Grid>); 
+                                        })
+                                    }
                                 </Grid>
                             </div>
                         ) : '';
