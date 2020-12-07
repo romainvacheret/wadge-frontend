@@ -17,14 +17,15 @@ const MonthFilter = () => {
     const fruits = [];
 
     const sortFood = () => {
-        foodList.map(({ nom, type, vie }, idx) => {
+        foodList.map(({ name, type, days }, idx) => {
             const element = (
                 <Grid item className='food' key={ idx } >
-                    <FoodCard foodAttributes={{ word: nom, color: colorList[nom] }} data= {{ 'vie': `${vie} jours` }}/>
+                    <FoodCard foodAttributes={{ word: name, color: colorList[name] }} data= {{ 'vie': `${days} jours` }}/>
                 </Grid>
             );
             type === 'fruit' ? fruits.push(element): vegetables.push(element);
         })
+        console.log(fruits, vegetables);
     };
     sortFood();
 

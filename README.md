@@ -26,7 +26,7 @@ Lancez le projet
 L'application sera visible à l'adresse [http://localhost:3000](http://localhost:3000). <br>
 Vous devez lancer la partie back end en parallèle pour que l'application fonctionne correctement.
 ```Bash
-git clone git@github.com:RomainVacheret/Wadge-FrontEnd.git
+git clone https://github.com/RomainVacheret/Wadge-FrontEnd.git
 cd Wadge-FrontEnd
 touch .env
 npm install
