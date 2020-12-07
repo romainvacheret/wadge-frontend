@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {Typography, Grid, Container} from '@material-ui/core';
 import './FridgeMainCompo.css';
 
-import ModifiableFood from '../../food/ModifiableFood/ModifiableFood';
 import FoodCard from '../../food/FoodCard/FoodCard';
 import colorList from '../../food/FoodList/color_list.json';
 
@@ -10,21 +9,6 @@ import { fetchFromUrl } from 'utils';
 
 const DisplayFridge = () => {
     const [fridgeList, setFridgeList] = useState({});
-    const [counters, setCounters] = useState( Array.from({ length: Object.keys(colorList).length}, (v, n) => { return { val: 0 } }));
-
-    const handlePlus = (idx) => {
-		const newArray = [...counters];
-		newArray[idx].val += 1;
-		setCounters(newArray);
-	};
-
-    const handleMinus = (idx) => {
-		if(counters[idx].val !== 0){
-			const newArray = [...counters];
-			newArray[idx].val -= 1;
-			setCounters(newArray);
-		}
-	};
 
     const textFromKey = {
         'TWO_DAYS': 'deux jours',
@@ -38,19 +22,6 @@ const DisplayFridge = () => {
     useEffect(() => {
         fetchFromUrl('alerts', setFridgeList);
     }, []);
-
-    // const delteFromFridge = () => {
-    //     const result = []
-    //     counters.forEach((counter, idx) => {
-    //         if(counter.val !== 0) {
-    //             const { nom, }
-    //             const info = {
-    //                 nom: fridgeList[idx].nom,
-    //                 dateAjout: 
-    //             }
-    //         }
-    //     })
-    // }
 
     return (
         <>
