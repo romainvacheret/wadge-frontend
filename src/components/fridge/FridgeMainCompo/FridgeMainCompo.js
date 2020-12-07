@@ -3,6 +3,7 @@ import {Typography, Grid, Container} from '@material-ui/core';
 import './FridgeMainCompo.css';
 
 import ModifiableFood from '../../food/ModifiableFood/ModifiableFood';
+import FoodCard from '../../food/FoodCard/FoodCard';
 import colorList from '../../food/FoodList/color_list.json';
 
 import { fetchFromUrl } from 'utils'; 
@@ -74,11 +75,8 @@ const DisplayFridge = () => {
                                                 key={ idx_ }
                                                 item
                                             >
-                                                <ModifiableFood
-                                                    foodAttributes={{ word: name, color: colorList[name] }}
-                                                    data= {{ "Date d'ajout": insertionDate, "Quantité": quantity }}
-                                                    counterProps = {{ handlePlus, handleMinus, counters, idx: idx_ }}
-                                                />
+                                                <FoodCard foodAttributes={{ word: name, color: colorList[name] }} data={{ "Date d'ajout": insertionDate, "Quantité": quantity }}/>
+
                                             </Grid>); 
                                         })
                                     }
