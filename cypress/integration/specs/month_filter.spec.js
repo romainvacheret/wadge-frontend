@@ -20,6 +20,9 @@ context('Month filter', () => {
     
     it('Checks the title of the page', () => cy.title().should('eq', 'Wadge App'))
 
+    it('Looks for the nav bar', () => cy.title().get('#navbar'))
+
+
     it('Checks the title', () => cy.contains('Liste des fruits et légumes'))
 
     it('Makes sure the select is present', () => {
