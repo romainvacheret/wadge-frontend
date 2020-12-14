@@ -15,6 +15,21 @@ const monthMap = {
     'Décembre': 43
 };
 
+const months = [
+    'january',
+    'february',
+    'march',
+    'april',
+    'may',
+    'jun',
+    'july',
+    'august',
+    'september',
+    'october',
+    'november',
+    'december'
+];
+
 context('Month filter', () => {
     beforeEach(() => cy.visit('localhost:3000/filter'))
     
@@ -30,11 +45,18 @@ context('Month filter', () => {
     })
 
     it('Checks how many elements are present for each month', () => {
+        months.forEach(month => cy.intercept('GET', `http://localhost:8080/foods/${month}`, { fixture: `filter/${month}` }))
+
         Object.entries(monthMap).forEach(([key, value]) => {
             cy.contains(key).click()
             cy.contains('Legumes')
             cy.contains('Fruits')
             cy.get('.food').should('have.length', value)
         })
+
+        // cy.contains('Janvier').click()
+        //     cy.contains('Legumes')
+        //     cy.contains('Fruits')
+        //     cy.get('.food').should('have.length', 38)
     })
 })
