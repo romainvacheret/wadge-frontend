@@ -18,7 +18,7 @@ const NavBar = (props) => {
             <ListItemLink href="/fridge" className='navbar__links' id="nav-fridge">
               Frigo
             </ListItemLink>
-            <ListItemLink href="/fridge_addition" className='navbar__links' id="nav-fridge-addition">
+            <ListItemLink href="/fridge/addition" className='navbar__links' id="nav-fridge-addition">
               Ajout au frigo
             </ListItemLink>
             <ListItemLink href="/map" className='navbar__links' id="nav-map">

@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 const monthMap = {
-    'Janvier': 38,
+    
     'Février': 33,
     'Mars': 25,
     'Avril': 24,
@@ -12,7 +12,8 @@ const monthMap = {
     'Septembre': 54,
     'Octobre': 55,
     'Novembre': 51,
-    'Décembre': 43
+    'Décembre': 43,
+    'Janvier': 43
 };
 
 const months = [
@@ -53,10 +54,10 @@ context('Month filter', () => {
 
         Object.entries(monthMap).forEach(([key, value]) => {
             cy.contains(key).click()
-            cy.wait('@aa')
-            cy.contains('Legumes')
+            // cy.wait('@aa')
+            cy.contains('Légumes')
             cy.contains('Fruits')
-            cy.get('.food').should('have.length', value)
+            cy.get('.foodlist__food-card').should('have.length', value)
         })
     })
 })

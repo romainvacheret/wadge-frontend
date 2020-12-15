@@ -22,7 +22,7 @@ const FruitsAndVegetables = ({ fruits, vegetables }) => {
                     vegetables.length ? (
                         <>
                         <Typography variant="h4" gutterBottom className="fruits-vegetables__list__label">
-                            Legumes
+                            Légumes
                         </Typography>
                         <Grid container spacing={4}>
                             {vegetables}

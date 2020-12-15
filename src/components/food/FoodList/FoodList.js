@@ -3,13 +3,13 @@ import React, { useState } from 'react';
 import { Grid, Typography } from '@material-ui/core';
 
 import colorList from './color_list.json';
-import './MonthFilter.css';
+import './FoodList.css';
 
 import FoodCard from "../FoodCard/FoodCard";
 import FruitsAndVegetables from '../FruitsAndVegetables/FruitsAndVegetables';
 import Filter from './Filter';
 
-const MonthFilter = () => {
+const FoodList = () => {
     const [foodList, setFoodList] = useState([]);
     const [stateOnglet, setStateOnglet] = useState();
 
@@ -39,4 +39,4 @@ const MonthFilter = () => {
         </>
     );}
 
-    export default MonthFilter;
+    export default FoodList;

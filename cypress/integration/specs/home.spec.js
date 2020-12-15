@@ -9,7 +9,7 @@ context('Home page', () => {
     it('Looks for the nav bar', () => cy.title().get('#navbar'))
 
     it('Makes sure the logo is present', () => {
-        cy.get('.Image').should('have.attr', 'src', 'logo.png')
+        cy.get('.home__image').should('have.attr', 'src', 'logo.png')
     })
 
     it('Checks the nav bar logo', () => {
@@ -26,6 +26,6 @@ context('Home page', () => {
     })
 
     it('Checks the link to the fridge addition', () => {
-        cy.get('#nav-fridge-addition').should('have.attr', 'href', '/fridge_addition')
+        cy.get('#nav-fridge-addition').should('have.attr', 'href', '/fridge/addition')
     })
 })

@@ -19,7 +19,7 @@ const Filter = ({ stateOnglet, setStateOnglet, setFoodList }) => {
     }
 
     return (
-        <div className="monthfilter-bar">
+        <div className="monthfilter__bar">
                 <div onClick={ () => onClick("january",0) }  className={`monthfilter-bar__tab ${stateOnglet === 0 ? 'monthfilter-bar__tab__current': ''}`}>Janvier</div>
                 <div onClick={ () => onClick("february",1) }  className={`monthfilter-bar__tab ${stateOnglet === 1 ? 'monthfilter-bar__tab__current': ''}`}>Février</div>
                 <div onClick={ () => onClick("march",2) }     className={`monthfilter-bar__tab ${stateOnglet === 2 ? 'monthfilter-bar__tab__current': ''}`}>Mars</div>
