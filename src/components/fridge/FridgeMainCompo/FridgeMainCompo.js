@@ -25,14 +25,14 @@ const DisplayFridge = () => {
 
     return (
         <>
-            <Typography variant="h2" className='label' > Frigo de l'utilisateur </Typography>
-            <Container className="container">
+            <Typography variant='h2' className='fridge-main-compo__label' > Frigo de l'utilisateur </Typography>
+            <Container className='fridge-main-compo__container'>
                 <Grid >{
                     Object.keys(fridgeList).map((key, idx) => {
                         return fridgeList[key].length ? (
                             <div key={ idx }>
-                                <Typography className='label' variant="h4">{ key === 'EXPIRED' ? textFromKey[key] : `Produits à manger au plus tard dans ${textFromKey[key]}`}</Typography>
-                                <Grid container justify="center"
+                                <Typography className='fridge-main-compo__label' variant='h4'>{ key === 'EXPIRED' ? textFromKey[key] : `Produits à manger au plus tard dans ${textFromKey[key]}`}</Typography>
+                                <Grid container justify='center'
                                     alignItems='center'>
                                     {
                                         fridgeList[key].map(food => {

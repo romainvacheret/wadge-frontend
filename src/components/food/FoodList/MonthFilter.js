@@ -19,7 +19,7 @@ const MonthFilter = () => {
     const sortFood = () => {
         foodList.map(({ name, type, days }, idx) => {
             const element = (
-                <Grid item className='food' key={ idx } >
+                <Grid item className='foodlist__food-card' key={ idx } >
                     <FoodCard foodAttributes={{ word: name, color: colorList[name] }} data= {{ 'vie': `${days} jours` }}/>
                 </Grid>
             );
@@ -31,7 +31,7 @@ const MonthFilter = () => {
 
     return (
         <>
-            <Typography variant="h3" gutterBottom className="label">
+            <Typography variant="h3" gutterBottom className="foodlist__title">
                 Liste des fruits et légumes
             </Typography>
             <Filter stateOnglet = { stateOnglet }setStateOnglet={ setStateOnglet } setFoodList={ setFoodList }/>

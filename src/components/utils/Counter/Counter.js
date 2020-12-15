@@ -1,7 +1,10 @@
 import React from 'react';
+
 import { Grid, Button, Typography } from '@material-ui/core';
+
 import IndeterminateCheckBoxIcon from '@material-ui/icons/IndeterminateCheckBox';
 import AddBoxIcon from '@material-ui/icons/AddBox';
+
 const Counter = ({counters, idx, handlePlus, handleMinus}) => {
     return (
         <Grid container>

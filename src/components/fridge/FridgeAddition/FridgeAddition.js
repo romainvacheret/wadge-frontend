@@ -72,7 +72,7 @@ const FridgeAddition = () => {
             }
         
             const element = (
-                <Grid item className='food' key={ idx }>
+                <Grid item className='fridge-addition__food-card' key={ idx }>
                     <ModifiableFood
                         foodAttributes={{ word: name, color: colorList[name] }}
                         data = {{ days }}
@@ -87,7 +87,7 @@ const FridgeAddition = () => {
 
     return (
         <Grid container direction='column'>
-            <Typography variant="h3" className="label">
+            <Typography variant="h3" className="fridge-addition__title">
                 Liste des fruits et légumes à ajouter
             </Typography> 
             <SearchBar searchFood={ searchFood } handleChange={ handleChange }/>
@@ -96,7 +96,7 @@ const FridgeAddition = () => {
                 onClick={ addFoodToFridge }
                 variant='contained' 
                 color='primary'
-                className="bouton"
+                className="fridge-addition__button"
                 href="/fridge"
             >
                 Enregistrer

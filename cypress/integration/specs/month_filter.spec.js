@@ -41,22 +41,22 @@ context('Month filter', () => {
     it('Checks the title', () => cy.contains('Liste des fruits et légumes'))
 
     it('Makes sure the select is present', () => {
-        cy.get('.contBtn').children().should('have.length', 12)
+        cy.get('.monthfilter__bar').children().should('have.length', 12)
     })
 
     it('Checks how many elements are present for each month', () => {
-        months.forEach(month => cy.intercept('GET', `http://localhost:8080/foods/${month}`, { fixture: `filter/${month}` }))
+        months.forEach(month => cy.intercept('GET', `http://localhost:8080/foods/${month}`, { fixture: `filter/${month}.json` }).as('aa'))
+
+
+        cy.intercept('GET', `http://localhost:8080/foods/january`, { fixture: `filter/january.json` }).as('aa')
+        
 
         Object.entries(monthMap).forEach(([key, value]) => {
             cy.contains(key).click()
+            cy.wait('@aa')
             cy.contains('Legumes')
             cy.contains('Fruits')
             cy.get('.food').should('have.length', value)
         })
-
-        // cy.contains('Janvier').click()
-        //     cy.contains('Legumes')
-        //     cy.contains('Fruits')
-        //     cy.get('.food').should('have.length', 38)
     })
 })
