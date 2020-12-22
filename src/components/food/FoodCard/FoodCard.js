@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Popover, Typography } from '@material-ui/core';
+import { Popover, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 
 import FoodRepresentation from '../FoodRepresentation/FoodRepresentation';
@@ -30,8 +30,8 @@ const FoodCard = ({ foodAttributes, data }) => {
     const { word, color } = foodAttributes;
     const open = Boolean(anchor);
 
-    const handleMouseOver = (event) => { console.log('test'); setAnchor(event.currentTarget) };
-    const handleClose = () => { console.log('fin'); setAnchor(null)};
+    // const handleMouseOver = (event) => { console.log('test'); setAnchor(event.currentTarget) };
+    const handleClose = () => setAnchor(null);
     const handleClick = (event) => { anchor === null ? setAnchor(event.currentTarget) : setAnchor(null) }
 
     return (
@@ -52,7 +52,6 @@ const FoodCard = ({ foodAttributes, data }) => {
                 Hover me
             </Typography> */}
             <Popover
-                className={classes.popover}
                 classes={{
                 paper: classes.paper
                 }}
