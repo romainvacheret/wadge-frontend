@@ -13,7 +13,7 @@ const monthMap = {
     'Octobre': 55,
     'Novembre': 51,
     'Décembre': 43,
-    'Janvier': 43
+    'Janvier': 38
 };
 
 const months = [
