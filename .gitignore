@@ -8,6 +8,8 @@
 # testing
 /coverage
 *.log
+/cypress/screenshots
+/cypress/videos
 
 # production
 /build

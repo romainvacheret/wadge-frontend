@@ -7,24 +7,24 @@ const NavBar = (props) => {
     const ListItemLink = (props_) =>  <ListItem button component="a" {...props_} />;
 
     return (
-        <AppBar position="static" color="transparent" id="nav">
+        <AppBar className="navbar" id="navbar">
           <Toolbar  >
-            <ListItemLink href="/" id="menu">
-              <img src="logo.png" id="logo" width="180" height="80"/>
+            <ListItemLink href="/" className='navbar__links' id="nav-logo">
+              <img src="logo.png" id="logo-nav" width="180" height="80"/>
             </ListItemLink>
-            <ListItemLink href="/filter" id="menu">
+            <ListItemLink href="/filter" className='navbar__links' id="nav-filter">
               Fruits et Légumes
             </ListItemLink>
-            <ListItemLink href="/fridge" id="menu">
+            <ListItemLink href="/fridge" className='navbar__links' id="nav-fridge">
               Frigo
             </ListItemLink>
-            <ListItemLink href="/fridge_addition" id="menu">
+            <ListItemLink href="/fridge/addition" className='navbar__links' id="nav-fridge-addition">
               Ajout au frigo
             </ListItemLink>
-            <ListItemLink href="/map" id="menu">
+            <ListItemLink href="/map" className='navbar__links' id="nav-map">
               Carte des Magasins
             </ListItemLink>
-            <ListItemLink href="/recipes" id="menu">
+            <ListItemLink href="/recipes" className='navbar__links' id="nav-recipes">
               Recettes
             </ListItemLink>
           </Toolbar>

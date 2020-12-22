@@ -19,19 +19,19 @@ const Filter = ({ stateOnglet, setStateOnglet, setFoodList }) => {
     }
 
     return (
-        <div className="contBtn">
-                <div id="monthSelect" onClick={ () => onClick("january",0) }  className={`onglet ${stateOnglet === 0 ? 'active': ''}`}>Janvier</div>
-                <div id="monthSelect" onClick={ () => onClick("february",1) }  className={`onglet ${stateOnglet === 1 ? 'active': ''}`}>Février</div>
-                <div id="monthSelect" onClick={ () => onClick("march",2) }     className={`onglet ${stateOnglet === 2 ? 'active': ''}`}>Mars</div>
-                <div id="monthSelect" onClick={ () => onClick("april",3) }    className={`onglet ${stateOnglet === 3 ? 'active': ''}`}>Avril</div>
-                <div id="monthSelect" onClick={ () => onClick("may",4) }      className={`onglet ${stateOnglet === 4 ? 'active': ''}`}>Mai</div>
-                <div id="monthSelect" onClick={ () => onClick("jun",5) }     className={`onglet ${stateOnglet === 5 ? 'active': ''}`}>Juin</div>
-                <div id="monthSelect" onClick={ () => onClick("july",6) }  className={`onglet ${stateOnglet === 6 ? 'active': ''}`}>Juillet</div>
-                <div id="monthSelect" onClick={ () => onClick("august",7) }     className={`onglet ${stateOnglet === 7 ? 'active': ''}`}>Août</div>
-                <div id="monthSelect" onClick={ () => onClick("september",8)} className={`onglet ${stateOnglet === 8 ? 'active': ''}`}>Septembre</div>
-                <div id="monthSelect" onClick={ () => onClick("october",9) }  className={`onglet ${stateOnglet === 9 ? 'active': ''}`}>Octobre</div>
-                <div id="monthSelect" onClick={ () => onClick("november",10)} className={`onglet ${stateOnglet === 10 ? 'active': ''}`}>Novembre</div>
-                <div id="monthSelect" onClick={ () => onClick("december",11)} className={`onglet ${stateOnglet === 11 ? 'active': ''}`}>Décembre</div>
+        <div className="monthfilter__bar">
+                <div onClick={ () => onClick("january",0) }  className={`monthfilter-bar__tab ${stateOnglet === 0 ? 'monthfilter-bar__tab__current': ''}`}>Janvier</div>
+                <div onClick={ () => onClick("february",1) }  className={`monthfilter-bar__tab ${stateOnglet === 1 ? 'monthfilter-bar__tab__current': ''}`}>Février</div>
+                <div onClick={ () => onClick("march",2) }     className={`monthfilter-bar__tab ${stateOnglet === 2 ? 'monthfilter-bar__tab__current': ''}`}>Mars</div>
+                <div onClick={ () => onClick("april",3) }    className={`monthfilter-bar__tab ${stateOnglet === 3 ? 'monthfilter-bar__tab__current': ''}`}>Avril</div>
+                <div onClick={ () => onClick("may",4) }      className={`monthfilter-bar__tab ${stateOnglet === 4 ? 'monthfilter-bar__tab__current': ''}`}>Mai</div>
+                <div onClick={ () => onClick("jun",5) }     className={`monthfilter-bar__tab ${stateOnglet === 5 ? 'monthfilter-bar__tab__current': ''}`}>Juin</div>
+                <div onClick={ () => onClick("july",6) }  className={`monthfilter-bar__tab ${stateOnglet === 6 ? 'monthfilter-bar__tab__current': ''}`}>Juillet</div>
+                <div onClick={ () => onClick("august",7) }     className={`monthfilter-bar__tab ${stateOnglet === 7 ? 'monthfilter-bar__tab__current': ''}`}>Août</div>
+                <div onClick={ () => onClick("september",8)} className={`monthfilter-bar__tab ${stateOnglet === 8 ? 'monthfilter-bar__tab__current': ''}`}>Septembre</div>
+                <div onClick={ () => onClick("october",9) }  className={`monthfilter-bar__tab ${stateOnglet === 9 ? 'monthfilter-bar__tab__current': ''}`}>Octobre</div>
+                <div onClick={ () => onClick("november",10)} className={`monthfilter-bar__tab ${stateOnglet === 10 ? 'monthfilter-bar__tab__current': ''}`}>Novembre</div>
+                <div onClick={ () => onClick("december",11)} className={`monthfilter-bar__tab ${stateOnglet === 11 ? 'monthfilter-bar__tab__current': ''}`}>Décembre</div>
         </div>
     );
 }
