@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Popover, Typography } from '@material-ui/core';
+import { Popover, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 
 import FoodRepresentation from '../FoodRepresentation/FoodRepresentation';
@@ -20,6 +20,11 @@ const useStyles = makeStyles({
         paper: {
             padding: 10
         }
+    },
+
+    typography: {
+        fontSize: 18,
+        padding: 12
     }
 });
 
@@ -30,8 +35,8 @@ const FoodCard = ({ foodAttributes, data }) => {
     const { word, color } = foodAttributes;
     const open = Boolean(anchor);
 
-    const handleMouseOver = (event) => { console.log('test'); setAnchor(event.currentTarget) };
-    const handleClose = () => { console.log('fin'); setAnchor(null)};
+    // const handleMouseOver = (event) => { console.log('test'); setAnchor(event.currentTarget) };
+    const handleClose = () => setAnchor(null);
     const handleClick = (event) => { anchor === null ? setAnchor(event.currentTarget) : setAnchor(null) }
 
     return (
@@ -52,7 +57,6 @@ const FoodCard = ({ foodAttributes, data }) => {
                 Hover me
             </Typography> */}
             <Popover
-                className={classes.popover}
                 classes={{
                 paper: classes.paper
                 }}
@@ -64,8 +68,8 @@ const FoodCard = ({ foodAttributes, data }) => {
                 disableRestoreFocus
             >
                 { Object.keys(data).map((key, idx) => 
-                    <Typography key={ idx }>
-                        {`${key}: ${data[key]}`}
+                    <Typography key={ idx } className={ classes.typography }>
+                        {`${key} : ${data[key]}`}
                     </Typography>
                 )}
             </Popover>

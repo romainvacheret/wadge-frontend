@@ -44,7 +44,7 @@ const ShopMap = (props) => {
         }
     }
 
-    const AnyReactComponent = ({ text }) => <div style={{ height: 15, width: 50 }}className="Marker"><div>{text}</div></div>
+    const AnyReactComponent = ({ text }) => <div style={{ height: 15, width: 50 }}className="shop-map__marker"><div>{text}</div></div>
 
     useEffect(() => setMarkers([...data]), []);
 
@@ -52,8 +52,8 @@ const ShopMap = (props) => {
 
     return (
         <>
-            <h1 className="Title">Liste des magasins Naturalia à Paris</h1>
-            <div className="Map" style={{ height: 600, width: 800 }}>
+            <h1 className="shop-map__label">Liste des magasins Naturalia à Paris</h1>
+            <div className="shop-map__map" style={{ height: 600, width: 800 }}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: API_KEY }}
                     defaultCenter={ currentPosition }
@@ -72,11 +72,11 @@ const ShopMap = (props) => {
             </div>
             {!localStores.length ? <></> : (
                 <>
-                    <h3 className='Title'> Liste des magasins à moins de 2kms</h3>
+                    <h3 className='shop-map__label'> Liste des magasins à moins de 2kms</h3>
                     <ul> {
                     localStores.map(({ formatted_address, opening_hours }, idx) => {
                         return ( 
-                            <div className="List"key={idx}> { 
+                            <div key={idx}> { 
                                 <>
                                     <ul>
                                         <li>{ `Adresse : ${ formatted_address }` }</li>

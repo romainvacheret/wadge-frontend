@@ -5,12 +5,12 @@ import './FruitsAndVegetables.css';
 
 const FruitsAndVegetables = ({ fruits, vegetables }) => {
     return (
-        <Container className="container"> 
-            <Container className="firstlist">
-                <Grid container spacing={2} className="liste"> {
+        <Container className="fruits-vegetables"> 
+            <Container className="fruits-vegetables__container">
+                <Grid container spacing={2} className="fruits-vegetables__list"> {
                      fruits.length ? (
                         <>
-                        <Typography variant="h4" gutterBottom className="label">
+                        <Typography variant="h2" gutterBottom className="fruits-vegetables__list__label">
                             Fruits
                         </Typography>
                         <Grid container spacing={4}>
@@ -21,8 +21,8 @@ const FruitsAndVegetables = ({ fruits, vegetables }) => {
                 } {
                     vegetables.length ? (
                         <>
-                        <Typography variant="h4" gutterBottom className="label">
-                        Legumes
+                        <Typography variant="h2" gutterBottom className="fruits-vegetables__list__label">
+                            Légumes
                         </Typography>
                         <Grid container spacing={4}>
                             {vegetables}
@@ -30,8 +30,7 @@ const FruitsAndVegetables = ({ fruits, vegetables }) => {
                         </>
                     ) : (<></>)
                 }
-                    
-            </Grid>
+                </Grid>
             </Container>
         </Container>
     );
