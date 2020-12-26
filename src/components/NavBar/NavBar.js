@@ -10,7 +10,7 @@ const NavBar = (props) => {
         <AppBar className="navbar" id="navbar">
           <Toolbar  >
             <ListItemLink href="/" className='navbar__links' id="nav-logo">
-              <img alt=" " src="logo.png" id="logo-nav" width="180" height="80"/>
+              <img alt=" " src="/logo.png" id="logo-nav" width="180" height="80"/>
             </ListItemLink>
             <ListItemLink href="/filter" className='navbar__links' id="nav-filter">
               Fruits et Légumes

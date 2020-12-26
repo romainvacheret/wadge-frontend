@@ -20,6 +20,11 @@ const useStyles = makeStyles({
         paper: {
             padding: 10
         }
+    },
+
+    typography: {
+        fontSize: 18,
+        padding: 12
     }
 });
 
@@ -63,8 +68,8 @@ const FoodCard = ({ foodAttributes, data }) => {
                 disableRestoreFocus
             >
                 { Object.keys(data).map((key, idx) => 
-                    <Typography key={ idx }>
-                        {`${key}: ${data[key]}`}
+                    <Typography key={ idx } className={ classes.typography }>
+                        {`${key} : ${data[key]}`}
                     </Typography>
                 )}
             </Popover>

@@ -20,7 +20,7 @@ const FoodList = () => {
         foodList.forEach(({ name, type, days }, idx) => {
             const element = (
                 <Grid item className='foodlist__food-card' key={ idx } >
-                    <FoodCard foodAttributes={{ word: name, color: colorList[name] }} data= {{ 'vie': `${days} jours` }}/>
+                    <FoodCard foodAttributes={{ word: name, color: colorList[name] }} data= {{ 'Conservation': `${days} jours` }}/>
                 </Grid>
             );
             type === 'fruit' ? fruits.push(element): vegetables.push(element);
