@@ -64,7 +64,7 @@ const FoodCard = ({ foodAttributes, data }) => {
             >
                 { Object.keys(data).map((key, idx) => 
                     <Typography key={ idx }>
-                        {`${key}: ${data[key]}`}
+                        {`${key} : ${data[key]}`}
                     </Typography>
                 )}
             </Popover>

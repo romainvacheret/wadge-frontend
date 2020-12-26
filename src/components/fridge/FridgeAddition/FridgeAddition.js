@@ -75,7 +75,7 @@ const FridgeAddition = () => {
                 <Grid item className='fridge-addition__food-card' key={ idx }>
                     <ModifiableFood
                         foodAttributes={{ word: name, color: colorList[name] }}
-                        data = {{ days }}
+                        data = {{ Consommation: `sous ${days} jours` }}
                         counterProps = {{ handlePlus, handleMinus, counters, idx }}
                     />
                 </Grid>
