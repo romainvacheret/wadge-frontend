@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import './RecipeList.css';
+
 import { fetchFromUrl } from 'utils'; 
 
 const RecipeList = () => {
@@ -11,10 +13,10 @@ const RecipeList = () => {
     
     return (
         <>
-            <h3 className='Title'> Liste des recettes </h3>
+            <h3 className='recipe-liste__title'> Liste des recettes </h3>
             <ul> {
             recipeList.map(({ etapes, ingredients, nom, personnes, difficulte}, idx) => 
-                <div className="List" key={ idx }> { 
+                <div key={ idx }> { 
                     <>
                         <ul>
                             <li>{ nom }</li>

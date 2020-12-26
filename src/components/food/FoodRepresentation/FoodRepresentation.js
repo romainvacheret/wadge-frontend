@@ -8,17 +8,17 @@ const useStyles = makeStyles({
         stroke: 'black',
         strokeWidth: 5,
     },
-    rect: {
+    svg__rect: {
         width: 70,
         height: 70,
         stroke: 'black',
         strokeWidth: 5
     },
-    letter: {
+    svg__letter: {
         fontSize: '40px',
         strokeWidth: 2,
     },
-    word: {
+    svg__word: {
         fontSize: '10px',
         strokeWidth: 0.5
     }
@@ -39,15 +39,15 @@ const FoodRepresentation = ({ word, color}) => {
 
     return (
         <svg x='0' y='0' className={ classes.svg }>
-            <rect x='0' y='0' className={ classes.rect } fill={ color }/>
-            <text x='7' y='38' className={ classes.letter }> { letter }</text>
+            <rect x='0' y='0' className={ classes.svg__rect } fill={ color }/>
+            <text x='7' y='38' className={ classes.svg__letter }> { letter }</text>
 
             { flag ? (
-                <text x='4' y='55' className={ classes.word }>{ word }</text>
+                <text x='4' y='55' className={ classes.svg__word }>{ word }</text>
             ): (
                 <>
-                    <text x='4' y='53' className={ classes.word }>{ word }</text>
-                    <text x='4' y='63' className={ classes.word }>{ endWord }</text>
+                    <text x='4' y='53' className={ classes.svg__word }>{ word }</text>
+                    <text x='4' y='63' className={ classes.svg__word }>{ endWord }</text>
                 </>
             ) }
         </svg>

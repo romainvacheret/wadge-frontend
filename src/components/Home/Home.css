@@ -1,8 +1,8 @@
-.Title {
+.home__title {
     text-align: center;
 }
 
-.Image {
+.home__image {
     display: block;
     margin: 0 auto;
     width: 50%;

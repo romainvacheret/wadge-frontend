@@ -8,6 +8,7 @@
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-FrontEnd&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-FrontEnd)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-FrontEnd&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-FrontEnd)
 [![Coverage Status](https://coveralls.io/repos/github/RomainVacheret/Wadge-FrontEnd/badge.svg?branch=master)](https://coveralls.io/github/RomainVacheret/Wadge-FrontEnd?branch=master)
+[![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io/)
 
 # Que faisons nous ?
 Une application proposant des recettes de cuisine à partir de fruits et légumes de saison tout en prennant en compte ce que vous possédez déjà dans votre frigo !

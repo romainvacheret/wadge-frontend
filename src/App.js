@@ -7,7 +7,7 @@ import './App.css';
 
 // Custom components
 import RecipeList from './components/recipe/RecipeList/RecipeList';
-import MonthFilter from "./components/food/FoodList/MonthFilter";
+import FoodList from "./components/food/FoodList/FoodList";
 import FridgeAddition from './components/fridge/FridgeAddition/FridgeAddition';
 import FridgeMainCompo from "./components/fridge/FridgeMainCompo/FridgeMainCompo";
 import Home from './components/Home/Home';
@@ -36,7 +36,7 @@ function App() {
           <Route
             exact
             path='/filter'
-            render={ () => <MonthFilter data-testid="filter"></MonthFilter> }
+            render={ () => <FoodList data-testid="filter"></FoodList> }
           />
           <Route
             exact
@@ -51,8 +51,8 @@ function App() {
               />
           <Route
               exact
-              path='/fridge_addition'
-              render={ () => <FridgeAddition data-testid="fridge_addition"></FridgeAddition>}
+              path='/fridge/addition'
+              render={ () => <FridgeAddition data-testid="fridge/addition"></FridgeAddition>}
           />
         </Switch>
       </BrowserRouter>
