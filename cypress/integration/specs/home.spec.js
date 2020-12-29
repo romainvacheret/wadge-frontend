@@ -8,13 +8,14 @@ context('Home page', () => {
 
     it('Looks for the nav bar', () => cy.title().get('#navbar'))
 
-    it('Makes sure the logo is present', () => {
+    it('Makes sure the logo is present and clickable', () => {
         cy.get('.home__image').should('have.attr', 'src', 'logo.png')
+        cy.get('.home__image').parent().should('have.attr', 'href', '/fridge')
     })
 
     it('Checks the nav bar logo', () => {
         cy.get('#nav-logo').should('have.attr', 'href', '/')
-        cy.get('#nav-logo').children('img#logo-nav').should('have.attr', 'src', 'logo.png')
+        cy.get('#nav-logo').children('img#logo-nav').should('have.attr', 'src', '/logo.png')
     })
 
     it('Checks the link to the filter ', () => {
