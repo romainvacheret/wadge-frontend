@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Typography, Grid } from '@material-ui/core';
 
-import './FridgeMainCompo.css';
+import './FridgeDisplay.css';
 
 import FoodCard from '../../food/FoodCard/FoodCard';
 

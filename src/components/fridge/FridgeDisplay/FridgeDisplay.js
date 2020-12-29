@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import {Typography, Grid, Container} from '@material-ui/core';
-import './FridgeMainCompo.css';
+import './FridgeDisplay.css';
 
 import FridgeCategory from './FridgeCategory';
 
 import { fetchFromUrl } from 'utils'; 
 
-const DisplayFridge = () => {
+const FridgeDisplay = () => {
     const [fridgeList, setFridgeList] = useState({});
 
     useEffect(() => {
@@ -33,4 +33,4 @@ const DisplayFridge = () => {
     );
 }
 
-export default DisplayFridge;
+export default FridgeDisplay;
