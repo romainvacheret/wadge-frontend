@@ -9,7 +9,7 @@ import FoodCard from '../../food/FoodCard/FoodCard';
 import colorList from '../../food/FoodList/color_list.json';
 
 const FridgeCategory = ({ fridgeList, text}) => {
-    return ( <>
+    return fridgeList.length ? ( <>
         <Typography className='fridge-main-compo__label' variant='h4'>
             { text }
         </Typography>
@@ -29,7 +29,7 @@ const FridgeCategory = ({ fridgeList, text}) => {
                 })
             }
         </Grid>
-    </>);
+    </>) : <></>;
 };
 
 export default FridgeCategory;
