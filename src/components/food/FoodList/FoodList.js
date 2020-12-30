@@ -11,7 +11,7 @@ import Filter from './Filter';
 
 const FoodList = () => {
     const [foodList, setFoodList] = useState([]);
-    const [stateOnglet, setStateOnglet] = useState();
+    const [tabNumber, setTabNumber] = useState(new Date().getMonth());
 
     const vegetables = [];
     const fruits = [];
@@ -33,7 +33,7 @@ const FoodList = () => {
             <Typography variant="h3" gutterBottom className="foodlist__title">
                 Liste des fruits et légumes
             </Typography>
-            <Filter stateOnglet = { stateOnglet }setStateOnglet={ setStateOnglet } setFoodList={ setFoodList }/>
+            <Filter tabNumber = { tabNumber }setTabNumber={ setTabNumber } setFoodList={ setFoodList }/>
             <FruitsAndVegetables fruits={ fruits } vegetables={ vegetables }/>
         </>
     );}
