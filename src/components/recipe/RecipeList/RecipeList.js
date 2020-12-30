@@ -10,30 +10,30 @@ const RecipeList = () => {
     useEffect(() => {
         fetchFromUrl('recipes', setRecipeList);
     }, []);
-    
+
     return (
         <>
             <h3 className='recipe-liste__title'> Liste des recettes </h3>
             <ul> {
-            recipeList.map(({ etapes, ingredients, nom, personnes, difficulte}, idx) => 
+            recipeList.map(({ steps, ingredients, name, servings, difficulty}, idx) => 
                 <div key={ idx }> { 
                     <>
                         <ul>
-                            <li>{ nom }</li>
-                            <li>{ `Recette pour : ${ personnes } personnes` }</li>
-                            <li>{ `Difficulte : ${ difficulte }/4` }</li>
+                            <li>{ name }</li>
+                            <li>{ `Recette pour : ${ servings } personnes` }</li>
+                            <li>{ `Difficulte : ${ difficulty }/4` }</li>
                             <li>
                                 <ul>
                                     <h4>Etapes</h4>
-                                    {etapes.map((etape, idx_) => <li key={ idx_ }> { etape } </li>)}
+                                    {steps.map((step, idx_) => <li key={ idx_ }> { step } </li>)}
                                 </ul>
                             </li>
                             <li>
                                 <ul>
                                     <h4>Ingredients</h4>
                                     { ingredients.map((ingredient, idx__) =>{
-                                        let quantity = ingredient.quantite;
-                                        return (<li key={ idx__ }> {ingredient.nom} { quantity !== -1 ? (' : ' + ingredient.quantite) : ''} </li>)
+                                        let quantity = ingredient.quantity;
+                                        return (<li key={ idx__ }> {ingredient.name} { quantity !== -1 ? (' : ' + ingredient.quantity) : ''} </li>)
                                     })}
                                     
                                 </ul>
