@@ -1,16 +1,16 @@
-.recipe-liste__title {
+.recipe__title {
     display: flex;
     align-content: center;
     justify-content: center;
     color: #f19300;
 }
 
-.recipe_name {
+.recipe__name {
     display: flex;
     align-content: center;
     justify-content: center;
     color: #06c106;
 }
-.step-recipe {
+.step__recipe {
     color: #f19300;
 }

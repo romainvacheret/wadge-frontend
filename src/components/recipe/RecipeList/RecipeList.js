@@ -3,14 +3,8 @@ import React, { useState, useEffect } from 'react';
 import './RecipeList.css';
 
 import { fetchFromUrl } from 'utils';
-import {Container, Typography} from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
+import { Grid, Typography, Accordion, AccordionSummary, AccordionDetails } from "@material-ui/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import AccordionDetails from "@material-ui/core/AccordionDetails";
 
 
 const RecipeList = () => {
@@ -22,7 +16,7 @@ const RecipeList = () => {
 
     return (
         <>
-            <Typography variant="h3" className='recipe-liste__title'> Liste des recettes </Typography>
+            <Typography variant="h3" className='recipe__title'> Liste des recettes </Typography>
             <div> {
             recipeList.map(({ steps, ingredients, name, servings, difficulty}, idx) => 
                 <div key={ idx }> { 
@@ -33,7 +27,7 @@ const RecipeList = () => {
                                 aria-controls="panel1a-content"
                                 id="panel1a-header"
                             >
-                                <Typography variant="h4" className="recipe_name">{name}</Typography>
+                                <Typography variant="h4" className="recipe__name">{ name }</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
                                 <Grid>
@@ -42,18 +36,18 @@ const RecipeList = () => {
                                 </Grid>
                                 <Grid>
                                         <ul>
-                                            <h4 className="step-recipe">Etapes</h4>
+                                            <Typography variant="h4" className="step__recipe">Etapes</Typography>
                                             {steps.map((step, idx_) => <Grid key={ idx_ }> { step } </Grid>)}
                                         </ul>
                                     </Grid>
                                     <Grid>
                                         <ul>
-                                            <h4 className="step-recipe">Ingredients</h4>
-                                            { ingredients.map((ingredient, idx__) =>{
-                                                let quantity = ingredient.quantity;
-                                                return (<Grid key={ idx__ }> {ingredient.name} { quantity !== -1 ? (' : ' + ingredient.quantity) : ''} </Grid>)
-                                            })}
-
+                                            <Typography variant="h4" className="step__recipe">Ingredients</Typography>
+                                            { ingredients.map((ingredient, idx__) => 
+                                                <Grid key={ idx__ }> 
+                                                    {ingredient.name} { ingredient.quantity !== '-1' ? (' : ' + ingredient.quantity) : ''}
+                                                </Grid>
+                                            )}
                                         </ul>
                                     </Grid>
                             </AccordionDetails>
