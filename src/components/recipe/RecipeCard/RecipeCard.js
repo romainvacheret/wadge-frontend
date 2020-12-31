@@ -8,7 +8,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 const RecipeCard = ({ recipe }) => {
     const { steps, ingredients, name, servings, difficulty } = recipe;
     return (
-        <Accordion>
+        <Accordion data-testid='recipe-card__accordion'>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon fontSize="large"/>}
                 aria-controls="panel1a-content"
