@@ -7,7 +7,6 @@
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-FrontEnd&metric=sqale_index)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-FrontEnd)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-FrontEnd&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-FrontEnd)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-FrontEnd&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-FrontEnd)
-[![Coverage Status](https://coveralls.io/repos/github/RomainVacheret/Wadge-FrontEnd/badge.svg?branch=master)](https://coveralls.io/github/RomainVacheret/Wadge-FrontEnd?branch=master)
 [![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io/)
 
 # Que faisons nous ?
@@ -43,5 +42,10 @@ Ce repository contient la partie front end de notre application web. Vous trouve
 * **Romain Vacheret** - [Github](https://github.com/RomainVacheret) - [LinkedIn](https://www.linkedin.com/in/romain-vacheret-b58270189/)
 * **Maodo Laba Sow** - [Github](https://github.com/sowJamndg) - [LinkedIn](https://www.linkedin.com/in/maodo-laba-sow-668244184/)
 
+# Tests
+Nos tests d'intégrations sont fait avec [cypress](https://www.cypress.io/).
+La commande `npx cypress run` vous donne le résutlat dans votre terminal.
+Si vous le préférez, utilisez la commande `npx cypress open` pour avoir accès à l'interface graphique.
+###### Note : Pour que ces tests fonctionnent, vous devez avoir lancé le front end et le [back end](https://github.com/RomainVacheret/Wadge-BackEnd) au préalable.
 ## Plus d'informations
 Retrouvez notre [page de présentation](https://romainvacheret.github.io/Wadge-FrontEnd/)
