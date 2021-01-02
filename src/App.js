@@ -9,12 +9,10 @@ import './App.css';
 import RecipeList from './components/recipe/RecipeList/RecipeList';
 import FoodList from "./components/food/FoodList/FoodList";
 import FridgeAddition from './components/fridge/FridgeAddition/FridgeAddition';
-import FridgeMainCompo from "./components/fridge/FridgeMainCompo/FridgeMainCompo";
+import FridgeDisplay from "./components/fridge/FridgeDisplay/FridgeDisplay";
 import Home from './components/Home/Home';
 import ShopMap from './components/map/ShopMap/ShopMap';
 import NavBar from './components/NavBar/NavBar';
-
-
 
 function App() {
   return (
@@ -31,12 +29,12 @@ function App() {
           <Route
             exact
             path='/recipes'
-            render={ () => <RecipeList data-testid="recipes"></RecipeList> }
+            render={ () => <RecipeList data-testid="recipes"/> }
           />
           <Route
             exact
             path='/filter'
-            render={ () => <FoodList data-testid="filter"></FoodList> }
+            render={ () => <FoodList data-testid="filter"/> }
           />
           <Route
             exact
@@ -47,12 +45,12 @@ function App() {
           <Route
               exact
               path='/fridge'
-              render={ () => <FridgeMainCompo data-testid="fridge"></FridgeMainCompo> }
+              render={ () => <FridgeDisplay data-testid="fridge"/> }
               />
           <Route
               exact
               path='/fridge/addition'
-              render={ () => <FridgeAddition data-testid="fridge/addition"></FridgeAddition>}
+              render={ () => <FridgeAddition data-testid="fridge/addition"/> }
           />
         </Switch>
       </BrowserRouter>

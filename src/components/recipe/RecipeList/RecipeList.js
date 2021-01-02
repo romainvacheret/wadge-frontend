@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 import './RecipeList.css';
+import RecipeCard from '../RecipeCard/RecipeCard';
 
-import { fetchFromUrl } from 'utils'; 
+import { fetchFromUrl } from 'utils';
+import { Typography } from "@material-ui/core";
 
 const RecipeList = () => {
     const [recipeList, setRecipeList] = useState([]);
@@ -10,40 +12,15 @@ const RecipeList = () => {
     useEffect(() => {
         fetchFromUrl('recipes', setRecipeList);
     }, []);
-    
+
     return (
         <>
-            <h3 className='recipe-liste__title'> Liste des recettes </h3>
-            <ul> {
-            recipeList.map(({ etapes, ingredients, nom, personnes, difficulte}, idx) => 
-                <div key={ idx }> { 
-                    <>
-                        <ul>
-                            <li>{ nom }</li>
-                            <li>{ `Recette pour : ${ personnes } personnes` }</li>
-                            <li>{ `Difficulte : ${ difficulte }/4` }</li>
-                            <li>
-                                <ul>
-                                    <h4>Etapes</h4>
-                                    {etapes.map((etape, idx_) => <li key={ idx_ }> { etape } </li>)}
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <h4>Ingredients</h4>
-                                    { ingredients.map((ingredient, idx__) =>{
-                                        let quantity = ingredient.quantite;
-                                        return (<li key={ idx__ }> {ingredient.nom} { quantity !== -1 ? (' : ' + ingredient.quantite) : ''} </li>)
-                                    })}
-                                    
-                                </ul>
-                            </li>
-                        </ul>
-                        <br></br>
-                    </>
-                } </div> 
+            <Typography variant="h3" className='recipe__title'> Liste des recettes </Typography>
+            <div className='recipe__container'> {
+            recipeList.map((recipe, idx) => 
+                <RecipeCard recipe={ recipe } key={ idx }/>
                 )
-            } </ul>
+            } </div>
         </>
     );
 }

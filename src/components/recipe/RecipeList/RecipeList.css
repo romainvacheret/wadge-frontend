@@ -1,3 +1,13 @@
-.recipe-liste__title {
-    text-align: center;
+.recipe__title {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    color: #f19300;
+}
+
+.recipe__name {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    color: #06c106;
 }
