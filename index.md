@@ -4,21 +4,20 @@ Nous vous proposons des recettes de cuisine utilisant à la fois les fruits et l
 
 ## Où trouver notre application ?
 Pour le moment, elle est toujours en développement. <br>
-Cependant, si le code source vous intéresse, vous pouvez le front end [ici](https://github.com/RomainVacheret/Wadge-FrontEnd) et le back end [ici](https://github.com/RomainVacheret/Wadge-BackEnd)
+Cependant, si le code source vous intéresse, vous pouvez découvrir le front end [ici](https://github.com/RomainVacheret/Wadge-FrontEnd) ainsi que le back end [ici](https://github.com/RomainVacheret/Wadge-BackEnd)
 
 ## Features
 * Carte Google Maps avec des marqueurs indiquant la position des magasins bio Naturalia parisiens 
-* Liste des magasins bio Naturalia à à une distance de moins de 2km de la position actuelle de l'utilisateur
-* Liste des fruits et légumes avec leurs mois de disponibilité
-* Liste des fruits et légumes par mois 
-* Liste des dates de péremption des aliments aux différentes dates
+* Liste des magasins bio Naturalia proche de la position actuelle de l'utilisateur
+* Liste des fruits et légumes disponibles par mois (ainsi que leurs durée de validité)
 * Ajouter des fruits et légumes au frigo
 * Affichage du contenu du frigo
 * Liste de recettes
-* Ajout représentation graphique des fruits et légumes
+* Ajout d'une représentation graphique des fruits et légumes
 * Affichage intuitif du frigo
 * Affichage intuitif des aliments filtrés par mois
 * Barre de recherche pour les aliments à ajouter au frigo
+* Affichage intuitif des recettes
 
 ## L'équipe est composée de :
 * **Fanny Lourioux** - [Github](https://github.com/FannyLourioux) - [LinkedIn](https://www.linkedin.com/in/fanny-lourioux-4744941a0/)
