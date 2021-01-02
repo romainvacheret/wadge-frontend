@@ -43,9 +43,9 @@ Ce repository contient la partie front end de notre application web. Vous trouve
 * **Maodo Laba Sow** - [Github](https://github.com/sowJamndg) - [LinkedIn](https://www.linkedin.com/in/maodo-laba-sow-668244184/)
 
 # Tests
-Nous tests d'intégrations sont fait avec [cypress](https://www.cypress.io/).
+Nos tests d'intégrations sont fait avec [cypress](https://www.cypress.io/).
 La commande `npx cypress run` vous donne le résutlat dans votre terminal.
 Si vous le préférez, utilisez la commande `npx cypress open` pour avoir accès à l'interface graphique.
-###### Note : Pour que ces tests fonctionnent, vous devez avoir lancé le front end et le back au préalable.
+###### Note : Pour que ces tests fonctionnent, vous devez avoir lancé le front end et le [back end](https://github.com/RomainVacheret/Wadge-BackEnd) au préalable.
 ## Plus d'informations
 Retrouvez notre [page de présentation](https://romainvacheret.github.io/Wadge-FrontEnd/)
