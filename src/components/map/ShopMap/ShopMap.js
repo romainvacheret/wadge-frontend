@@ -7,12 +7,7 @@ import './ShopMap.css';
 
 const API_KEY = process.env.REACT_APP_GOOGLE_API;
 
-const ShopMap = (props) => {
-    const [currentPosition, setCurrentPosition] = useState({
-        lat: 48.8566,
-        lng: 2.3522,
-        accurate: 0
-    });
+const ShopMap = () => {
 
     const [markers, setMarkers] = useState([{
         lat: 48.855050,
@@ -22,33 +17,25 @@ const ShopMap = (props) => {
 
     const [localStores, setLocalStores] = useState([]);
 
-    const getCurrentPosition = () => {
-        navigator.geolocation.getCurrentPosition((position) => {
-            const crd = position.coords;
-            getShopList(crd.latitude, crd.longitude);  
-        });
-    }
 
-    const getShopList = (lat, lng) => {
-        if(lat !== 0 && lng !== 0) {
-            fetch(`http://localhost:8080/map/${lat}/${lng}`, {
-            method: "GET",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-            })
-            .then(response => response.json())
-            .then(response => setLocalStores([...response['candidates']]))
-            .catch(err => console.log('Error: ', err))
-        }
+    const getShopList = () => {
+        fetch(`http://localhost:8080/map`, {
+        method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+        })
+        .then(response => response.json())
+        .then(response => setLocalStores([...response['candidates']]))
+        .catch(err => console.log('Error: ', err))
     }
 
     const AnyReactComponent = ({ text }) => <div style={{ height: 15, width: 50 }}className="shop-map__marker"><div>{text}</div></div>
 
     useEffect(() => setMarkers([...data]), []);
 
-    useEffect(() => getCurrentPosition(), []);
+    useEffect(() => getShopList(), []);
 
     return (
         <>
@@ -56,7 +43,7 @@ const ShopMap = (props) => {
             <div className="shop-map__map" style={{ height: 600, width: 800 }}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: API_KEY }}
-                    defaultCenter={ currentPosition }
+                    defaultCenter={{ lat: 48.8566, lng: 2.3522, accurate: 0 }}
                     defaultZoom={ 12 }
                 >
 
@@ -72,7 +59,7 @@ const ShopMap = (props) => {
             </div>
             {!localStores.length ? <></> : (
                 <>
-                    <h3 className='shop-map__label'> Liste des magasins à moins de 2kms</h3>
+                    <h3 className='shop-map__label'> Liste des magasins Naturalia proches</h3>
                     <ul> {
                     localStores.map(({ formatted_address, opening_hours }, idx) => {
                         return ( 
@@ -80,7 +67,7 @@ const ShopMap = (props) => {
                                 <>
                                     <ul>
                                         <li>{ `Adresse : ${ formatted_address }` }</li>
-                                        <li>{ `Est ouvert: ${ opening_hours['open_now'] ? 'Oui' : 'Non' }` }</li>
+                                        <li>{ `${ opening_hours['open_now'] ? 'Ouvert' : 'Fermé' }` }</li>
                                     </ul>
                                     <br></br>
                                 </>
