@@ -59,7 +59,7 @@ const ShopMap = () => {
             </div>
             {!localStores.length ? <></> : (
                 <>
-                    <h3 className='shop-map__label'> Liste des magasins à moins de 2kms</h3>
+                    <h3 className='shop-map__label'> Liste des magasins Naturalia proches</h3>
                     <ul> {
                     localStores.map(({ formatted_address, opening_hours }, idx) => {
                         return ( 
@@ -67,7 +67,7 @@ const ShopMap = () => {
                                 <>
                                     <ul>
                                         <li>{ `Adresse : ${ formatted_address }` }</li>
-                                        <li>{ `Est ouvert: ${ opening_hours['open_now'] ? 'Oui' : 'Non' }` }</li>
+                                        <li>{ `${ opening_hours['open_now'] ? 'Ouvert' : 'Fermé' }` }</li>
                                     </ul>
                                     <br></br>
                                 </>
