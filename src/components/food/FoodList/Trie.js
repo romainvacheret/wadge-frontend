@@ -69,7 +69,7 @@ const handleClose = () => {
           <MenuItem onClick={ () => { setTabNumber(4);setChoice(0);}}>Par Nom</MenuItem>
           <MenuItem onClick={ () => {setTabNumber(4);setChoice(1); }}>Par Date Peremption</MenuItem>
           </Menu>
-          <div onClick={handleClick} aria-controls="simple-menu" aria-haspopup="true"  className={`monthfilter-bar__tab ${tabNumber === 5 ? 'monthfilter-bar__tab__current': ''}`}>Join             
+          <div onClick={handleClick} aria-controls="simple-menu" aria-haspopup="true"  className={`monthfilter-bar__tab ${tabNumber === 5 ? 'monthfilter-bar__tab__current': ''}`}>Juin             
       </div><Menu
            id="simple-menu"
           anchorEl={anchorEl}
@@ -122,7 +122,7 @@ const handleClose = () => {
           <MenuItem onClick={ () => {setTabNumber(9);setChoice(1); }}>Par Date Peremption</MenuItem>
          
           </Menu>
-          <div onClick={handleClick} aria-controls="simple-menu" aria-haspopup="true"  className={`monthfilter-bar__tab ${tabNumber === 9 ? 'monthfilter-bar__tab__current': ''}`}>Octobre              
+          <div onClick={handleClick} aria-controls="simple-menu" aria-haspopup="true"  className={`monthfilter-bar__tab ${tabNumber === 10 ? 'monthfilter-bar__tab__current': ''}`}>Novembre              
       </div><Menu
            id="simple-menu"
           anchorEl={anchorEl}
@@ -133,7 +133,7 @@ const handleClose = () => {
           <MenuItem onClick={ () => {setTabNumber(10);setChoice(1); }}>Par Date Peremption</MenuItem>
          
           </Menu>
-          <div onClick={handleClick} aria-controls="simple-menu" aria-haspopup="true"  className={`monthfilter-bar__tab ${tabNumber === 9 ? 'monthfilter-bar__tab__current': ''}`}>Decembre             
+          <div onClick={handleClick} aria-controls="simple-menu" aria-haspopup="true"  className={`monthfilter-bar__tab ${tabNumber === 11 ? 'monthfilter-bar__tab__current': ''}`}>Decembre             
       </div><Menu
            id="simple-menu"
           anchorEl={anchorEl}
