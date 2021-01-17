@@ -9,7 +9,7 @@ const Counter = ({counters, idx, handlePlus, handleMinus}) => {
     return (
         <Grid container>
                 <Typography >
-            <Button onClick={ () => handleMinus(idx) } color="secondary" >
+            <Button onClick={ () => handleMinus(idx) } color="secondary" > 
                 <IndeterminateCheckBoxIcon fontSize="large"/>
             </Button>
                 {counters[idx].val}

@@ -7,7 +7,7 @@ import axios from 'axios'
 import ModifiableFood from '../../food/ModifiableFood/ModifiableFood';
 import colorList from '../../food/FoodList/color_list.json';
 import FruitsAndVegetables from '../../food/FruitsAndVegetables/FruitsAndVegetables';
-import SearchBar from './SearchBar';
+import SearchBar from '../../SearchBar/SearchBar';
 
 import { fetchFromUrl } from 'utils'; 
 
@@ -90,7 +90,9 @@ const FridgeAddition = () => {
             <Typography variant="h3" className="fridge-addition__title">
                 Liste des fruits et légumes à ajouter
             </Typography> 
+            
             <SearchBar searchFood={ searchFood } handleChange={ handleChange }/>
+          
             <FruitsAndVegetables fruits={ fruits } vegetables={ vegetables }/>
             <Button 
                 onClick={ addFoodToFridge }

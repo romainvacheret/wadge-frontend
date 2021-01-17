@@ -45,7 +45,7 @@ function App() {
           <Route
               exact
               path='/fridge'
-              render={ () => <FridgeDisplay data-testid="fridge"/> }
+              render={ () => <FridgeDisplay data-testid="fridge"/> } 
               />
           <Route
               exact
