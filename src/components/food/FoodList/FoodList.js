@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { Grid, Typography, FormControlLabel, Switch } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
 
 import colorList from './color_list.json';
 import './FoodList.css';
@@ -9,6 +10,20 @@ import FoodCard from "../FoodCard/FoodCard";
 import FruitsAndVegetables from '../FruitsAndVegetables/FruitsAndVegetables';
 import Filter from './Filter';
 import SearchBar from '../../SearchBar/SearchBar';
+
+const CustomSwitch = withStyles({
+  switchBase: {
+    color: 'limegreen',
+    '&$checked': {
+      color: '#f19300',
+    },
+    '&$checked + $track': {
+      backgroundColor: '#f19300',
+    },
+  },
+  checked: {},
+  track: {},
+})(Switch);
 
 const FoodList = () => {
     const [foodList, setFoodList] = useState([]);
@@ -39,27 +54,28 @@ const FoodList = () => {
 
     return (
         <>
-
             <Typography variant="h3" gutterBottom className="foodlist__title">
                 Liste des fruits et légumes
             </Typography>
-            
             <Grid container item xs={12} spacing={4}>
-                <SearchBar searchFood={ searchFood } handleChange={ handleChange } />
-                <FormControlLabel
-                    control={
-                    <Switch
-                        checked={byDays}
-                        onChange={handleSwitch}
-                        color="primary"
+                <Grid container>
+                    <SearchBar searchFood={ searchFood } handleChange={ handleChange } />
+                </Grid>
+                <Grid item >
+                    <FormControlLabel
+                        control={
+                            <CustomSwitch
+                                checked={byDays}
+                                onChange={handleSwitch}
+                            />
+                        }
+                        label={ <Typography variant="h5" style= {{ color: 'limegreen' }}>Trier par jours </Typography>}
                     />
-                    }
-                    label="Trier par jours"
-                />
+                </Grid>
             </Grid>
             
             <Filter tabNumber = { tabNumber } byDays={ byDays } setTabNumber={ setTabNumber } setFoodList={ setFoodList }/>
-             <FruitsAndVegetables fruits={ fruits } vegetables={ vegetables }/>
+            <FruitsAndVegetables fruits={ fruits } vegetables={ vegetables }/>
         </>
     );}
 
