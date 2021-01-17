@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, FormControlLabel, Switch } from '@material-ui/core';
 
 import colorList from './color_list.json';
 import './FoodList.css';
@@ -14,6 +14,7 @@ const FoodList = () => {
     const [foodList, setFoodList] = useState([]);
     const [tabNumber, setTabNumber] = useState(new Date().getMonth());
     const [searchFood, setSearchFood] = useState('');
+    const [byDays, setByDays] = useState(false);
 
     const vegetables = [];
     const fruits = [];
@@ -32,20 +33,32 @@ const FoodList = () => {
         })
     };
     sortFood();
+
     const handleChange = (event) => setSearchFood(event.target.value);
+    const handleSwitch = () => setByDays(!byDays);
+
     return (
         <>
 
             <Typography variant="h3" gutterBottom className="foodlist__title">
                 Liste des fruits et légumes
             </Typography>
-            <>
-            <Grid container item xs={12} spacing={4}>
-            <SearchBar searchFood={ searchFood } handleChange={ handleChange } />
-             </Grid>
-             </>
             
-            <Filter tabNumber = { tabNumber }setTabNumber={ setTabNumber } setFoodList={ setFoodList }/>
+            <Grid container item xs={12} spacing={4}>
+                <SearchBar searchFood={ searchFood } handleChange={ handleChange } />
+                <FormControlLabel
+                    control={
+                    <Switch
+                        checked={byDays}
+                        onChange={handleSwitch}
+                        color="primary"
+                    />
+                    }
+                    label="Trier par jours"
+                />
+            </Grid>
+            
+            <Filter tabNumber = { tabNumber } byDays={ byDays } setTabNumber={ setTabNumber } setFoodList={ setFoodList }/>
              <FruitsAndVegetables fruits={ fruits } vegetables={ vegetables }/>
         </>
     );}
