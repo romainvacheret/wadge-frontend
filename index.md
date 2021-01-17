@@ -10,6 +10,8 @@ Cependant, si le code source vous intéresse, vous pouvez découvrir le front en
 * Carte Google Maps avec des marqueurs indiquant la position des magasins bio Naturalia parisiens 
 * Liste des magasins bio Naturalia proche de la position actuelle de l'utilisateur
 * Liste des fruits et légumes disponibles par mois (ainsi que leurs durée de validité)
+* Barre de recherche pour la liste des aliments
+* Tri par nom ou par jour de consommation
 * Ajouter des fruits et légumes au frigo
 * Affichage du contenu du frigo
 * Liste de recettes
@@ -18,6 +20,7 @@ Cependant, si le code source vous intéresse, vous pouvez découvrir le front en
 * Affichage intuitif des aliments filtrés par mois
 * Barre de recherche pour les aliments à ajouter au frigo
 * Affichage intuitif des recettes
+* Filtre des recettes en fonction du contenu du frigo
 
 ## L'équipe est composée de :
 * **Fanny Lourioux** - [Github](https://github.com/FannyLourioux) - [LinkedIn](https://www.linkedin.com/in/fanny-lourioux-4744941a0/)
