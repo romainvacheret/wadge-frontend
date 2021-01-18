@@ -5,7 +5,7 @@ import RecipeCard from '../RecipeCard/RecipeCard';
 import FilterSelect from './FilterSelect';
 
 import { fetchFromUrl } from 'utils';
-import { Typography, Button } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 const RecipeList = () => {
     const [recipeList, setRecipeList] = useState([]);
@@ -13,9 +13,6 @@ const RecipeList = () => {
     useEffect(() => {
         fetchFromUrl('recipes', setRecipeList);
     }, []);
-
-    const getRecipesUsingFridge = () => fetchFromUrl('recipes/fridge', setRecipeList);
-    
 
     return (
         <>
