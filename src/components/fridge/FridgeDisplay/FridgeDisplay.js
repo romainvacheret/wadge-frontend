@@ -16,7 +16,7 @@ const FridgeDisplay = () => {
     console.log('fridge', fridgeList);
     return (
         <>
-            <Typography variant='h2' className='fridge-main-compo__label' > Contenu de votre frigo </Typography>
+            <Typography variant='h3' className='fridge-main-compo__title' > Contenu de votre frigo </Typography>
             <Container className='fridge-main-compo__container'>
                 <Grid >{
                     Object.keys(fridgeList).length ?( <>
@@ -28,6 +28,7 @@ const FridgeDisplay = () => {
                         <FridgeCategory fridgeList={ fridgeList['EXPIRED'] } text={ 'Périmés' }/>
                     </> ): <></>
                 }</Grid>
+                
             </Container>
         </>
     );

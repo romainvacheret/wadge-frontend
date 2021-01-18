@@ -4,6 +4,7 @@ import GoogleMapReact from 'google-map-react';
 import data from './shops.json';
 
 import './ShopMap.css';
+import { Typography } from '@material-ui/core';
 
 const API_KEY = process.env.REACT_APP_GOOGLE_API;
 
@@ -39,7 +40,7 @@ const ShopMap = () => {
 
     return (
         <>
-            <h1 className="shop-map__label">Liste des magasins Naturalia à Paris</h1>
+            <Typography  variant="h3" className="shop-map__label">Liste des magasins Naturalia à Paris</Typography>
             <div className="shop-map__map" style={{ height: 600, width: 800 }}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: API_KEY }}
