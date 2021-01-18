@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Grid, Typography, FormControlLabel, Switch } from '@material-ui/core';
+import { Grid, Typography, FormControlLabel, Switch, GridList, GridListTile } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
 import colorList from './color_list.json';
@@ -54,17 +54,16 @@ const FoodList = () => {
 
     return (
         <>
-            <Typography variant="h3" gutterBottom className="foodlist__title">
+            <Typography variant="h3" gutterBottom className="foodlist__title" font-family= "cursive">
                 Liste des fruits et légumes
             </Typography>
-            <Grid container item xs={12} spacing={4}>
-                <Grid container>
+                <Grid item className="foodlist__searchBar">
                     <SearchBar searchFood={ searchFood } handleChange={ handleChange } />
                 </Grid>
-                <Grid item >
-                    <FormControlLabel
+                <Grid item className="foodlist__switch">
+                    <FormControlLabel 
                         control={
-                            <CustomSwitch
+                            <CustomSwitch 
                                 checked={byDays}
                                 onChange={handleSwitch}
                             />
@@ -72,8 +71,6 @@ const FoodList = () => {
                         label={ <Typography variant="h5" style= {{ color: 'limegreen' }}>Trier par jours </Typography>}
                     />
                 </Grid>
-            </Grid>
-            
             <Filter tabNumber = { tabNumber } byDays={ byDays } setTabNumber={ setTabNumber } setFoodList={ setFoodList }/>
             <FruitsAndVegetables fruits={ fruits } vegetables={ vegetables }/>
         </>

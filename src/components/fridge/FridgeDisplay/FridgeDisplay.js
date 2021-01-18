@@ -16,18 +16,19 @@ const FridgeDisplay = () => {
     console.log('fridge', fridgeList);
     return (
         <>
-            <Typography variant='h2' className='fridge-main-compo__label' > Contenu de votre frigo </Typography>
+            <Typography variant='h3' className='fridge-main-compo__title' > Contenu de votre frigo </Typography>
             <Container className='fridge-main-compo__container'>
                 <Grid >{
                     Object.keys(fridgeList).length ?( <>
-                        <FridgeCategory fridgeList={ fridgeList['TWO_DAYS'] } text={ 'Préremption dans 2 jours' }/>
-                        <FridgeCategory fridgeList={ fridgeList['FIVE_DAYS'] } text={ 'Préremption dans 5 jours' }/>
-                        <FridgeCategory fridgeList={ fridgeList['SEVEN_DAYS'] } text={ 'Préremption dans 7 jours' }/>
-                        <FridgeCategory fridgeList={ fridgeList['FORTEEN_DAYS'] } text={ 'Préremption dans 14 jours' }/>
-                        <FridgeCategory fridgeList={ fridgeList['OTHER'] } text={ 'Préremption dans plus de 14 jours' }/>
+                        <FridgeCategory fridgeList={ fridgeList['TWO_DAYS'] } text={ 'Péremption dans 2 jours' }/>
+                        <FridgeCategory fridgeList={ fridgeList['FIVE_DAYS'] } text={ 'Péremption dans 5 jours' }/>
+                        <FridgeCategory fridgeList={ fridgeList['SEVEN_DAYS'] } text={ 'Péremption dans 7 jours' }/>
+                        <FridgeCategory fridgeList={ fridgeList['FOURTEEN_DAYS'] } text={ 'Péremption dans 14 jours' }/>
+                        <FridgeCategory fridgeList={ fridgeList['OTHER'] } text={ 'Péremption dans plus de 14 jours' }/>
                         <FridgeCategory fridgeList={ fridgeList['EXPIRED'] } text={ 'Périmés' }/>
                     </> ): <></>
                 }</Grid>
+                
             </Container>
         </>
     );
