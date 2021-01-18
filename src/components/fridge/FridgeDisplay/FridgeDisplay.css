@@ -1,5 +1,14 @@
+.fridge-main-compo__title {
+    color: limegreen;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-bottom: 1%;
+}
+
+
 .fridge-main-compo__label {
-    color: #282c34;
+    color:  #f19300;
     display: flex;
     align-content: center;
     justify-content: center;
