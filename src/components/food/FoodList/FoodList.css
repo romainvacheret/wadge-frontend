@@ -10,3 +10,14 @@
     justify-content: center;
     color: #282c34;
 }
+.foodlist__searchBar{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.foodlist__switch{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
