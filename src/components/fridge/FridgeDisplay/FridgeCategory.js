@@ -15,17 +15,21 @@ const FridgeCategory = ({ fridgeList, text}) => {
         </Typography>
         <Grid container justify='center'
             alignItems='center'>
-            {
+            {   // TODO -> improve those nested loops
                 fridgeList.map(food => {
                     const { name, products } = food;
-                    const restructuredFood = products.map(product => { return {name, ...product} })
-                    return restructuredFood.flat();
+                    const restructuredFood = products.map(product => { return {name, ...product} });
+                    const x = restructuredFood.flat();
+                    return x;
                 }).map((food_, idx_) => {
-                    const { name, insertionDate, quantity } = food_[0];
+                    return food_.map(f => {
+                        const { name, insertionDate, quantity } = f;
                     return (
                         <Grid key={ idx_ } item >
                             <FoodCard foodAttributes={{ word: name, color: colorList[name] }} data={{ "Date d'ajout": insertionDate, "Quantité": quantity }}/>
                         </Grid>); 
+                    })
+                    
                 })
             }
         </Grid>
