@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Select, InputLabel, TextField, Button } from '@material-ui/core';
 import { fetchFromUrl } from 'utils';
-import axios from 'axios';
 
 const FilterSelect = ({ setRecipeList }) => {
 
@@ -9,7 +8,6 @@ const FilterSelect = ({ setRecipeList }) => {
         let result = document.getElementById("food_list").value;
         result = result.split(",");
         console.log(result);
-        //axios.post("http://localhost:8080/recipes/listfood", result).then(response => response.).then(response => setRecipeList([...response]));
         fetch(`http://localhost:8080/recipes/listfood`, {
             method: "POST",
             body: JSON.stringify(result),
