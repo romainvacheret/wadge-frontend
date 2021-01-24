@@ -1,51 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import {Typography, Grid, Container} from '@material-ui/core';
+import { Typography, Grid, Container, Button } from '@material-ui/core';
 import './FridgeDisplay.css';
 
 import FridgeCategory from './FridgeCategory';
 
 import { fetchFromUrl } from 'utils'; 
+import axios from "axios";
 
 const FridgeDisplay = () => {
     const [fridgeList, setFridgeList] = useState({});
     const [counters, setCounters] = useState({});
 
-    useEffect(() => {
-        fetchFromUrl('alerts', initializeCounters);
-    }, []);
-
-    // useEffect(() => {
-    //     console.log("xx", fridgeList);
-    //     initializeCounters();
-    // }, [fridgeList]);
+    useEffect(() =>  fetchFromUrl('alerts', initializeCounters), []);
 
     const initializeCounters = (list) => {
         const tmp = {}
-        console.log('Y', list);
-        // if(fridgeList.values().length) {
-            Object.keys(list).forEach(key => {
-                const fList = list[key];
-                console.log(fList);
-                fList.forEach(food => 
-                    food.products.forEach(product => {
-                            tmp[product.id] = { val: product.quantity, max: product.quantity, fridgeFood: food.name };
-                            console.log('prd', product);
-                        })
-                );
-            })
+        Object.keys(list).forEach(key => {
+            const fList = list[key];
+            fList.forEach(food => 
+                food.products.forEach(product => tmp[product.id] = { 
+                    val: product.quantity, 
+                    max: product.quantity, 
+                    fridgeFood: food.name 
+                })
+            );
+        })
 
-            console.log('TOTOTOTOT');
-            console.log('t', tmp);
-            setCounters(tmp);
-            setFridgeList(list);
-        // console.log(counters);
-        // }
-        
-        
-        
+        setCounters(tmp);
+        setFridgeList(list);
     }
 
-    console.log('fridge', fridgeList);
+    const updateFridge = () => {
+        const body = Object.keys(counters).map(id => { return {id, ...counters[id]}})
+            .filter(counter => counter.max !== counter.val)
+            .map(dict => { return {id: dict.id, quantity: dict.val, fridgeFood: dict.fridgeFood} });
+        if(body.length) {
+            axios.post('http://localhost:8080/fridge/update', body);
+        }
+    } 
+
     return (
         <>
             <Typography variant='h3' className='fridge-main-compo__title' > Contenu de votre frigo </Typography>
@@ -60,7 +53,14 @@ const FridgeDisplay = () => {
                         <FridgeCategory counters={ counters } setCounters={ setCounters } fridgeList={ fridgeList['EXPIRED'] } text={ 'Périmés' }/>
                     </> ): <></>
                 }</Grid>
-                
+            <Button 
+            onClick={ updateFridge }
+            variant='contained' 
+            color='primary'
+            href="/fridge"
+        >
+            Prendre les aliments
+        </Button>
             </Container>
         </>
     );
