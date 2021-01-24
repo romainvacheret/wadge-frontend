@@ -13,6 +13,7 @@ Cependant, si le code source vous intéresse, vous pouvez découvrir le front en
 * Barre de recherche pour la liste des aliments
 * Tri par nom ou par jour de consommation
 * Ajouter des fruits et légumes au frigo
+* Supprimer des aliments du frigo
 * Affichage du contenu du frigo
 * Liste de recettes
 * Ajout d'une représentation graphique des fruits et légumes
@@ -21,6 +22,7 @@ Cependant, si le code source vous intéresse, vous pouvez découvrir le front en
 * Barre de recherche pour les aliments à ajouter au frigo
 * Affichage intuitif des recettes
 * Filtre des recettes en fonction du contenu du frigo
+* Filtre des recettes en fonction d'une liste donnée par l'utilisateur
 
 ## L'équipe est composée de :
 * **Fanny Lourioux** - [Github](https://github.com/FannyLourioux) - [LinkedIn](https://www.linkedin.com/in/fanny-lourioux-4744941a0/)
