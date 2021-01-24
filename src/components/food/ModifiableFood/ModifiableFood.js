@@ -5,6 +5,8 @@ import Counter from '../../utils/Counter/Counter';
 
 const ModifiableFood = ({ foodAttributes, data, counterProps }) => {
     const { handlePlus, handleMinus, counters, idx} = counterProps;
+    console.log('cc props', counterProps);
+    console.log('ID, counters', idx, counters);
     return (
         <Grid
             container
