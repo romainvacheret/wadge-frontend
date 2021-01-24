@@ -4,7 +4,7 @@ import FoodCard from '../FoodCard/FoodCard';
 import Counter from '../../utils/Counter/Counter';
 
 const ModifiableFood = ({ foodAttributes, data, counterProps }) => {
-    const { handlePlus, handleMinus, counters, idx} = counterProps;
+    const { handlePlus, handleMinus, counters, idx } = counterProps;
     return (
         <Grid
             container
