@@ -13,6 +13,7 @@ import FridgeDisplay from "./components/fridge/FridgeDisplay/FridgeDisplay";
 import Home from './components/Home/Home';
 import ShopMap from './components/map/ShopMap/ShopMap';
 import NavBar from './components/NavBar/NavBar';
+import RecipeSteps from "./components/recipe/RecipeSteps/RecipeSteps";
 
 function App() {
   return (
@@ -30,6 +31,11 @@ function App() {
             exact
             path='/recipes'
             render={ () => <RecipeList data-testid="recipes"/> }
+          />
+          <Route
+              exact
+              path='/recipes/step'
+              render={ (props) => <RecipeSteps {...props}/> }
           />
           <Route
             exact

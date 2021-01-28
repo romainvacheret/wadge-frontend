@@ -11,9 +11,11 @@ import {
     Typography
 } from "@material-ui/core";
 
-const RecipeSteps = ({ recipe }) => {
-    const {recipeSteps, ingredients, name, servings, difficulty} = recipe;
-    const nbStep = recipeSteps.length;
+const RecipeSteps = ( props ) => {
+    const recipe = props.location.state.recipe;
+    const {steps, ingredients, name, servings, difficulty} = recipe;
+    console.log(steps);
+    const nbStep = steps.length;
 
     const getSteps = ()=> {
         const s = [];
@@ -24,7 +26,7 @@ const RecipeSteps = ({ recipe }) => {
     }
 
     const [activeStep, setActiveStep] = React.useState(0);
-    const steps = getSteps();
+    const allSteps = getSteps();
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -43,16 +45,16 @@ const RecipeSteps = ({ recipe }) => {
                 <Typography variant="h5">{ `Difficulté : ${ difficulty }/4` }</Typography>
             </Grid>
             <Stepper activeStep={activeStep} orientation="vertical">
-                {steps.map((label, index) => (
-                    <Step key={label}>
-                        <StepLabel>{label}</StepLabel>
+                {allSteps.map((label, index) => (
+                    <Step key={ label }>
+                        <StepLabel>{ label }</StepLabel>
                         <StepContent>
-                            <Typography>{recipeSteps[index]}</Typography>
+                            <Typography>{ steps[index] }</Typography>
                             <div className="faut_tester_pour_savoir">
                                 <div>
                                     <Button
-                                        disabled={activeStep === 0}
-                                        onClick={handleBack}
+                                        disabled={ activeStep === 0 }
+                                        onClick={ handleBack }
                                         className="button"
                                     >
                                         Retour à l'étape précédente
@@ -60,10 +62,10 @@ const RecipeSteps = ({ recipe }) => {
                                     <Button
                                         variant="contained"
                                         color="primary"
-                                        onClick={handleNext}
+                                        onClick={ handleNext }
                                         className="button"
                                     >
-                                        {activeStep === steps.length - 1 ? 'Terminer la recette' : 'Etape suivante'}
+                                        { activeStep === allSteps.length - 1 ? 'Terminer la recette' : 'Etape suivante' }
                                     </Button>
                                 </div>
                             </div>
