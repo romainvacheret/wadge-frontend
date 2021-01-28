@@ -1,21 +1,43 @@
 import React from 'react';
 
+import './RecipeSteps.css';
 
 import {
-    Button,
+    Button, Checkbox,
     Grid,
+    List,
+    ListItem, ListItemIcon,
+    Paper,
     Step,
     StepContent,
     StepLabel,
     Stepper,
     Typography
 } from "@material-ui/core";
+import { CheckBox } from "@material-ui/icons";
+import { withStyles } from '@material-ui/core/styles';
+
+const CustomButton = withStyles({
+    button: {
+        color: 'limegreen'
+    },
+})(Button);
+
+const CustomStepper = withStyles({
+    circle: {
+        width: 8,
+        height: 8,
+        borderRadius: '50%',
+        backgroundColor: 'limegreen',
+        color: 'orange'
+    }
+})(Stepper);
 
 const RecipeSteps = ( props ) => {
     const recipe = props.location.state.recipe;
     const {steps, ingredients, name, servings, difficulty} = recipe;
-    console.log(steps);
     const nbStep = steps.length;
+    const [checked, setChecked] = React.useState([]);
 
     const getSteps = ()=> {
         const s = [];
@@ -38,42 +60,78 @@ const RecipeSteps = ( props ) => {
 
     return (
 
-        <div className="je_sais_pas">
-            <Typography variant="h4" className="recipe__name">{ name }</Typography>
-            <Grid>
-                <Typography variant="h5">{ `Recette pour : ${ servings } personnes` }</Typography>
-                <Typography variant="h5">{ `Difficulté : ${ difficulty }/4` }</Typography>
+        <Grid>
+            <Typography variant="h3" className="recipe__name">{ name }</Typography>
+            <Grid container>
+                <Grid item xs={2} >
+                    <Typography variant="h4" style= {{ color: '#f19300' }}>{ `Recette pour : ${ servings } personnes` }</Typography>
+                    <Typography variant="h4" style= {{ color: '#f19300' }}>{ `Difficulté : ${ difficulty }/4` }</Typography>
+                    <Grid item xs={3}>
+                        <Button
+                            variant="contained"
+                            disabled={ activeStep === 0 }
+                            onClick={ handleBack }
+                        >
+                            Retour à l'étape précédente
+                        </Button>
+                    </Grid>
+                    <Grid item xs={3} >
+                        <CustomButton
+                            variant="contained"
+                            onClick={ handleNext }
+                            disabled={ activeStep === allSteps.length }
+                        >
+                            { activeStep === allSteps.length - 1 ? 'Terminer la recette' : 'Etape suivante' }
+                        </CustomButton>
+                    </Grid>
+                    <Grid item>
+                        {activeStep === steps.length && (
+                            <Paper square elevation={0} >
+                                <Typography variant="h4" style= {{ color: 'limegreen' }}>La recette est terminée</Typography>
+                                <Button
+                                    variant="contained"
+                                    href="/recipes">
+                                    Retourner sur la page des recettes
+                                </Button>
+                            </Paper>
+                        )}
+                    </Grid>
+                </Grid>
+                <Grid item xs={6}>
+                <CustomStepper activeStep={activeStep} orientation="vertical">
+                    {allSteps.map((label, index) => (
+                        <Step key={ label }>
+                            <StepLabel className="recipe__recipe-step__step"><Typography variant="h5" style= {{ color: '#f19300' }}>{ label } </Typography></StepLabel>
+                            <StepContent>
+                                <Grid container>
+                                    <Grid item>
+                                        <Typography variant="h5">{ steps[index] }</Typography>
+                                    </Grid>
+                                </Grid>
+                            </StepContent>
+                        </Step>
+                    ))}
+                </CustomStepper>
+                </Grid>
+                <Grid item xs={2}>
+                    <Typography variant="h4">Liste des ingrédients</Typography>
+                    <Paper>
+                        <List>
+                            { ingredients.map((ingredient, idx) =>
+                                <ListItem key={ idx }>
+                                    <ListItemIcon>
+                                        <Checkbox
+                                            checked={checked.indexOf(idx) !== -1}
+                                        />
+                                        {ingredient.name} { ingredient.quantity !== '-1' ? (' : ' + ingredient.quantity) : ''}
+                                    </ListItemIcon>
+                                </ListItem> )
+                            }
+                        </List>
+                    </Paper>
+                </Grid>
             </Grid>
-            <Stepper activeStep={activeStep} orientation="vertical">
-                {allSteps.map((label, index) => (
-                    <Step key={ label }>
-                        <StepLabel>{ label }</StepLabel>
-                        <StepContent>
-                            <Typography>{ steps[index] }</Typography>
-                            <div className="faut_tester_pour_savoir">
-                                <div>
-                                    <Button
-                                        disabled={ activeStep === 0 }
-                                        onClick={ handleBack }
-                                        className="button"
-                                    >
-                                        Retour à l'étape précédente
-                                    </Button>
-                                    <Button
-                                        variant="contained"
-                                        color="primary"
-                                        onClick={ handleNext }
-                                        className="button"
-                                    >
-                                        { activeStep === allSteps.length - 1 ? 'Terminer la recette' : 'Etape suivante' }
-                                    </Button>
-                                </div>
-                            </div>
-                        </StepContent>
-                    </Step>
-                ))}
-            </Stepper>
-        </div>
+        </Grid>
     );
 }
 
