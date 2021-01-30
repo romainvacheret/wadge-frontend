@@ -16,10 +16,21 @@ import {
 } from "@material-ui/core";
 import { CheckBox } from "@material-ui/icons";
 import { withStyles } from '@material-ui/core/styles';
+import axios from "axios";
+
+const GreenCheckbox = withStyles({
+    root: {
+        color: 'limegreen',
+        '&$checked': {
+            color: 'limegreen',
+        },
+    },
+    checked: {},
+})((props) => <Checkbox color="default" {...props} />);
 
 const CustomButton = withStyles({
-    button: {
-        color: 'limegreen'
+    root: {
+        background: 'limegreen'
     },
 })(Button);
 
@@ -38,6 +49,13 @@ const RecipeSteps = ( props ) => {
     const {steps, ingredients, name, servings, difficulty} = recipe;
     const nbStep = steps.length;
     const [checked, setChecked] = React.useState([]);
+    const [list, setList] = React.useState([]);
+
+    const handleChange = (event) => {
+        setChecked(event.target.checked);
+        setList(list.concat(document.getElementById("ingredient").value));
+
+    };
 
     const getSteps = ()=> {
         const s = [];
@@ -57,6 +75,10 @@ const RecipeSteps = ( props ) => {
     const handleBack = () => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
+
+    const handleFridge = () => {
+
+    }
 
     return (
 
@@ -90,7 +112,8 @@ const RecipeSteps = ( props ) => {
                                 <Typography variant="h4" style= {{ color: 'limegreen' }}>La recette est terminée</Typography>
                                 <Button
                                     variant="contained"
-                                    href="/recipes">
+                                    onClick={ handleFridge }
+                                    >
                                     Retourner sur la page des recettes
                                 </Button>
                             </Paper>
@@ -116,12 +139,12 @@ const RecipeSteps = ( props ) => {
                 <Grid item xs={2}>
                     <Typography variant="h4">Liste des ingrédients</Typography>
                     <Paper>
-                        <List>
+                        <List className="truc" id="truc">
                             { ingredients.map((ingredient, idx) =>
-                                <ListItem key={ idx }>
+                                <ListItem key={ idx } value={ ingredient.name } id="ingredient" results={ Math.ceil(ingredient.quantity) }>
                                     <ListItemIcon>
-                                        <Checkbox
-                                            checked={checked.indexOf(idx) !== -1}
+                                        <GreenCheckbox
+                                            onChange={ handleChange }
                                         />
                                         {ingredient.name} { ingredient.quantity !== '-1' ? (' : ' + ingredient.quantity) : ''}
                                     </ListItemIcon>
