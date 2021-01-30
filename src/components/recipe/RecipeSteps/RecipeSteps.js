@@ -28,10 +28,24 @@ const GreenCheckbox = withStyles({
     checked: {},
 })((props) => <Checkbox color="default" {...props} />);
 
-const CustomButton = withStyles({
+const GreenButton = withStyles({
     root: {
-        background: 'limegreen'
+        background: 'limegreen',
+    '&:hover': {
+        background: '#f19300'
     },
+}
+})(Button);
+
+const DarkButton = withStyles({
+    root: {
+        color: 'limegreen',
+        background: '#282c34',
+    '&:hover': {
+        background: '#282c34',
+        color: '#f19300'
+    },
+}
 })(Button);
 
 const CustomStepper = withStyles({
@@ -98,24 +112,24 @@ const RecipeSteps = ( props ) => {
                         </Button>
                     </Grid>
                     <Grid item xs={3} >
-                        <CustomButton
+                        <GreenButton
                             variant="contained"
                             onClick={ handleNext }
                             disabled={ activeStep === allSteps.length }
                         >
                             { activeStep === allSteps.length - 1 ? 'Terminer la recette' : 'Etape suivante' }
-                        </CustomButton>
+                        </GreenButton>
                     </Grid>
                     <Grid item>
                         {activeStep === steps.length && (
                             <Paper square elevation={0} >
                                 <Typography variant="h4" style= {{ color: 'limegreen' }}>La recette est terminée</Typography>
-                                <Button
+                                <DarkButton
                                     variant="contained"
                                     onClick={ handleFridge }
                                     >
                                     Retourner sur la page des recettes
-                                </Button>
+                                </DarkButton>
                             </Paper>
                         )}
                     </Grid>
