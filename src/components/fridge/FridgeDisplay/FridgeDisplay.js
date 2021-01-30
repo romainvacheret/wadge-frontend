@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Grid, Container, Button } from '@material-ui/core';
+import { Typography, Grid, Container, Button, withStyles } from '@material-ui/core';
 import './FridgeDisplay.css';
 
 import FridgeCategory from './FridgeCategory';
@@ -39,11 +39,20 @@ const FridgeDisplay = () => {
         }
     } 
 
+    const CustomButton = withStyles({
+        root: {
+            background: 'limegreen',
+        '&:hover': {
+            background: '#f19300',
+        },
+    }
+    })(Button);
+
     return (
         <>
             <Typography variant='h3' className='fridge-main-compo__title' > Contenu de votre frigo </Typography>
             <Container className='fridge-main-compo__container'>
-                <Grid >{
+                <Grid>{
                     Object.keys(fridgeList).length ?( <>
                         <FridgeCategory counters={ counters } setCounters={ setCounters } fridgeList={ fridgeList['TWO_DAYS'] } text={ 'Péremption dans 2 jours' }/>
                         <FridgeCategory counters={ counters } setCounters={ setCounters } fridgeList={ fridgeList['FIVE_DAYS'] } text={ 'Péremption dans 5 jours' }/>
@@ -53,14 +62,13 @@ const FridgeDisplay = () => {
                         <FridgeCategory counters={ counters } setCounters={ setCounters } fridgeList={ fridgeList['EXPIRED'] } text={ 'Périmés' }/>
                     </> ): <></>
                 }</Grid>
-            <Button 
-            onClick={ updateFridge }
-            variant='contained' 
-            color='primary'
-            href="/fridge"
-        >
-            Prendre les aliments
-        </Button>
+                <CustomButton 
+                    onClick={ updateFridge }
+                    variant='contained'
+                    href="/fridge"
+                >
+                    Prendre les aliments
+                </CustomButton>
             </Container>
         </>
     );

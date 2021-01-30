@@ -3,7 +3,7 @@ import { AppBar, Toolbar, ListItem } from '@material-ui/core';
 
 import './NavBar.css';
 
-const NavBar = (props) => {
+const NavBar = () => {
     const ListItemLink = (props_) =>  <ListItem button component="a" {...props_} />;
 
     return (
