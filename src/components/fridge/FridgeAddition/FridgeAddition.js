@@ -99,10 +99,8 @@ const FridgeAddition = () => {
         <Grid container direction='column'>
             <Typography variant="h3" className="fridge-addition__title">
                 Liste des fruits et légumes à ajouter
-            </Typography> 
-            
+            </Typography>
             <SearchBar searchFood={ searchFood } handleChange={ handleChange }/>
-          
             <FruitsAndVegetables fruits={ fruits } vegetables={ vegetables }/>
             <CustomButton 
                 onClick={ addFoodToFridge }
