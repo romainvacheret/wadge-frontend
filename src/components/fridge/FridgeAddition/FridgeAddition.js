@@ -109,7 +109,7 @@ const FridgeAddition = () => {
                 className="fridge-addition__button"
                 href="/fridge"
             >
-                Enregistrer
+                Ajout au frigo
             </CustomButton>
         </Grid>
     );

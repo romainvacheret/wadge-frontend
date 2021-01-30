@@ -43,7 +43,7 @@ const FilterSelect = ({ setRecipeList }) => {
                 <CustomButton
                  variant="contained"
                  className="button_foodlist"
-                 onClick={searchList}>enregistrer</CustomButton>
+                 onClick={searchList}>Filtre par ingrédients</CustomButton>
             </form>
         </Container>
     );
