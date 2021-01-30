@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Select, InputLabel, TextField, Button } from '@material-ui/core';
+import { Container, Select, InputLabel, TextField, Button, withStyles } from '@material-ui/core';
 import { fetchFromUrl } from 'utils';
 
 const FilterSelect = ({ setRecipeList }) => {
@@ -22,7 +22,14 @@ const FilterSelect = ({ setRecipeList }) => {
 
     const handleChange = (event) => fetchFromUrl(`recipes${event.target.value}`, setRecipeList);
     
-    
+    const CustomButton = withStyles({
+        root: {
+            background: 'limegreen',
+        '&:hover': {
+            background: '#f19300',
+        },
+    }
+    })(Button);
     
     return (
         <Container>
@@ -33,11 +40,10 @@ const FilterSelect = ({ setRecipeList }) => {
             </Select>
             <form name="food_list" noValidate autoComplete="off">
                 <TextField id="food_list" label="Liste d'ingrédients" variant="outlined" />
-                <Button
+                <CustomButton
                  variant="contained"
-                 color="primary"
                  className="button_foodlist"
-                 onClick={searchList}>enregistrer</Button>
+                 onClick={searchList}>enregistrer</CustomButton>
             </form>
         </Container>
     );
