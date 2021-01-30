@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Grid, Typography, FormControlLabel, Switch, GridList, GridListTile } from '@material-ui/core';
+import { Grid, Typography, FormControlLabel, Switch } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
 import colorList from './color_list.json';
