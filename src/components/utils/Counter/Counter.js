@@ -1,21 +1,39 @@
 import React from 'react';
 
-import { Grid, Button, Typography } from '@material-ui/core';
+import { Grid, Button, Typography,withStyles } from '@material-ui/core';
 
 import IndeterminateCheckBoxIcon from '@material-ui/icons/IndeterminateCheckBox';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 
 const Counter = ({counters, idx, handlePlus, handleMinus}) => {
+    const CustomButton = withStyles({
+        root: {
+            color: '#f19300',
+        '&:hover': {
+            color: '#282c34',
+        },
+    }
+    })(Button);
+
+    const CustomButton2 = withStyles({
+        root: {
+            color: 'limegreen',
+        '&:hover': {
+            color: '#282c34',
+        },
+    }
+    })(Button);
+
     return (
         <Grid container>
                 <Typography >
-            <Button onClick={ () => handleMinus(idx) } color="secondary" > 
+            <CustomButton onClick={ () => handleMinus(idx) } > 
                 <IndeterminateCheckBoxIcon fontSize="large"/>
-            </Button>
+            </CustomButton>
                 {counters[idx].val}
-            <Button onClick={ () => handlePlus(idx) } color="primary" >
+            <CustomButton2 onClick={ () => handlePlus(idx) } >
                 <AddBoxIcon fontSize="large"/>
-            </Button>
+            </CustomButton2>
                 </Typography>
         </Grid>
     );
