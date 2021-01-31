@@ -39,7 +39,7 @@ const RecipeCard = ({ recipe }) => {
             <AccordionDetails>
                 <Grid>
                     <Typography variant="h5">{ `Recette pour : ${ servings } personnes` }</Typography>
-                    <Typography variant="h5">{ `Difficulté : ${ difficulty }/4` }</Typography>
+                    <Typography variant="h5">{ `Difficulté : ${ difficulty }/5` }</Typography>
                     <Tooltip title="Accéder à la recette">
                         <Link to={{
                             pathname: '/recipes/step',

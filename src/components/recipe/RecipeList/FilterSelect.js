@@ -8,7 +8,7 @@ const FilterSelect = ({ setRecipeList }) => {
         let result = document.getElementById("food_list").value;
         result = result.split(",");
         console.log(result);
-        fetch(`http://localhost:8080/recipes/listfood`, {
+        fetch(`http://localhost:8080/recipes/search`, {
             method: "POST",
             body: JSON.stringify(result),
              headers: {
@@ -43,7 +43,7 @@ const FilterSelect = ({ setRecipeList }) => {
                 <CustomButton
                  variant="contained"
                  className="button_foodlist"
-                 onClick={searchList}>Filtre par ingrédients</CustomButton>
+                 onClick={searchList}>Recherche sur Marmiton</CustomButton>
             </form>
         </Container>
     );
