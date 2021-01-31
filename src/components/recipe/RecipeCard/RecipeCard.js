@@ -2,11 +2,31 @@ import React from 'react';
 
 import './RecipeCard.css';
 
-import { Grid, Typography, Accordion, AccordionSummary, AccordionDetails } from "@material-ui/core";
+import {
+    Grid,
+    Typography,
+    Accordion,
+    AccordionSummary,
+    AccordionDetails,
+    IconButton,
+    Tooltip
+} from "@material-ui/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
+import {Link, Redirect} from "react-router-dom";
 
 const RecipeCard = ({ recipe }) => {
     const { steps, ingredients, name, servings, difficulty } = recipe;
+
+    const goToStep = () =>{
+        alert("coucou");
+        return(
+            <Redirect to={{
+                pathname: '/recipes/step',
+                state: { recipe: recipe }
+            }} />
+        );
+    }
     return (
         <Accordion data-testid='recipe-card__accordion'>
             <AccordionSummary
@@ -19,7 +39,18 @@ const RecipeCard = ({ recipe }) => {
             <AccordionDetails>
                 <Grid>
                     <Typography variant="h5">{ `Recette pour : ${ servings } personnes` }</Typography>
-                    <Typography variant="h5">{ `Difficulté : ${ difficulty }/4` }</Typography>
+                    <Typography variant="h5">{ `Difficulté : ${ difficulty }/5` }</Typography>
+                    <Tooltip title="Accéder à la recette">
+                        <Link to={{
+                            pathname: '/recipes/step',
+                            state: { recipe: recipe }
+                        }}>
+                            <IconButton
+                                aria-label="Accéder à la recette">
+                                <MenuBookIcon/>
+                            </IconButton>
+                        </Link>
+                    </Tooltip>
                 </Grid>
                 <Grid>
                     <ul>
