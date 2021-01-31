@@ -23,6 +23,8 @@ Cependant, si le code source vous intéresse, vous pouvez découvrir le front en
 * Affichage intuitif des recettes
 * Filtre des recettes en fonction du contenu du frigo
 * Filtre des recettes en fonction d'une liste donnée par l'utilisateur
+* Récupération de recettes depuis Marmiton
+* Affichage pas à pas des recettes
 
 ## L'équipe est composée de :
 * **Fanny Lourioux** - [Github](https://github.com/FannyLourioux) - [LinkedIn](https://www.linkedin.com/in/fanny-lourioux-4744941a0/)
