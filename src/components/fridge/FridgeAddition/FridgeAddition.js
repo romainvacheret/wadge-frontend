@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { Grid, Button, Typography } from '@material-ui/core';
+import { Grid, Button, Typography, withStyles } from '@material-ui/core';
 
 import axios from 'axios'
 
@@ -84,25 +84,32 @@ const FridgeAddition = () => {
         })
     };
     sortFood();
+    
+    const CustomButton = withStyles({
+        root: {
+            background: 'limegreen',
+            position: 'fixed',
+        '&:hover': {
+            background: '#f19300',
+        },
+    }
+    })(Button);
 
     return (
         <Grid container direction='column'>
             <Typography variant="h3" className="fridge-addition__title">
                 Liste des fruits et légumes à ajouter
-            </Typography> 
-            
+            </Typography>
             <SearchBar searchFood={ searchFood } handleChange={ handleChange }/>
-          
             <FruitsAndVegetables fruits={ fruits } vegetables={ vegetables }/>
-            <Button 
+            <CustomButton 
                 onClick={ addFoodToFridge }
                 variant='contained' 
-                color='primary'
                 className="fridge-addition__button"
                 href="/fridge"
             >
-                Enregistrer
-            </Button>
+                Ajout au frigo
+            </CustomButton>
         </Grid>
     );
 }
