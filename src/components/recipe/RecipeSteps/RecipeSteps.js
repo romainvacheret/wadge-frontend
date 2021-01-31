@@ -15,7 +15,6 @@ import {
     Typography
 } from "@material-ui/core";
 import { withStyles } from '@material-ui/core/styles';
-import axios from "axios";
 
 const GreenCheckbox = withStyles({
     root: {
@@ -61,13 +60,12 @@ const RecipeSteps = ( props ) => {
     const recipe = props.location.state.recipe;
     const {steps, ingredients, name, servings, difficulty} = recipe;
     const nbStep = steps.length;
-    const [checked, setChecked] = React.useState([]);
-    const [list, setList] = React.useState([]);
+    const [checked, setChecked] = React.useState(Array.from({length: ingredients.length}, (v, n) => false));
 
-    const handleChange = (event) => {
-        setChecked(event.target.checked);
-        setList(list.concat(document.getElementById("ingredient").value));
-
+    const handleChange = (idx) => {
+        let x = [...checked];
+        x[idx] = !x[idx];
+        setChecked(x);
     };
 
     const getSteps = ()=> {
@@ -89,9 +87,18 @@ const RecipeSteps = ( props ) => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
 
-    const handleFridge = () => {
-        
-    }
+    const handleClick = () => {
+        const toto = checked.map( ( v,idx ) => {
+            if(v){
+                const ingredient = ingredients[idx];
+            return [ingredient.name, Math.ceil(ingredient.quantity)];
+            }else{
+                return null;
+            }
+        }).filter(c => c !== null);
+        const msg = `N'oubliez pas de retirer ces aliments du frigo : \n ${toto.map(t => `\n ${t[0]} ${t[1] !== -1 ? `: ${t[1]}` : ""} `)}`;
+        alert(msg);
+    };
 
     return (
 
@@ -125,7 +132,8 @@ const RecipeSteps = ( props ) => {
                                 <Typography variant="h4" style= {{ color: 'limegreen' }}>La recette est terminée</Typography>
                                 <DarkButton
                                     variant="contained"
-                                    onClick={ handleFridge }
+                                    href='/fridge'
+                                    onClick={ handleClick }
                                     >
                                     Retourner sur la page des recettes
                                 </DarkButton>
@@ -152,12 +160,13 @@ const RecipeSteps = ( props ) => {
                 <Grid item xs={2}>
                     <Typography variant="h4">Liste des ingrédients</Typography>
                     <Paper>
-                        <List className="truc" id="truc">
+                        <List className="truc" name="truc">
                             { ingredients.map((ingredient, idx) =>
-                                <ListItem key={ idx } value={ ingredient.name } id="ingredient" results={ Math.ceil(ingredient.quantity) }>
+                                <ListItem key={ idx } name="ingredient" results={ Math.ceil(ingredient.quantity) }>
                                     <ListItemIcon>
                                         <GreenCheckbox
-                                            onChange={ handleChange }
+                                            
+                                            onChange={ () => handleChange(idx) }
                                         />
                                         {ingredient.name} { ingredient.quantity !== '-1' ? (' : ' + ingredient.quantity) : ''}
                                     </ListItemIcon>
