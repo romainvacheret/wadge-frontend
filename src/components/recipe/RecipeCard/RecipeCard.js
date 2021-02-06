@@ -16,7 +16,7 @@ import MenuBookIcon from '@material-ui/icons/MenuBook';
 import {Link, Redirect} from "react-router-dom";
 
 const RecipeCard = ({ recipe }) => {
-    const { steps, ingredients, name, servings, difficulty } = recipe;
+    const { steps, ingredients, name, servings, difficulty, rating } = recipe;
 
     const goToStep = () =>{
         alert("coucou");
@@ -39,7 +39,8 @@ const RecipeCard = ({ recipe }) => {
             <AccordionDetails>
                 <Grid>
                     <Typography variant="h5">{ `Recette pour : ${ servings } personnes` }</Typography>
-                    <Typography variant="h5">{ `Difficulté : ${ difficulty }/5` }</Typography>
+                    <Typography variant="h5">{ `Difficulté : ${ difficulty }/4` }</Typography>
+                    <Typography variant="h5">{ `Note : ${ rating }/5` }</Typography>
                     <Tooltip title="Accéder à la recette">
                         <Link to={{
                             pathname: '/recipes/step',
