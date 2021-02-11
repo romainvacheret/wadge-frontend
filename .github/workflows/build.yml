@@ -1,0 +1,27 @@
+name: Node.js CI
+
+on:[push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env: 
+      CI=false
+    strategy:
+      node-version: '11'
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 
+      uses: actions/setup-node@v1
+      with:
+        node-version: '11'
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
+    - name: Run SonarCloud
+      uses: sonarcloud/analyse
+      with:
+        projectKey: "BesYAhaXxH2mP8WOs9NWl49wosbzuP72YVaGV0eYn9gxG1wcrq7aXwDf8NYmA3pqI0aL85ud6a+jEdQ61i2XvAynsVaA3C7TUiU2DUm4ryDFJSBOPaymro9/ahN9sJr0BT9/35o7wEHhwAe5bqM9luQ6920dmlrpT/uIjFYPO3YMb4r3VqO4SnEH0MV315Kgh/AfJ/pHJ7xO03q1BVpE0yWVaZqS7cSTvDyutcio6yJnqdDyxwmFLLc7SAiL3akkzVygxNpTJxBrJdfS2lBRFgUtWdc1+o/n+0X2t5n4vxeLGmvjYIGaHf2VkcBwDKzzUQDOvI+hE5D8A6oIwkHLbusO79j5XotPVQSqsPcwghFtyj7f2dQBDF5O3g0hNCJ2GR1KTik2zeMFsXDBHbwAWvdSSipANMI3xq2ijMzJDhM/TwCVsc1Th+WuxgDmdbtT29c9RzV1eYjH2KmYM8Qo6j1Wx5bUCA7X193JOemJRUy6aBkg9yybwYXNR510tX2T5efyX0ran1bmX57fNAR1YGMfq4Q67dz6/MoeTrVnN9rh47uCyHLp9eIu4kMsYNCAochnV4q+jKOaOLrPKiSTtfA+VKTwR2nMueRjPIuf/aE2Hogu7esqk2sicgdz9xkdkvsZ1/d7ITcEnbK2hEa6qmw+1OFFPnkpsTjykU5QFho="
+        organization: "wadge"
+
