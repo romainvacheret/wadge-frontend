@@ -142,7 +142,7 @@ const RecipeSteps = ( props ) => {
                                         variant="contained"
                                         
                                         >
-                                        Retourner sur la page des recettes
+                                        Retourner vers le frigo
                                     </DarkButton>
                                 </Link>
                             </Paper>
