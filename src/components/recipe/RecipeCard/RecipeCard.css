@@ -1,3 +1,6 @@
 .recipe__recipe-card__step {
     color: #f19300;
 }
+.recipe__present__ingredient {
+    color: limegreen;
+}
