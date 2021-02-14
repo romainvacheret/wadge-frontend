@@ -51,7 +51,7 @@ function App() {
           <Route
               exact
               path='/fridge'
-              render={ () => <FridgeDisplay data-testid="fridge"/> } 
+              render={ (props) => <FridgeDisplay {...props} data-testid="fridge"/> } 
               />
           <Route
               exact
