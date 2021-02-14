@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import './RecipeCard.css';
 
@@ -13,20 +13,23 @@ import {
 } from "@material-ui/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
-import {Link, Redirect} from "react-router-dom";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 const RecipeCard = ({ recipe }) => {
-    const { steps, ingredients, name, servings, difficulty } = recipe;
 
-    const goToStep = () =>{
-        alert("coucou");
-        return(
-            <Redirect to={{
-                pathname: '/recipes/step',
-                state: { recipe: recipe }
-            }} />
-        );
-    }
+    const [liste, setListe] = useState(new Map());
+
+    useEffect(() => {
+        axios.post('http://localhost:8080/recipes/ingredient', recipe)
+            .then((response) =>{
+                const food = response.data;
+                setListe(new Map(Object.entries(food)));
+            })
+    }, []);
+
+
+    const { steps, ingredients, name, servings, difficulty } = recipe;
     return (
         <Accordion data-testid='recipe-card__accordion'>
             <AccordionSummary
@@ -61,9 +64,13 @@ const RecipeCard = ({ recipe }) => {
                 <Grid>
                     <ul>
                         <Typography variant="h4" className="recipe__recipe-card__step">Ingredients</Typography>
-                        { ingredients.map((ingredient, idx) => 
-                            <Grid key={ idx }> 
-                                {ingredient.name} { ingredient.quantity !== '-1' ? (' : ' + ingredient.quantity) : ''}
+                        { ingredients.map((ingredient, idx) =>
+                            <Grid key={ idx }>
+                                { liste.get(ingredient.name) === 'present' ?
+                                    <Typography variant="h5" className="recipe__present__ingredient">{ ingredient.name } { ingredient.quantity !== '-1' ? (' : ' + ingredient.quantity) : ''}</Typography>
+                                    : <Typography variant="h5">{ ingredient.name } { ingredient.quantity !== '-1' ? (' : ' + ingredient.quantity) : ''}</Typography>
+                                }
+
                             </Grid> )
                         }
                     </ul>
