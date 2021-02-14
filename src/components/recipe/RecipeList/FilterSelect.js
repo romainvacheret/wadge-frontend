@@ -1,18 +1,17 @@
-import React, { useEffect } from 'react';
-import { Container, Select, InputLabel, TextField, Button, withStyles } from '@material-ui/core';
+import React, { useEffect} from 'react';
+import { Container, Select, InputLabel, TextField, Button, withStyles} from '@material-ui/core';
 import { postFromUrl } from 'utils';
-
 const FilterSelect = ({ setRecipeList }) => {
-
+    
     const searchList = () => {
         let result = document.getElementById("food_list").value;
         result = result.split(",");
          postFromUrl('recipes/search', result, setRecipeList);
     }
-
     const handleChange = (event) => {
         postFromUrl('recipes', { 'selection': event.target.value }, setRecipeList);
     };
+
 
     useEffect(() => 
         postFromUrl('recipes', { 'selection': 'EVERYTHING' }, setRecipeList)
@@ -26,7 +25,7 @@ const FilterSelect = ({ setRecipeList }) => {
         },
     }
     })(Button);
-    
+
     return (
         <Container>
             <InputLabel htmlFor="age-native-simple">Filtrage</InputLabel>
@@ -43,7 +42,9 @@ const FilterSelect = ({ setRecipeList }) => {
                  className="button_foodlist"
                  onClick={ searchList }>Recherche sur Marmiton</CustomButton>
             </form>
+            
         </Container>
+        
     );
 };
 
