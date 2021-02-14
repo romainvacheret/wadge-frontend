@@ -63,7 +63,7 @@ const RecipeSteps = ( props ) => {
     const {steps, ingredients, name, servings, difficulty} = recipe;
     const nbStep = steps.length;
     const [checked, setChecked] = React.useState(Array.from({length: ingredients.length}, (v, n) => false));
-    //const [msg, setMessage] = useState([]);
+    let msg = "";
 
     const handleChange = (idx) => {
         let x = [...checked];
@@ -89,7 +89,7 @@ const RecipeSteps = ( props ) => {
     const handleBack = () => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
-    let msg = "";
+
     const handleClick = () => {
         const toto = checked.map( ( v,idx ) => {
             if(v){

@@ -10,14 +10,11 @@ import axios from "axios";
 const FridgeDisplay = (props) => {
     const [fridgeList, setFridgeList] = useState({});
     const [counters, setCounters] = useState({});
+
     let msg1 = "";
     if(props.location.state !== undefined){
         msg1 = props.location.state.msg1;
     }
-     
-    
-    
-
 
     useEffect(() =>  fetchFromUrl('alerts', initializeCounters), []);
 
@@ -80,7 +77,7 @@ const FridgeDisplay = (props) => {
             </Container>
             <Container>
                 <Grid>
-                    <Typography variant="h4" style= {{ color: 'black' }}>{ msg1}</Typography>
+                    <Typography variant="h4" style= {{ color: 'black' }}>{ msg1 }</Typography>
                 </Grid>
             </Container>
         </>
