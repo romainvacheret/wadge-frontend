@@ -18,15 +18,7 @@ import {Link, Redirect} from "react-router-dom";
 const RecipeCard = ({ recipe }) => {
     const { steps, ingredients, name, servings, difficulty, rating } = recipe;
 
-    const goToStep = () =>{
-        alert("coucou");
-        return(
-            <Redirect to={{
-                pathname: '/recipes/step',
-                state: { recipe: recipe }
-            }} />
-        );
-    }
+   
     return (
         <Accordion data-testid='recipe-card__accordion'>
             <AccordionSummary
