@@ -110,7 +110,7 @@ const RecipeSteps = ( props ) => {
             <Grid container>
                 <Grid item xs={2} >
                     <Typography variant="h4" style= {{ color: '#f19300' }}>{ `Recette pour : ${ servings } personnes` }</Typography>
-                    <Typography variant="h4" style= {{ color: '#f19300' }}>{ `Difficulté : ${ difficulty }/5` }</Typography>
+                    <Typography variant="h4" style= {{ color: '#f19300' }}>{ `Difficulté : ${ difficulty }/4` }</Typography>
                     <Grid item xs={3}>
                         <Button
                             variant="contained"

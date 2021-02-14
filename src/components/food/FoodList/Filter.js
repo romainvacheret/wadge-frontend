@@ -2,20 +2,13 @@ import React, { useEffect } from 'react';
 
 import './Filter.css';
 
+import { fetchFromUrl } from 'utils';
+
 const Filter = ({ tabNumber, setTabNumber, setFoodList, byDays }) => {
     const months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
 
     const getProducts = (month) => {
-        fetch(`http://localhost:8080/foods/${month}${byDays ? "/days" : ""}`, {
-           method: "GET",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(response => setFoodList([...response]))
-        .catch(err => console.log('ERROR', err));
+        fetchFromUrl(`foods/${month}${byDays ? '/days' : ''}`, setFoodList);
     };
 
     useEffect(() => getProducts(months[tabNumber]), [tabNumber, byDays]);

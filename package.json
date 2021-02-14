@@ -1,6 +1,6 @@
 {
   "name": "wadge-frontend",
-  "version": "1.2.0",
+  "version": "1.4.0",
   "private": true,
   "dependencies": {
     "@googlemaps/google-maps-services-js": "^3.1.13",

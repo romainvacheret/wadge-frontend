@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const RecipeCard = ({ recipe }) => {
-
+    const { steps, ingredients, name, servings, difficulty, rating } = recipe;
     const [liste, setListe] = useState(new Map());
 
     useEffect(() => {
@@ -29,7 +29,6 @@ const RecipeCard = ({ recipe }) => {
     }, []);
 
 
-    const { steps, ingredients, name, servings, difficulty } = recipe;
     return (
         <Accordion data-testid='recipe-card__accordion'>
             <AccordionSummary
@@ -42,7 +41,8 @@ const RecipeCard = ({ recipe }) => {
             <AccordionDetails>
                 <Grid>
                     <Typography variant="h5">{ `Recette pour : ${ servings } personnes` }</Typography>
-                    <Typography variant="h5">{ `Difficulté : ${ difficulty }/5` }</Typography>
+                    <Typography variant="h5">{ `Difficulté : ${ difficulty }/4` }</Typography>
+                    <Typography variant="h5">{ `Note : ${ rating }/5` }</Typography>
                     <Tooltip title="Accéder à la recette">
                         <Link to={{
                             pathname: '/recipes/step',
