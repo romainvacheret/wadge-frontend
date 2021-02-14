@@ -11,4 +11,10 @@
     justify-content: center;
     color: #06c106;
 }
+.search{
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    min-width: 60%;
+}
 

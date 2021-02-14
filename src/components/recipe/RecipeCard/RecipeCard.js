@@ -29,6 +29,7 @@ const RecipeCard = ({ recipe }) => {
     }, []);
 
 
+   
     return (
         <Accordion data-testid='recipe-card__accordion'>
             <AccordionSummary
