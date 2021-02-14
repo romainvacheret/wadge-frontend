@@ -2,6 +2,8 @@ import React from 'react';
 
 import './RecipeSteps.css';
 
+import { Link } from "react-router-dom";
+
 import {
     Button, Checkbox,
     Grid,
@@ -61,6 +63,7 @@ const RecipeSteps = ( props ) => {
     const {steps, ingredients, name, servings, difficulty} = recipe;
     const nbStep = steps.length;
     const [checked, setChecked] = React.useState(Array.from({length: ingredients.length}, (v, n) => false));
+    let msg = "";
 
     const handleChange = (idx) => {
         let x = [...checked];
@@ -96,8 +99,8 @@ const RecipeSteps = ( props ) => {
                 return null;
             }
         }).filter(c => c !== null);
-        const msg = `N'oubliez pas de retirer ces aliments du frigo : \n ${toto.map(t => `\n ${t[0]} ${t[1] !== -1 ? `: ${t[1]}` : ""} `)}`;
-        alert(msg);
+        msg = `N'oubliez pas de retirer ces aliments du frigo : \n ${toto.map(t => `\n ${t[0]} ${t[1] !== -1 ? `= ${t[1]}` : ""} `)}`
+        return msg;
     };
 
     return (
@@ -130,13 +133,18 @@ const RecipeSteps = ( props ) => {
                         {activeStep === steps.length && (
                             <Paper square elevation={0} >
                                 <Typography variant="h4" style= {{ color: 'limegreen' }}>La recette est terminée</Typography>
-                                <DarkButton
-                                    variant="contained"
-                                    href='/fridge'
-                                    onClick={ handleClick }
-                                    >
-                                    Retourner sur la frigo
-                                </DarkButton>
+                                <Link onClick={ handleClick }
+                                to={{
+                                    pathname: '/fridge',
+                                    state: { msg1 : handleClick() }
+                                }}>
+                                    <DarkButton
+                                        variant="contained"
+                                        
+                                        >
+                                        Retourner vers le frigo
+                                    </DarkButton>
+                                </Link>
                             </Paper>
                         )}
                     </Grid>
