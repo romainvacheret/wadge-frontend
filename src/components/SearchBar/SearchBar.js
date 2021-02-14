@@ -2,17 +2,17 @@ import React from 'react';
 
 import './SearchBar.css';
 
-const SearchBar = ({ searchFood, handleChange }) => {
+const SearchBar = ({  searchFood, handleChange }) => {
     return (
         <div className='col-xs-4 search-bar'>
                 <div className='form-group has-success"' >
                     <div className="input-group">
                         <input 
                             type='text' 
-                            value={ searchFood } 
+                            value={  searchFood} 
                             className='form-control' 
                             onChange={ handleChange } 
-                            placeholder='Recherche par nom' 
+                            placeholder='Rechercher par nom' 
                             aria-describedby="inputSuccess2Status"
                         />
                     </div>
