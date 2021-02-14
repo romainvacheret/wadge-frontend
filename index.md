@@ -14,17 +14,22 @@ Cependant, si le code source vous intéresse, vous pouvez découvrir le front en
 * Tri par nom ou par jour de consommation
 * Ajouter des fruits et légumes au frigo
 * Supprimer des aliments du frigo
+* Bouton pour vider le frigo ou supprimer les aliments périmés
 * Affichage du contenu du frigo
-* Liste de recettes
 * Ajout d'une représentation graphique des fruits et légumes
 * Affichage intuitif du frigo
 * Affichage intuitif des aliments filtrés par mois
 * Barre de recherche pour les aliments à ajouter au frigo
+* Liste de recettes
 * Affichage intuitif des recettes
+* Mise en évidence des aliments présents dans le frigo pour les recettes
 * Filtre des recettes en fonction du contenu du frigo
 * Filtre des recettes en fonction d'une liste donnée par l'utilisateur
+* Filtre des recettes par difficulté ou note
+* Filtre des recettes par nombre de personnes
 * Récupération de recettes depuis Marmiton
 * Affichage pas à pas des recettes
+* Affichage d'un message dans le frigo à la fin d'une recette pour enlever du frigo
 
 ## L'équipe est composée de :
 * **Fanny Lourioux** - [Github](https://github.com/FannyLourioux) - [LinkedIn](https://www.linkedin.com/in/fanny-lourioux-4744941a0/)
