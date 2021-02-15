@@ -4,7 +4,7 @@ import './FridgeDisplay.css';
 
 import FridgeCategory from './FridgeCategory';
 
-import { fetchFromUrl, postFromUrl } from 'utils'; 
+import { fetchFromUrl } from 'utils'; 
 import axios from "axios";
 
 const FridgeDisplay = (props) => {
