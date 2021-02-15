@@ -3,41 +3,42 @@ import React, { useState, useEffect } from 'react';
 import './RecipeList.css';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import FilterSelect from './FilterSelect';
-import { fetchFromUrl } from 'utils';
+import { postFromUrl } from 'utils';
 import { FormControl, Typography,OutlinedInput } from "@material-ui/core";
 
 const RecipeList = () => {
     const [recipeList, setRecipeList] = useState([]);
-    const [searchRecipe, setSearchRecipe] = useState();
-    const handleChangeSearch = (event) => setSearchRecipe(event.target.value);
+    const [servings, setServings] = useState('');
+    const [recipes, setRecipes] = useState([]);
+
     useEffect(() => {
-        fetchFromUrl('recipes', setRecipeList);
+        postFromUrl('recipes', {'selection': 'EVERYTHING'}, setRecipeList)
     }, []);
 
-    const recipes=[];
-    const handleChangeRecipe = () => {
-        recipeList.forEach((recipe) => {
-           if(searchRecipe>0 && recipe.servings!=searchRecipe)           
-          {           return;
-           }
-           recipes.push(recipe);
-        });
+    useEffect(() => setRecipes([...recipeList]), [recipeList]);
+
+    const handleChangeRecipe = (event) => {
+        const value = event.target.value;
+        setServings(value);
+        if(value === '') {
+            setRecipes([...recipeList]);
+        } else if(value > 0) {
+            setRecipes([...recipeList.filter(recipe => recipe.servings == value)]);
+        }
         
     };
-    handleChangeRecipe();
    
     return (
         <>
             <Typography variant="h3" className='recipe__title'> Liste des recettes </Typography><br></br>
-            
-            <FormControl class="search" name="search_person" noValidate autoComplete="off">
-                <OutlinedInput id="search_person"    placeholder="Nombre de personnes" variant="outlined" 
-                value={searchRecipe}
-                onChange={ handleChangeSearch } 
-                
-               />
-                
-            </FormControl>
+            <div className='recipe__search'>
+                <FormControl className="recipe__search" name="search_person" noValidate autoComplete="off">
+                    <OutlinedInput id="search_person"    placeholder="Nombre de personnes" variant="outlined" 
+                    value={servings}
+                    onChange={ handleChangeRecipe } 
+                />
+                </FormControl>
+            </div>
             <FilterSelect setRecipeList={ setRecipeList }/>
             <div className='recipe__container'> {
              recipes.map((recipe, idx) => 

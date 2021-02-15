@@ -8,14 +8,15 @@ const FilterSelect = ({ setRecipeList }) => {
         result = result.split(",");
          postFromUrl('recipes/search', result, setRecipeList);
     }
+
     const handleChange = (event) => {
         postFromUrl('recipes', { 'selection': event.target.value }, setRecipeList);
     };
 
 
-    useEffect(() => 
+    useEffect(() => {
         postFromUrl('recipes', { 'selection': 'EVERYTHING' }, setRecipeList)
-    , []);
+    }, []);
     
     const CustomButton = withStyles({
         root: {
