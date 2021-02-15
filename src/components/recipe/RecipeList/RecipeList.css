@@ -11,10 +11,12 @@
     justify-content: center;
     color: #06c106;
 }
-.search{
-    justify-content: center;
-    align-content: center;
+
+.recipe__search{
     display: flex;
-    min-width: 60%;
+    align-content: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 1.5%;
 }
 
