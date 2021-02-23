@@ -14,6 +14,7 @@ import Home from './components/Home/Home';
 import ShopMap from './components/map/ShopMap/ShopMap';
 import NavBar from './components/NavBar/NavBar';
 import RecipeSteps from "./components/recipe/RecipeSteps/RecipeSteps";
+import Scale from "./components/Scale/Scale";
 
 function App() {
   return (
@@ -57,6 +58,11 @@ function App() {
               exact
               path='/fridge/addition'
               render={ () => <FridgeAddition data-testid="fridge/addition"/> }
+          />
+          <Route
+              exact
+              path='/scale'
+              render={ () => <Scale data-testid="scale"/> }
           />
         </Switch>
       </BrowserRouter>

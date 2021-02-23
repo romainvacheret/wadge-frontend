@@ -1,0 +1,22 @@
+.scale__title {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    color: limegreen;
+}
+.scale__converter {
+    margin-top: 10%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.scale__converter__element {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+#scale__selector {
+    width: 200px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
