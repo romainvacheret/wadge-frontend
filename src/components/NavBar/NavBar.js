@@ -1,7 +1,8 @@
 import React from 'react';
-import { AppBar, Toolbar, ListItem } from '@material-ui/core';
+import {AppBar, Toolbar, ListItem, SvgIcon, Tooltip} from '@material-ui/core';
 
 import './NavBar.css';
+import {limegreen} from "color-name";
 
 const NavBar = () => {
     const ListItemLink = (props_) =>  <ListItem button component="a" {...props_} />;
@@ -26,6 +27,9 @@ const NavBar = () => {
             </ListItemLink>
             <ListItemLink href="/recipes" className='navbar__links' id="nav-recipes">
               Recettes
+            </ListItemLink>
+            <ListItemLink href="/scale" className='navbar__links' id="nav-scale">
+                <img src="/scale.png" id="icon-scale" width="30" height="30"/>
             </ListItemLink>
           </Toolbar>
         </AppBar>
