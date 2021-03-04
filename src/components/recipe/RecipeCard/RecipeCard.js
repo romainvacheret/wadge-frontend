@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-
+import { makeStyles } from '@material-ui/core/styles';
 import './RecipeCard.css';
 
 import {
@@ -9,8 +9,10 @@ import {
     AccordionSummary,
     AccordionDetails,
     IconButton,
-    Tooltip
+    Tooltip,
 } from "@material-ui/core";
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import { Link } from "react-router-dom";
@@ -19,25 +21,59 @@ import axios from "axios";
 const RecipeCard = ({ recipe }) => {
     const { steps, ingredients, name, servings, difficulty, rating } = recipe;
     const [liste, setListe] = useState(new Map());
+    const [favorites,setFavorites]=useState([]);
+    const [favoriIcon,setFavoriIcon]=useState(false);
 
     useEffect(() => {
         axios.post('http://localhost:8080/recipes/ingredient', recipe)
             .then((response) =>{
                 const food = response.data;
+                console.log(food);
                 setListe(new Map(Object.entries(food)));
             })
     }, []);
+    useEffect(() => {
+        axios.get('http://localhost:8080/recipes/favorites')
+            .then((response) =>{
+                const favoritesList = response.data;
+                setFavorites([...favoritesList]);
+            })
+    }, []);
+  
 
-
-   
+    const useStyles = makeStyles((theme) => ({
+        root: {
+          '& > *': {
+            margin: theme.spacing(1),
+          },
+        },
+      }));
+      const classes = useStyles();
+      const handleAddFavorite=()=>{   
+      if(favoriIcon==false)  axios.post('http://localhost:8080/recipes/addFavorite', recipe);
+        setFavoriIcon(!favoriIcon);
+     }
+     const isFavorite=(recipe)=>{
+        let is=false;
+        favorites.forEach(favorite=>{
+            if(favorite.name==name)
+              is=true;
+        });
+        return is;
+     }
     return (
+      
         <Accordion data-testid='recipe-card__accordion'>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon fontSize="large"/>}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
             >
-                <Typography variant="h4" className="recipe__name">{ name }</Typography>
+                
+                      <IconButton className={classes.root} color="primary" aria-label="ajouter au favories" onClick={handleAddFavorite}>
+                      <Typography variant="h4" className="recipe__name">{ name }
+                 </Typography> &nbsp;&nbsp;&nbsp;  {favoriIcon==true?<FavoriteIcon />:<FavoriteBorderIcon />}     
+                    </IconButton >                    
             </AccordionSummary>
             <AccordionDetails>
                 <Grid>
@@ -77,7 +113,10 @@ const RecipeCard = ({ recipe }) => {
                     </ul>
                 </Grid>
             </AccordionDetails>
+            
         </Accordion>
+       
+        
     );
 };
 

@@ -7,6 +7,7 @@ const FilterSelect = ({ setRecipeList }) => {
         let result = document.getElementById("food_list").value;
         result = result.split(",");
          postFromUrl('recipes/search', result, setRecipeList);
+         
     }
 
     const handleChange = (event) => {
@@ -35,6 +36,7 @@ const FilterSelect = ({ setRecipeList }) => {
                 <option value="USING_FRIDGE">En fonction de mon frigo</option>
                 <option value="BY_DIFFICULTY">En fonction de la difficulté</option>
                 <option value="BY_RATING">En fonction de la note</option>
+                <option value="FAVORITE">Mes favories</option>
             </Select>
             <form name="food_list" noValidate autoComplete="off">
                 <TextField id="food_list" label="Liste d'ingrédients" variant="outlined" />

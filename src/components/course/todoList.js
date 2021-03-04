@@ -60,12 +60,8 @@ const TodoList=()=>{
   
       setChecked(newChecked);
     };
-    const clear=document.querySelector("clear");
-    
-    // const CHECk="fa-check-circle";
-    // const UNCHECK="fa-circle-thin";
-    // const LINE_THROUTH="lineThrough";
-      const options={weekly:"long",month:"short",day:"numeric"};
+  //  const clear=document.querySelector("clear");
+      //const options={weekly:"long",month:"short",day:"numeric"};
       const classes = useStyles();
 
   return (
