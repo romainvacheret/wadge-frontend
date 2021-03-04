@@ -14,7 +14,7 @@ import Home from './components/Home/Home';
 import ShopMap from './components/map/ShopMap/ShopMap';
 import NavBar from './components/NavBar/NavBar';
 import RecipeSteps from "./components/recipe/RecipeSteps/RecipeSteps";
-
+import TodoList from './components/course/todoList';
 function App() {
   return (
     <>
@@ -57,6 +57,11 @@ function App() {
               exact
               path='/fridge/addition'
               render={ () => <FridgeAddition data-testid="fridge/addition"/> }
+          />
+           <Route
+              exact
+              path='/courses'
+              render={ () => <TodoList /> }
           />
         </Switch>
       </BrowserRouter>

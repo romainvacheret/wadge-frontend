@@ -27,6 +27,9 @@ const NavBar = () => {
             <ListItemLink href="/recipes" className='navbar__links' id="nav-recipes">
               Recettes
             </ListItemLink>
+            <ListItemLink href="/courses" className='navbar__links' id="nav-course">
+             Liste de Courses
+            </ListItemLink>
           </Toolbar>
         </AppBar>
     );
