@@ -59,11 +59,6 @@ function App() {
               path='/fridge/addition'
               render={ () => <FridgeAddition data-testid="fridge/addition"/> }
           />
-          <Route
-              exact
-              path='/scale'
-              render={ () => <Scale data-testid="scale"/> }
-          />
         </Switch>
       </BrowserRouter>
     </>

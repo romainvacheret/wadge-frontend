@@ -7,7 +7,7 @@ import {
     Icon,
     Input,
     InputAdornment,
-    InputLabel, MenuItem,
+    InputLabel, MenuItem, Paper,
     Select,
     TextField,
     Typography
@@ -51,6 +51,7 @@ const Scale = () => {
 
     return(
         <>
+            <Paper>
             <Typography variant="h3" gutterBottom className="scale__title" font-family= "cursive">
                 Conversion gramme/unité
             </Typography>
@@ -67,25 +68,36 @@ const Scale = () => {
                 {console.log(food.weight)}
             </FormControl>
             <form className="scale__converter" noValidate autoComplete="off">
-                <Input id="g_to_u"
-                    className="scale__converter__element"
-                    type="number"
-                    defaultValue="0"
-                    helperText="grammes"
-                    endAdornment={<InputAdornment position="end">g</InputAdornment>}
-                />
-                <DragHandleIcon fontSize="large"/> <Typography>{ unit }</Typography>
-                <Input id="u_to_g"
-                    className="scale__converter__element"
-                    type="number"
-                    defaultValue="0"
-                    label="unités"
-                    helperText="unités"
-                    endAdornment={<InputAdornment position="end">unités</InputAdornment>}
-                /> <DragHandleIcon fontSize="large"/> <Typography>{ gramme }</Typography>
-
+                <Grid container>
+                    <Grid container>
+                        <Grid item>
+                            <Input id="g_to_u"
+                                className="scale__converter__element"
+                                type="number"
+                                defaultValue="0"
+                                helperText="grammes"
+                                endAdornment={<InputAdornment position="end">g</InputAdornment>}
+                            />
+                        </Grid>
+                        <DragHandleIcon fontSize="large"/> <Typography variant="h5">{ unit }</Typography>
+                    </Grid>
+                    <Grid container>
+                        <Grid item>
+                            <Input id="u_to_g"
+                                className="scale__converter__element"
+                                type="number"
+                                defaultValue="0"
+                                label="unités"
+                                helperText="unités"
+                                endAdornment={<InputAdornment position="end">unités</InputAdornment>}
+                            />
+                        </Grid>
+                        <DragHandleIcon fontSize="large"/> <Typography variant="h5">{ gramme }</Typography>
+                    </Grid>
+                </Grid>
             </form>
             <button onClick={ Conversion }>Convertir</button>
+            </Paper>
         </>
     );
 }
