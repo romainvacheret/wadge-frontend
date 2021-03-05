@@ -51,15 +51,13 @@ const RecipeCard = ({ recipe }) => {
       const classes = useStyles();
       const handleAddFavorite=()=>{   
       if(favoriIcon==false)  axios.post('http://localhost:8080/recipes/addFavorite', recipe);
+      if(favoriIcon==true)   axios.post('http://localhost:8080//recipes/removeFavorite', recipe)
+      .then((response) =>{
+        const favoritesList = response.data;
+        console.log("la suppression"+response.data);
+        setFavorites([...favoritesList]);
+    });
         setFavoriIcon(!favoriIcon);
-     }
-     const isFavorite=(recipe)=>{
-        let is=false;
-        favorites.forEach(favorite=>{
-            if(favorite.name==name)
-              is=true;
-        });
-        return is;
      }
     return (
       
