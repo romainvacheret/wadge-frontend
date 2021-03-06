@@ -4,3 +4,9 @@
 .recipe__present__ingredient {
     color: limegreen;
 }
+.recipe__partiellement__ingredient {
+    color: #e9bf03;
+}
+.recipe__absent__ingredient{
+    color: rgb(255, 60, 0);
+}
