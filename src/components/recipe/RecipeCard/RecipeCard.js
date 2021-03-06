@@ -9,7 +9,8 @@ import {
     AccordionSummary,
     AccordionDetails,
     IconButton,
-    Tooltip
+    Tooltip,
+    Button
 } from "@material-ui/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
@@ -28,7 +29,6 @@ const RecipeCard = ({ recipe }) => {
             })
     }, []);
 
-
     const colorTypo = (param, ingredient ) => {
         switch(param){
             case "present":
@@ -40,7 +40,7 @@ const RecipeCard = ({ recipe }) => {
             default:
                 return <Typography variant="h5">{ ingredient.name } { ingredient.quantity !== '-1' ? (' : ' + ingredient.quantity) : ''}</Typography>
         }
-
+        
     }
    
     return (
@@ -80,11 +80,11 @@ const RecipeCard = ({ recipe }) => {
                         <Typography variant="h4" className="recipe__recipe-card__step">Ingredients</Typography>
                         { ingredients.map((ingredient, idx) =>
                             <Grid key={ idx }>
-                                { 
-                                
-                                colorTypo(liste.get(ingredient.name), ingredient)
-                                }
-
+                                { colorTypo(liste.get(ingredient.name), ingredient) }
+                                <Button
+                                    onClick={ () => { console.log(ingredient); axios.post('http://localhost:8080/shopping_list', [{...ingredient}])} }>
+                                    Shop
+                                </Button>
                             </Grid> )
                         }
                     </ul>

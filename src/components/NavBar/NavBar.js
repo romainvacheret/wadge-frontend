@@ -28,8 +28,8 @@ const NavBar = () => {
             <ListItemLink href="/fridge/addition" className='navbar__links' id="nav-fridge-addition">
               Ajout au frigo
             </ListItemLink>
-            <ListItemLink href="/map" className='navbar__links' id="nav-map">
-              Carte des Magasins
+            <ListItemLink href="/shopping_list" className='navbar__links' id="nav-map">
+              Liste des courses
             </ListItemLink>
             <ListItemLink href="/recipes" className='navbar__links' id="nav-recipes">
               Recettes
