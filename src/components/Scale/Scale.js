@@ -4,11 +4,9 @@ import './Scale.css';
 import {
     FormControl,
     Grid,
-    Icon,
     Input,
     InputAdornment,
-    InputLabel, MenuItem, Paper,
-    Select,
+    Paper,
     TextField,
     Typography
 } from "@material-ui/core";
