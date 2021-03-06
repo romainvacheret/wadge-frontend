@@ -14,7 +14,6 @@ import Home from './components/Home/Home';
 import ShopMap from './components/map/ShopMap/ShopMap';
 import NavBar from './components/NavBar/NavBar';
 import RecipeSteps from "./components/recipe/RecipeSteps/RecipeSteps";
-import Scale from "./components/Scale/Scale";
 
 function App() {
   return (

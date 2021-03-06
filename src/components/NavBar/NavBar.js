@@ -1,8 +1,7 @@
 import React from 'react';
-import {AppBar, Toolbar, ListItem, SvgIcon, Tooltip, Popper} from '@material-ui/core';
+import { AppBar, Toolbar, ListItem, Tooltip, Popper } from '@material-ui/core';
 
 import './NavBar.css';
-import {limegreen} from "color-name";
 import Scale from "../Scale/Scale";
 
 const NavBar = () => {
