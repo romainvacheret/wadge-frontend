@@ -9,7 +9,8 @@ import {
     AccordionSummary,
     AccordionDetails,
     IconButton,
-    Tooltip
+    Tooltip,
+    Button
 } from "@material-ui/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
@@ -28,7 +29,19 @@ const RecipeCard = ({ recipe }) => {
             })
     }, []);
 
-
+    const colorTypo = (param, ingredient ) => {
+        switch(param){
+            case "present":
+                return <Typography variant="h5" className="recipe__present__ingredient">{ ingredient.name } { ingredient.quantity !== '-1' ? (' : ' + ingredient.quantity) : ''}</Typography>
+            case "partiellement":
+                return <Typography variant="h5" className="recipe__partiellement__ingredient">{ ingredient.name } { ingredient.quantity !== '-1' ? (' : ' + ingredient.quantity) : ''}</Typography>
+            case "absent":
+                return <Typography variant="h5" className="recipe__absent__ingredient">{ ingredient.name } { ingredient.quantity !== '-1' ? (' : ' + ingredient.quantity) : ''}</Typography>
+            default:
+                return <Typography variant="h5">{ ingredient.name } { ingredient.quantity !== '-1' ? (' : ' + ingredient.quantity) : ''}</Typography>
+        }
+        
+    }
    
     return (
         <Accordion data-testid='recipe-card__accordion'>
@@ -67,11 +80,11 @@ const RecipeCard = ({ recipe }) => {
                         <Typography variant="h4" className="recipe__recipe-card__step">Ingredients</Typography>
                         { ingredients.map((ingredient, idx) =>
                             <Grid key={ idx }>
-                                { liste.get(ingredient.name) === 'present' ?
-                                    <Typography variant="h5" className="recipe__present__ingredient">{ ingredient.name } { ingredient.quantity !== '-1' ? (' : ' + ingredient.quantity) : ''}</Typography>
-                                    : <Typography variant="h5">{ ingredient.name } { ingredient.quantity !== '-1' ? (' : ' + ingredient.quantity) : ''}</Typography>
-                                }
-
+                                { colorTypo(liste.get(ingredient.name), ingredient) }
+                                <Button
+                                    onClick={ () => { console.log(ingredient); axios.post('http://localhost:8080/shopping_list', [{...ingredient}])} }>
+                                    Shop
+                                </Button>
                             </Grid> )
                         }
                     </ul>
