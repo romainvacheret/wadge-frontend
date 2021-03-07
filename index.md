@@ -22,7 +22,7 @@ Cependant, si le code source vous intéresse, vous pouvez découvrir le front en
 * Barre de recherche pour les aliments à ajouter au frigo
 * Liste de recettes
 * Affichage intuitif des recettes
-* Mise en évidence des aliments présents dans le frigo pour les recettes
+* Mise en évidence des aliments présents dans le frigo pour les recettes suivant 4 couleurs (absent = rouge, en parti présent = orange, présent = vert, non repertorié = noir)
 * Filtre des recettes en fonction du contenu du frigo
 * Filtre des recettes en fonction d'une liste donnée par l'utilisateur
 * Filtre des recettes par difficulté ou note
@@ -30,6 +30,8 @@ Cependant, si le code source vous intéresse, vous pouvez découvrir le front en
 * Récupération de recettes depuis Marmiton
 * Affichage pas à pas des recettes
 * Affichage d'un message dans le frigo à la fin d'une recette pour enlever du frigo
+* Ajout d'une balance pour convertir Grammes <=> Unités
+* Ajout d'une liste de courses à partir des ingrédients d'une recette
 
 ## L'équipe est composée de :
 * **Fanny Lourioux** - [Github](https://github.com/FannyLourioux) - [LinkedIn](https://www.linkedin.com/in/fanny-lourioux-4744941a0/)
