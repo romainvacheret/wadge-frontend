@@ -1,6 +1,7 @@
 import React, { useEffect} from 'react';
 import { Container, Select, InputLabel, TextField, Button, withStyles} from '@material-ui/core';
 import { postFromUrl } from 'utils';
+import axios from "axios";
 const FilterSelect = ({ setRecipeList }) => {
     
     const searchList = () => {
@@ -11,9 +12,9 @@ const FilterSelect = ({ setRecipeList }) => {
     }
 
     const handleChange = (event) => {
+        
         postFromUrl('recipes', { 'selection': event.target.value }, setRecipeList);
     };
-
 
     useEffect(() => {
         postFromUrl('recipes', { 'selection': 'EVERYTHING' }, setRecipeList)
@@ -37,7 +38,8 @@ const FilterSelect = ({ setRecipeList }) => {
                 <option value="BY_DIFFICULTY">En fonction de la difficulté</option>
                 <option value="BY_RATING">En fonction de la note</option>
                 <option value="FAVORITE">Mes favories</option>
-            </Select>
+                <option value="REALISE">Recettes Realisées</option>
+            </Select><br></br>
             <form name="food_list" noValidate autoComplete="off">
                 <TextField id="food_list" label="Liste d'ingrédients" variant="outlined" />
                 <CustomButton

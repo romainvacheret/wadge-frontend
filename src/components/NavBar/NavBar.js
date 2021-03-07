@@ -1,6 +1,5 @@
 import React from 'react';
 import { AppBar, Toolbar, ListItem } from '@material-ui/core';
-
 import './NavBar.css';
 
 const NavBar = () => {
@@ -26,9 +25,6 @@ const NavBar = () => {
             </ListItemLink>
             <ListItemLink href="/recipes" className='navbar__links' id="nav-recipes">
               Recettes
-            </ListItemLink>
-            <ListItemLink href="/courses" className='navbar__links' id="nav-course">
-             Liste de Courses
             </ListItemLink>
           </Toolbar>
         </AppBar>
