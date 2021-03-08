@@ -63,10 +63,10 @@ const RecipeCard = ({ recipe }) => {
         }
  
       const handleAddFavorite=()=>{   
-      if(favoriIcon==false) {
+      if(favoriIcon===false) {
        axios.post('http://localhost:8080/recipes/addFavorite', recipe);
       }
-      if(favoriIcon==true)   {
+      if(favoriIcon === true)   {
       axios.post('http://localhost:8080//recipes/removeFavorite', recipe)
       .then((response) =>{
         const favoritesList = response.data;
@@ -108,7 +108,7 @@ const RecipeCard = ({ recipe }) => {
                  <IconButton color="primary" onClick={handleAddDone}> <DoneIcon /></IconButton>            
                       <IconButton className={classes.root} color="primary" aria-label="ajouter au favories" onClick={handleAddFavorite}>
                       <Typography variant="h4" className="recipe__name"> { name }
-                 </Typography> &nbsp;&nbsp;&nbsp;  {favoriIcon==true?<FavoriteIcon />:<FavoriteBorderIcon />}     
+                 </Typography> &nbsp;&nbsp;&nbsp;  {favoriIcon === true?<FavoriteIcon />:<FavoriteBorderIcon />}     
                     </IconButton >  
                     <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
                       <MuiAlert elevation={6} variant="filled" onClose={handleClose} severity="success">
