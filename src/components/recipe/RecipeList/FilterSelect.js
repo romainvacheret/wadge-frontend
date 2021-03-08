@@ -1,7 +1,6 @@
 import React, { useEffect} from 'react';
 import { Container, Select, InputLabel, TextField, Button, withStyles} from '@material-ui/core';
 import { postFromUrl } from 'utils';
-import axios from "axios";
 const FilterSelect = ({ setRecipeList }) => {
     
     const searchList = () => {

@@ -1,24 +1,10 @@
 import React, {useEffect,useRef, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import './RecipeCard.css';
-
-import {Grid, Typography,Accordion,AccordionSummary,AccordionDetails,IconButton,Tooltip,Snackbar} from "@material-ui/core";
+import {Grid, Typography,Button,Accordion,AccordionSummary,AccordionDetails,IconButton,Tooltip,Snackbar} from "@material-ui/core";
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import DoneIcon from '@material-ui/icons/Done';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-
-
-import {
-    Grid,
-    Typography,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
-    IconButton,
-    Tooltip,
-    Button
-} from "@material-ui/core";
-
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import { Link } from "react-router-dom";
