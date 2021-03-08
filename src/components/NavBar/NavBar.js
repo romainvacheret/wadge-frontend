@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppBar, Toolbar, ListItem, Tooltip, Popper } from '@material-ui/core';
 
+
 import './NavBar.css';
 import Scale from "../Scale/Scale";
 
