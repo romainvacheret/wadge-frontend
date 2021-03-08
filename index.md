@@ -32,6 +32,10 @@ Cependant, si le code source vous intéresse, vous pouvez découvrir le front en
 * Affichage d'un message dans le frigo à la fin d'une recette pour enlever du frigo
 * Ajout d'une balance pour convertir Grammes <=> Unités
 * Ajout d'une liste de courses à partir des ingrédients d'une recette
+* Ajout d'un filtre des recettes favorites
+* Ajout d'un filtre des recettes réalisées
+* Possibilité d'ajouter une recette en favoris
+* Possibilité de cocher une recette en tant que réalisée
 
 ## L'équipe est composée de :
 * **Fanny Lourioux** - [Github](https://github.com/FannyLourioux) - [LinkedIn](https://www.linkedin.com/in/fanny-lourioux-4744941a0/)
