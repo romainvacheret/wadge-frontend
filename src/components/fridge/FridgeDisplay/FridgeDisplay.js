@@ -7,9 +7,14 @@ import FridgeCategory from './FridgeCategory';
 import { fetchFromUrl } from 'utils'; 
 import axios from "axios";
 
-const FridgeDisplay = () => {
+const FridgeDisplay = (props) => {
     const [fridgeList, setFridgeList] = useState({});
     const [counters, setCounters] = useState({});
+
+    let msg1 = "";
+    if(props.location.state !== undefined){
+        msg1 = props.location.state.msg1;
+    }
 
     useEffect(() =>  fetchFromUrl('alerts', initializeCounters), []);
 
@@ -38,6 +43,34 @@ const FridgeDisplay = () => {
             axios.post('http://localhost:8080/fridge/update', body);
         }
     } 
+
+    const emptyFridge = () => {
+        let result = [];
+        Object.keys(fridgeList).forEach(key => {
+            const fList = fridgeList[key];
+            fList.forEach(food => {
+                const ll = food.products.map(product => product.id);
+                result = [...ll.map(p => { return {fridgeFood: food.name, id: p}}), ...result];
+            });
+        });
+
+        if(result.length) {
+            axios.post('http://localhost:8080/fridge/delete', result);
+        }
+    }
+
+    const emptyPassedFood = () => {
+        let result = [];
+            const fList = fridgeList['EXPIRED'];
+            fList.forEach(food => {
+                const ll = food.products.map(product => product.id);
+                result = [...ll.map(p => { return {fridgeFood: food.name, id: p}}), ...result];
+            });
+
+        if(result.length) {
+            axios.post('http://localhost:8080/fridge/delete', result);
+        }
+    }
 
     const CustomButton = withStyles({
         root: {
@@ -69,6 +102,25 @@ const FridgeDisplay = () => {
                 >
                     Prendre les aliments
                 </CustomButton>
+                <CustomButton 
+                    onClick={ emptyFridge }
+                    variant='contained'
+                    href="/fridge"
+                >
+                    Tout prendre
+                </CustomButton>
+                <CustomButton 
+                    onClick={ emptyPassedFood }
+                    variant='contained'
+                    href="/fridge"
+                >
+                    Jeter les aliments périmés
+                </CustomButton>
+            </Container>
+            <Container>
+                <Grid>
+                    <Typography variant="h4" style= {{ color: 'black' }}>{ msg1 }</Typography>
+                </Grid>
             </Container>
         </>
     );

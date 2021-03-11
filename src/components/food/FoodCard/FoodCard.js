@@ -35,27 +35,18 @@ const FoodCard = ({ foodAttributes, data }) => {
     const { word, color } = foodAttributes;
     const open = Boolean(anchor);
 
-    // const handleMouseOver = (event) => { console.log('test'); setAnchor(event.currentTarget) };
     const handleClose = () => setAnchor(null);
     const handleClick = (event) => { anchor === null ? setAnchor(event.currentTarget) : setAnchor(null) }
 
     return (
         <div style={{ width: 70 }} 
             onClick = { handleClick }
-                // onMouseEnter={ handleMouseOver }
-                // onMouseLeave={ handleClose }
         >
             <FoodRepresentation 
                 word={word} 
                 color={color}  
                 onClick = { handleClick }
             />
-            {/* <Typography
-                onMouseEnter={handleMouseOver}
-                onMouseLeave={handleClose}
-            >
-                Hover me
-            </Typography> */}
             <Popover
                 classes={{
                 paper: classes.paper

@@ -1,26 +1,23 @@
-import React from 'react';
-import { Container, Select, InputLabel, TextField, Button, withStyles } from '@material-ui/core';
-import { fetchFromUrl } from 'utils';
-
+import React, { useEffect} from 'react';
+import { Container, Select, InputLabel, TextField, Button, withStyles} from '@material-ui/core';
+import { postFromUrl } from 'utils';
 const FilterSelect = ({ setRecipeList }) => {
-
+    
     const searchList = () => {
         let result = document.getElementById("food_list").value;
         result = result.split(",");
-        console.log(result);
-        fetch(`http://localhost:8080/recipes/search`, {
-            method: "POST",
-            body: JSON.stringify(result),
-             headers: {
-                 'Accept': 'application/json',
-                 'Content-Type': 'application/json'
-             }
-         })
-         .then(response => response.json())
-         .then(response => {console.log(response); setRecipeList([...response])})
+         postFromUrl('recipes/search', result, setRecipeList);
+         
     }
 
-    const handleChange = (event) => fetchFromUrl(`recipes${event.target.value}`, setRecipeList);
+    const handleChange = (event) => {
+        
+        postFromUrl('recipes', { 'selection': event.target.value }, setRecipeList);
+    };
+
+    useEffect(() => {
+        postFromUrl('recipes', { 'selection': 'EVERYTHING' }, setRecipeList)
+    }, []);
     
     const CustomButton = withStyles({
         root: {
@@ -30,22 +27,28 @@ const FilterSelect = ({ setRecipeList }) => {
         },
     }
     })(Button);
-    
+
     return (
         <Container>
             <InputLabel htmlFor="age-native-simple">Filtrage</InputLabel>
             <Select native onChange={ handleChange } style = {{ color:  "#f19300" }}>
-                <option value="">Toutes les recettes</option>
-                <option value="/fridge">Tri avec mon frigo</option>
-            </Select>
+                <option value="EVERYTHING">Toutes les recettes</option>
+                <option value="USING_FRIDGE">En fonction de mon frigo</option>
+                <option value="BY_DIFFICULTY">En fonction de la difficulté</option>
+                <option value="BY_RATING">En fonction de la note</option>
+                <option value="FAVORITE">Mes favories</option>
+                <option value="REALISE">Recettes Realisées</option>
+            </Select><br></br>
             <form name="food_list" noValidate autoComplete="off">
                 <TextField id="food_list" label="Liste d'ingrédients" variant="outlined" />
                 <CustomButton
                  variant="contained"
                  className="button_foodlist"
-                 onClick={searchList}>Recherche sur Marmiton</CustomButton>
+                 onClick={ searchList }>Recherche sur Marmiton</CustomButton>
             </form>
+            
         </Container>
+        
     );
 };
 
