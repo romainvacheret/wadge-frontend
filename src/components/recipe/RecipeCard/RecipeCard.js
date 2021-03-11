@@ -24,6 +24,7 @@ const RecipeCard = ({ recipe }) => {
             })
     }, []);
     let isRendered = useRef(false);
+
     useEffect(() => {
         isRendered = true;
         axios.get('http://localhost:8080/recipes/favorites')
@@ -44,15 +45,6 @@ const RecipeCard = ({ recipe }) => {
                 isRendered = false;
           };          
         });
-  
-    const useStyles = makeStyles((theme) => ({
-        root: {
-          '& > *': {
-            margin: theme.spacing(1),
-          },
-        },
-      }));
-      const classes = useStyles();
       
       const handleAddFavorite=()=>{   
       if(favoriIcon) {
@@ -62,7 +54,7 @@ const RecipeCard = ({ recipe }) => {
                   setFavorites([...favoritesList]);
               });
       }
-      else  {
+      else {
           axios.post('http://localhost:8080/recipes/addFavorite', recipe);
       }
         setFavoriIcon(!favoriIcon);
@@ -78,10 +70,8 @@ const RecipeCard = ({ recipe }) => {
             default:
                 return <Typography variant="h5">{ ingredient.name } { ingredient.quantity !== '-1' ? (' : ' + ingredient.quantity) : ''}</Typography>
         }
-        
     }
 
-   
     return (
       
         <Accordion data-testid='recipe-card__accordion'>
@@ -90,8 +80,8 @@ const RecipeCard = ({ recipe }) => {
                 aria-controls="panel1a-content"
                 id="panel1a-header" >
                     {favoriIcon === true?<FavoriteIcon style={{ color: "#f19300" }} fontSize="large"/>:<FavoriteBorderIcon style={{ color: "limegreen" }} fontSize="large"/>}
-
-                    <Typography variant="h4" className="recipe__name">{ name }</Typography>
+                &nbsp;&nbsp;
+                    <Typography variant="h4" className="recipe__name" >{ name }</Typography>
 
             </AccordionSummary>
             <AccordionDetails>
@@ -111,7 +101,7 @@ const RecipeCard = ({ recipe }) => {
                         </Link>
                     </Tooltip>
                     <Tooltip title="Ajouter aux favoris" onClick={handleAddFavorite}>
-                        <IconButton className={classes.root} color="primary" aria-label="add-to-favorite" >
+                        <IconButton className="recipe__recipe-card__favorite" color="primary" aria-label="add-to-favorite" >
                             {favoriIcon === true?<FavoriteIcon style={{ color: "#f19300" }} fontSize="large"/>:<FavoriteBorderIcon style={{ color: "limegreen" }} fontSize="large"/>}
                         </IconButton >
                     </Tooltip>
