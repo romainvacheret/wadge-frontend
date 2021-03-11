@@ -11,7 +11,6 @@ import FoodList from "./components/food/FoodList/FoodList";
 import FridgeAddition from './components/fridge/FridgeAddition/FridgeAddition';
 import FridgeDisplay from "./components/fridge/FridgeDisplay/FridgeDisplay";
 import Home from './components/Home/Home';
-import ShopMap from './components/map/ShopMap/ShopMap';
 import NavBar from './components/NavBar/NavBar';
 import RecipeSteps from "./components/recipe/RecipeSteps/RecipeSteps";
 import ShoppingList from 'components/shopping/ShoppingList/ShoppingList';
@@ -42,12 +41,6 @@ function App() {
             exact
             path='/filter'
             render={ () => <FoodList data-testid="filter"/> }
-          />
-          <Route
-            exact
-            path='/map'
-            render={ (props) => <ShopMap {...props}/> }
-
           />
           <Route
               exact
