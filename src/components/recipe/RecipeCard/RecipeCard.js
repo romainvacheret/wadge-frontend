@@ -1,24 +1,21 @@
 import React, {useEffect,useRef, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import './RecipeCard.css';
-import {Grid, Typography,Button,Accordion,AccordionSummary,AccordionDetails,IconButton,Tooltip,Snackbar} from "@material-ui/core";
+import {Grid, Typography,Button,Accordion,AccordionSummary,AccordionDetails,IconButton,Tooltip} from "@material-ui/core";
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import DoneIcon from '@material-ui/icons/Done';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import { Link } from "react-router-dom";
 import axios from "axios";
-import MuiAlert from '@material-ui/lab/Alert';
+
 
 const RecipeCard = ({ recipe }) => {
     const { steps, ingredients, name, servings, difficulty, rating } = recipe;
     const [liste, setListe] = useState(new Map());
     const [favorites,setFavorites]=useState([]);
-    const [open, setOpen] = useState(false);
     const [favoriIcon,setFavoriIcon]=useState(false); 
-    const [message,setMessage]=useState('');
-
+    
     useEffect(() => {
         axios.post('http://localhost:8080/recipes/ingredient', recipe)
             .then((response) =>{
@@ -56,12 +53,7 @@ const RecipeCard = ({ recipe }) => {
         },
       }));
       const classes = useStyles();
-      const handleAddDone=()=>{   
-         axios.post('http://localhost:8080/recipes/addtoDoneRecipe', recipe);
-         setMessage('recette ajoutée aux recettes realisées avec succes!');
-         setOpen(true);
-        }
- 
+      
       const handleAddFavorite=()=>{   
       if(favoriIcon===false) {
        axios.post('http://localhost:8080/recipes/addFavorite', recipe);
@@ -76,13 +68,6 @@ const RecipeCard = ({ recipe }) => {
     }     
         setFavoriIcon(!favoriIcon);
   }
-     const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-          return;
-        }
-    
-        setOpen(false);
-      };
     const colorTypo = (param, ingredient ) => {
         switch(param){
             case "present":
@@ -104,17 +89,11 @@ const RecipeCard = ({ recipe }) => {
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon fontSize="large"/>}
                 aria-controls="panel1a-content"
-                id="panel1a-header" >   
-                 <IconButton color="primary" onClick={handleAddDone}> <DoneIcon /></IconButton>            
+                id="panel1a-header" >         
                       <IconButton className={classes.root} color="primary" aria-label="ajouter au favories" onClick={handleAddFavorite}>
                       <Typography variant="h4" className="recipe__name"> { name }
                  </Typography> &nbsp;&nbsp;&nbsp;  {favoriIcon === true?<FavoriteIcon />:<FavoriteBorderIcon />}     
-                    </IconButton >  
-                    <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
-                      <MuiAlert elevation={6} variant="filled" onClose={handleClose} severity="success">
-                         {message}
-                      </MuiAlert>
-                    </Snackbar>                  
+                    </IconButton >                
             </AccordionSummary>
             <AccordionDetails>
                 <Grid>
