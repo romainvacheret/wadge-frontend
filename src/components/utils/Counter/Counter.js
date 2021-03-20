@@ -25,7 +25,7 @@ const Counter = ({counters, idx, handlePlus, handleMinus}) => {
     })(Button);
 
     return (
-        <Grid container>
+        <Grid container className="fridge-addition__counter">
                 <Typography >
             <CustomButton onClick={ () => handleMinus(idx) } > 
                 <IndeterminateCheckBoxIcon fontSize="large"/>
