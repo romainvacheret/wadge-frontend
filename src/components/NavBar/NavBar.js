@@ -29,7 +29,7 @@ const NavBar = () => {
             <ListItemLink href="/fridge/addition" className='navbar__links' id="nav-fridge-addition">
               Ajout au frigo
             </ListItemLink>
-            <ListItemLink href="/shopping_list" className='navbar__links' id="nav-map">
+            <ListItemLink href="/shopping_list" className='navbar__links' id="nav-shopping">
               Liste des courses
             </ListItemLink>
             <ListItemLink href="/recipes" className='navbar__links' id="nav-recipes">
