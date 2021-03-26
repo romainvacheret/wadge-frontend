@@ -36,6 +36,8 @@ const FilterSelect = ({ setRecipeList }) => {
                 <option value="USING_FRIDGE">En fonction de mon frigo</option>
                 <option value="BY_DIFFICULTY">En fonction de la difficulté</option>
                 <option value="BY_RATING">En fonction de la note</option>
+                <option value="BY_INGREDIENTS">En fonction du nombre d'ingrédients</option>
+                <option value="BY_UNIT">En fonction du nombre d'unités d'ingrédients</option>
                 <option value="FAVORITE">Mes favories</option>
                 <option value="REALISE">Recettes Realisées</option>
             </Select><br></br>
