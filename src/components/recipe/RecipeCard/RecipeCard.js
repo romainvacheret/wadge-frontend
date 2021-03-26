@@ -11,7 +11,7 @@ import axios from "axios";
 
 
 const RecipeCard = ({ recipe }) => {
-    const { steps, ingredients, name, servings, difficulty, rating } = recipe;
+    const { steps, ingredients, name, servings, difficulty, rating, preparation } = recipe;
     const [liste, setListe] = useState(new Map());
     const [favorites,setFavorites]=useState([]);
     const [favoriIcon,setFavoriIcon]=useState(false); 
@@ -89,6 +89,7 @@ const RecipeCard = ({ recipe }) => {
                     <Typography variant="h5">{ `Recette pour : ${ servings } personnes` }</Typography>
                     <Typography variant="h5">{ `Difficulté : ${ difficulty }/4` }</Typography>
                     <Typography variant="h5">{ `Note : ${ rating }/5` }</Typography>
+                    <Typography variant="h5">{ `Préparation : ${ preparation } mins` }</Typography>
                     <Tooltip title="Accéder à la recette">
                         <Link to={{
                             pathname: '/recipes/step',
