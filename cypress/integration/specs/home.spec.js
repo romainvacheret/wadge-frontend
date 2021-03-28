@@ -6,12 +6,12 @@ context('Home page', () => {
     
     it('Checks the title', () => cy.title().should('eq', 'Wadge App'))
 
-    it('Looks for the nav bar', () => cy.title().get('#navbar'))
-
     it('Makes sure the logo is present and clickable', () => {
         cy.get('.home__image').should('have.attr', 'src', 'logo.png')
         cy.get('.home__image').parent().should('have.attr', 'href', '/fridge')
     })
+
+    it('Looks for the nav bar', () => cy.title().get('#navbar'))
 
     it('Checks the nav bar logo', () => {
         cy.get('#nav-logo').should('have.attr', 'href', '/')
@@ -28,5 +28,17 @@ context('Home page', () => {
 
     it('Checks the link to the fridge addition', () => {
         cy.get('#nav-fridge-addition').should('have.attr', 'href', '/fridge/addition')
+    })
+
+    it('Checks the link to the shopping list', () => {
+        cy.get('#nav-shopping').should('have.attr', 'href', '/shopping_list')
+    })
+
+    it('Checks the link to the recipies', () => {
+        cy.get('#nav-recipes').should('have.attr', 'href', '/recipes')
+    })
+
+    it('Checks the scale', () => {
+        cy.get('#icon-scale').should('have.attr', 'src', '/scale.png')
     })
 })

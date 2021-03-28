@@ -58,7 +58,7 @@ const FoodList = () => {
                 Liste des fruits et légumes
             </Typography>
                 <Grid item className="foodlist__searchBar">
-                    <SearchBar searchFood={ searchFood } handleChange={ handleChange } />
+                    <SearchBar id="search-bar" searchFood={ searchFood } handleChange={ handleChange } />
                 </Grid>
                 <Grid item className="foodlist__switch">
                     <FormControlLabel 
