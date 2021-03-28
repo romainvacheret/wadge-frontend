@@ -38,8 +38,8 @@ const FilterSelect = ({ setRecipeList }) => {
                 <option value="BY_RATING">En fonction de la note</option>
                 <option value="BY_INGREDIENTS">En fonction du nombre d'ingrédients</option>
                 <option value="BY_UNIT">En fonction du nombre d'unités d'ingrédients</option>
-                <option value="FAVORITE">Mes favories</option>
-                <option value="REALISE">Recettes Realisées</option>
+                {/* <option value="FAVORITE">Mes favories</option> */}
+                {/* <option value="REALISE">Recettes Realisées</option> */}
             </Select><br></br>
             <form name="food_list" noValidate autoComplete="off">
                 <TextField id="food_list" label="Liste d'ingrédients" variant="outlined" />
