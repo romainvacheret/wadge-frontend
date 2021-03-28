@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './ShoppingList.css';
 
 import {
     Button,
@@ -43,9 +44,10 @@ const ShoppingList = () => {
 
     return (
         <>
-            <Grid item xs={2}>
-                <Typography variant="h4">Liste des courses</Typography>
-                <Paper>
+        <Typography variant="h3" className='shopping-list__title' >Liste des courses</Typography>
+            <Grid container direction={"column"}>
+                
+                <Paper className='shopping-list__paper'>
                     <List className="truc" name="truc">
                         { ingredients.map((ingredient, idx) =>
                             <ListItem key={ idx } name="shopping-item" results={ Math.ceil(ingredient.quantity) }>
@@ -60,11 +62,11 @@ const ShoppingList = () => {
                         }
                     </List>
                 </Paper>
+                <Button
+                    onClick={ handleClick }>
+                    Sauvegarder les modifications
+                </Button>
             </Grid>
-            <Button
-                onClick={ handleClick }>
-                Sauvegarder les modifications
-            </Button>
         </>
     );
 }
