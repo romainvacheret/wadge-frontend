@@ -36,6 +36,8 @@ Cependant, si le code source vous intéresse, vous pouvez découvrir le front en
 * Ajout d'un filtre des recettes réalisées
 * Possibilité d'ajouter une recette en favoris
 * Possibilité de cocher une recette en tant que réalisée
+* Ajout de tris en fonction du nombre d'ingrédients et du nombre d'unités d'ingrédients dans une recette 
+* Automatisation des recettes réalisées
 
 ## L'équipe est composée de :
 * **Fanny Lourioux** - [Github](https://github.com/FannyLourioux) - [LinkedIn](https://www.linkedin.com/in/fanny-lourioux-4744941a0/)
