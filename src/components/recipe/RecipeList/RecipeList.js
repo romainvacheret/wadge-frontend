@@ -23,7 +23,7 @@ const RecipeList = () => {
         if(value === '') {
             setRecipes([...recipeList]);
         } else if(value > 0) {
-            setRecipes([...recipeList.filter(recipe => recipe.servings == value)]);
+            setRecipes([...recipeList.filter(recipe => recipe.servings === value)]);
         }
         
     };

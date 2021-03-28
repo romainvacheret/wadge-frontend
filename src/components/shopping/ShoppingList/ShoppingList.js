@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './ShoppingList.css';
 
 import {
     Button,
@@ -20,7 +21,7 @@ const GreenCheckbox = withStyles({
         },
     },
     checked: {},
-})((props) => <Checkbox color="default" {...props} />);
+})((props) => <Checkbox className="xD" color="default" {...props} />);
 
 const ShoppingList = () => {
     const [ingredients, setIngredients] = useState([]);
@@ -29,15 +30,12 @@ const ShoppingList = () => {
         let x = [...ingredients];
         x[idx]['selected'] = !x[idx]['selected'];
         setIngredients(x);
-        console.log("SE", ingredients);
     };
 
     const handleClick = () => {
         const result = ingredients.filter(element => element.selected).map(element => element.name);
-        console.log('Res', result);
         axios.delete('http://localhost:8080/shopping_list', {data: result})
-            .then(response => setIngredients([...response.data]));
-        // console.log(ingredients.filter(element => element.selected).map(element => element.name))
+            .then(response => setIngredients([...response.data.map(element => {return {...element, selected: false}})]));   
     }
 
     useEffect(() => axios.get('http://localhost:8080/shopping_list')
@@ -46,15 +44,16 @@ const ShoppingList = () => {
 
     return (
         <>
-            <Grid item xs={2}>
-                <Typography variant="h4">Liste des courses</Typography>
-                <Paper>
+        <Typography variant="h3" className='shopping-list__title' >Liste des courses</Typography>
+            <Grid container direction={"column"}>
+                
+                <Paper className='shopping-list__paper'>
                     <List className="truc" name="truc">
                         { ingredients.map((ingredient, idx) =>
                             <ListItem key={ idx } name="shopping-item" results={ Math.ceil(ingredient.quantity) }>
                                 <ListItemIcon>
                                     <GreenCheckbox
-                                        
+                                        checked={ingredient['selected']}
                                         onChange={ () => handleChange(idx) }
                                     />
                                     {ingredient.name} { ingredient.quantity !== '-1' ? (' : ' + ingredient.quantity) : ''}
@@ -63,11 +62,11 @@ const ShoppingList = () => {
                         }
                     </List>
                 </Paper>
+                <Button
+                    onClick={ handleClick }>
+                    Sauvegarder les modifications
+                </Button>
             </Grid>
-            <Button
-                onClick={ handleClick }>
-                Sauvegarder les modifications
-            </Button>
         </>
     );
 }

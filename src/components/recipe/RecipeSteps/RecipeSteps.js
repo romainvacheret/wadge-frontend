@@ -2,7 +2,10 @@ import React from 'react';
 
 import './RecipeSteps.css';
 
+import axios from "axios";
+
 import { Link } from "react-router-dom";
+
 
 import {
     Button, Checkbox,
@@ -14,8 +17,9 @@ import {
     StepContent,
     StepLabel,
     Stepper,
-    Typography
+    Typography,
 } from "@material-ui/core";
+
 import { withStyles } from '@material-ui/core/styles';
 
 const GreenCheckbox = withStyles({
@@ -91,6 +95,9 @@ const RecipeSteps = ( props ) => {
     };
 
     const handleClick = () => {
+        axios.post('http://localhost:8080/recipes/addtoDoneRecipe', recipe);
+
+        
         const toto = checked.map( ( v,idx ) => {
             if(v){
                 const ingredient = ingredients[idx];
@@ -140,10 +147,10 @@ const RecipeSteps = ( props ) => {
                                 }}>
                                     <DarkButton
                                         variant="contained"
-                                        
                                         >
                                         Retourner vers le frigo
                                     </DarkButton>
+                                    
                                 </Link>
                             </Paper>
                         )}
