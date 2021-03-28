@@ -99,6 +99,7 @@ const FridgeDisplay = (props) => {
                     onClick={ updateFridge }
                     variant='contained'
                     href="/fridge"
+                    id="update-fridge"
                 >
                     Prendre les aliments
                 </CustomButton>
@@ -106,6 +107,7 @@ const FridgeDisplay = (props) => {
                     onClick={ emptyFridge }
                     variant='contained'
                     href="/fridge"
+                    id="clear-fridge"
                 >
                     Tout prendre
                 </CustomButton>
@@ -113,6 +115,7 @@ const FridgeDisplay = (props) => {
                     onClick={ emptyPassedFood }
                     variant='contained'
                     href="/fridge"
+                    id="clean-fridge"
                 >
                     Jeter les aliments périmés
                 </CustomButton>

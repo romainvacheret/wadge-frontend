@@ -41,6 +41,10 @@ context('Month filter', () => {
 
     it('Checks the title', () => cy.contains('Liste des fruits et légumes'))
 
+    it('Checks the search bar', () => cy.get('.form-control'))
+
+    it('Checks the switch', () => cy.get('.foodlist__switch'))
+
     it('Makes sure the select is present', () => {
         cy.get('.monthfilter__bar').children().should('have.length', 12)
     })

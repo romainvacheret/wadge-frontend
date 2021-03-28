@@ -7,12 +7,17 @@ context('Month filter', () => {
     it('Checks the title of the page', () => cy.title().should('eq', 'Wadge App'));
 
     it('Looks for the nav bar', () => cy.get('#navbar'));
-    it('Looks for the search bar', () => cy.get('.search-bar'));
+
+    it('Checks the search bar', () => cy.get('.form-control'))
 
     it('Checks the title', () => cy.contains('Liste des fruits et légumes à ajouter'));
 
-    it('Makes sure all the foods are present', () => {
+    it('Makes sure all every food is present', () => {
         cy.get('.fridge-addition__food-card').should('have.length', 88);
+    });
+
+    it('Makes sure each food has its counter', () => {
+        cy.get('.fridge-addition__counter').should('have.length', 88);
     });
 
     it('Checks that sub titles are present', () => {
