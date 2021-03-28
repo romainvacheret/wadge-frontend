@@ -1,5 +1,4 @@
 import React, {useEffect,useRef, useState} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import './RecipeCard.css';
 import {Grid, Typography,Button,Accordion,AccordionSummary,AccordionDetails,IconButton,Tooltip} from "@material-ui/core";
 import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -22,7 +21,7 @@ const RecipeCard = ({ recipe }) => {
                 const food = response.data;
                 setListe(new Map(Object.entries(food)));
             })
-    }, []);
+    }, [recipe]);
     let isRendered = useRef(false);
 
     useEffect(() => {
@@ -43,8 +42,8 @@ const RecipeCard = ({ recipe }) => {
          .catch(err => console.log(err));
            return () => {
                 isRendered = false;
-          };          
-        });
+          };
+        }, []);
       
       const handleAddFavorite=()=>{   
       if(favoriIcon) {

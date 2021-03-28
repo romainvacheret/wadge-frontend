@@ -27,7 +27,7 @@ const FilterSelect = ({ setRecipeList }) => {
 
     useEffect(() => {
         postFromUrl('recipes', { 'selection': 'EVERYTHING' }, setRecipeList)
-    }, []);
+    }, [setRecipeList]);
     
     const CustomButton = withStyles({
         root: {

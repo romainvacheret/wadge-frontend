@@ -37,7 +37,7 @@ const NavBar = () => {
             </ListItemLink>
             <ListItemLink className='navbar__links' id="nav-scale">
                 <Tooltip title="balance">
-                    <img src="/scale.png" id="icon-scale" width="30" height="30" onClick={ handleClick }/>
+                    <img alt="" src="/scale.png" id="icon-scale" width="30" height="30" onClick={ handleClick }/>
                 </Tooltip>
                 <Popper id={id} open={open} anchorEl={anchorEl}>
                     <Scale/>
