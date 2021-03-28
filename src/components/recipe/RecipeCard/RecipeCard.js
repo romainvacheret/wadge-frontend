@@ -43,7 +43,7 @@ const RecipeCard = ({ recipe }) => {
            return () => {
                 isRendered = false;
           };
-        }, []);
+        });
       
       const handleAddFavorite=()=>{   
       if(favoriIcon) {
