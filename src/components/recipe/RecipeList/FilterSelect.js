@@ -1,6 +1,6 @@
 import React, { useEffect} from 'react';
 import { Container, Select, InputLabel, TextField, Button, withStyles} from '@material-ui/core';
-import { postFromUrl } from 'utils';
+import { postFromUrl, fetchFromUrl } from 'utils';
 const FilterSelect = ({ setRecipeList }) => {
     
     const searchList = () => {
@@ -11,8 +11,18 @@ const FilterSelect = ({ setRecipeList }) => {
     }
 
     const handleChange = (event) => {
+        const value = event.target.value;
+        switch(value) {
+            case 'FAVORITE':
+                fetchFromUrl('recipes/favorites', setRecipeList);
+                break;
+            case 'REALISE':
+                fetchFromUrl('recipes/doneRecipes', setRecipeList);
+                break;
+            default:
+                postFromUrl('recipes', { 'selection': event.target.value }, setRecipeList);
+        }
         
-        postFromUrl('recipes', { 'selection': event.target.value }, setRecipeList);
     };
 
     useEffect(() => {
@@ -38,8 +48,8 @@ const FilterSelect = ({ setRecipeList }) => {
                 <option value="BY_RATING">En fonction de la note</option>
                 <option value="BY_INGREDIENTS">En fonction du nombre d'ingrédients</option>
                 <option value="BY_UNIT">En fonction du nombre d'unités d'ingrédients</option>
-                {/* <option value="FAVORITE">Mes favories</option> */}
-                {/* <option value="REALISE">Recettes Realisées</option> */}
+                <option value="FAVORITE">Mes favories</option> 
+                <option value="REALISE">Recettes Realisées</option>
             </Select><br></br>
             <form name="food_list" noValidate autoComplete="off">
                 <TextField id="food_list" label="Liste d'ingrédients" variant="outlined" />
