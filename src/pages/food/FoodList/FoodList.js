@@ -9,7 +9,7 @@ import './FoodList.css';
 import FoodCard from "../FoodCard/FoodCard";
 import FruitsAndVegetables from '../FruitsAndVegetables/FruitsAndVegetables';
 import Filter from './Filter';
-import SearchBar from '../../SearchBar/SearchBar';
+import SearchBar from '../../../components/SearchBar/SearchBar';
 
 const CustomSwitch = withStyles({
   switchBase: {
