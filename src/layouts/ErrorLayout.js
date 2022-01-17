@@ -9,9 +9,6 @@ const GlobalStyle = createGlobalStyle`
   #root {
     height: 100%;
   }
-  body {
-    background: ${(props) => props.theme.palette.background.default};
-  }
 `;
 
 const Root = styled.div`

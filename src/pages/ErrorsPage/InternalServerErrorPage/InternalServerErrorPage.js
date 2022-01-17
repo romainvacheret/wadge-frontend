@@ -41,7 +41,7 @@ function InternalServerErrorPage() {
         color="secondary"
         mt={2}
       >
-        Return to website
+        Retour à l'acceuil
       </Button>
     </Wrapper>
   );

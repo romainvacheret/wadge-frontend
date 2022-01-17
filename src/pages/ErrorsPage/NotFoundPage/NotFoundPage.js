@@ -9,20 +9,9 @@ import { spacing } from "@material-ui/system";
 
 const Button = styled(MuiButton)(spacing);
 
-const Wrapper = styled.div`
-  padding: ${(props) => props.theme.spacing(6)}px;
-  text-align: center;
-  background: transparent;
-
-  width: 100%;
-  ${(props) => props.theme.breakpoints.up("md")} {
-    padding: ${(props) => props.theme.spacing(10)}px;
-  }
-`;
-
 function NotFoundPage() {
   return (
-    <Wrapper>
+    <div>
       <Helmet title="404 Error" />
       <Typography component="h1" variant="h1" align="center" gutterBottom>
         404
@@ -41,9 +30,9 @@ function NotFoundPage() {
         color="primary"
         mt={2}
       >
-        Aller à l&apos;accueil
+        Retour à l'accueil
       </Button>
-    </Wrapper>
+    </div>
   );
 }
 
