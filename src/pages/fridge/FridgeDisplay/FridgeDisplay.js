@@ -22,13 +22,14 @@ const FridgeDisplay = (props) => {
         const tmp = {}
         Object.keys(list).forEach(key => {
             const fList = list[key];
-            fList.forEach(food => 
+            fList.forEach(food => {
+                food.products = Object.values(food.products);
                 food.products.forEach(product => tmp[product.id] = { 
                     val: product.quantity, 
                     max: product.quantity, 
-                    fridgeFood: food.name 
+                    fridgeFood: food.name //TODO -> food.id
                 })
-            );
+            });
         })
 
         setCounters(tmp);
@@ -84,47 +85,57 @@ const FridgeDisplay = (props) => {
     return (
         <>
             <Typography variant='h3' className='fridge-main-compo__title' > Contenu de votre frigo </Typography>
-            <Container className='fridge-main-compo__container'>
-                <Grid>{
-                    Object.keys(fridgeList).length ?( <>
-                        <FridgeCategory counters={ counters } setCounters={ setCounters } fridgeList={ fridgeList['TWO_DAYS'] } text={ 'Péremption dans 2 jours' }/>
-                        <FridgeCategory counters={ counters } setCounters={ setCounters } fridgeList={ fridgeList['FIVE_DAYS'] } text={ 'Péremption dans 5 jours' }/>
-                        <FridgeCategory counters={ counters } setCounters={ setCounters } fridgeList={ fridgeList['SEVEN_DAYS'] } text={ 'Péremption dans 7 jours' }/>
-                        <FridgeCategory counters={ counters } setCounters={ setCounters } fridgeList={ fridgeList['FOURTEEN_DAYS'] } text={ 'Péremption dans 14 jours' }/>
-                        <FridgeCategory counters={ counters } setCounters={ setCounters } fridgeList={ fridgeList['OTHER'] } text={ 'Péremption dans plus de 14 jours' }/>
-                        <FridgeCategory counters={ counters } setCounters={ setCounters } fridgeList={ fridgeList['EXPIRED'] } text={ 'Périmés' }/>
-                    </> ): <></>
-                }</Grid>
-                <CustomButton 
-                    onClick={ updateFridge }
-                    variant='contained'
-                    href="/fridge"
-                    id="update-fridge"
-                >
-                    Prendre les aliments
-                </CustomButton>
-                <CustomButton 
-                    onClick={ emptyFridge }
-                    variant='contained'
-                    href="/fridge"
-                    id="clear-fridge"
-                >
-                    Tout prendre
-                </CustomButton>
-                <CustomButton 
-                    onClick={ emptyPassedFood }
-                    variant='contained'
-                    href="/fridge"
-                    id="clean-fridge"
-                >
-                    Jeter les aliments périmés
-                </CustomButton>
-            </Container>
-            <Container>
-                <Grid>
-                    <Typography variant="h4" style= {{ color: 'black' }}>{ msg1 }</Typography>
+                <Container className='fridge-main-compo__container'>
+                        <Grid container alignItems='center' direction='column' justifyContent='center'>{
+                            Object.keys(fridgeList).length ?( <>
+                                <FridgeCategory counters={ counters } setCounters={ setCounters } fridgeList={ fridgeList['TWO_DAYS'] } text={ 'Péremption dans 2 jours' }/>
+                                <FridgeCategory counters={ counters } setCounters={ setCounters } fridgeList={ fridgeList['FIVE_DAYS'] } text={ 'Péremption dans 5 jours' }/>
+                                <FridgeCategory counters={ counters } setCounters={ setCounters } fridgeList={ fridgeList['SEVEN_DAYS'] } text={ 'Péremption dans 7 jours' }/>
+                                <FridgeCategory counters={ counters } setCounters={ setCounters } fridgeList={ fridgeList['FOURTEEN_DAYS'] } text={ 'Péremption dans 14 jours' }/>
+                                <FridgeCategory counters={ counters } setCounters={ setCounters } fridgeList={ fridgeList['OTHER'] } text={ 'Péremption dans plus de 14 jours' }/>
+                                <FridgeCategory counters={ counters } setCounters={ setCounters } fridgeList={ fridgeList['EXPIRED'] } text={ 'Périmés' }/>
+                            </> ): <></>
+                        }
+                        </Grid>
+                </Container>
+                <Grid container direction='row' justifyContent='center' spacing={2}>
+                    <Grid item>
+                        <CustomButton 
+                            onClick={ updateFridge }
+                            variant='contained'
+                            href="/fridge"
+                            id="update-fridge"
+                        >
+                            Prendre les aliments
+                        </CustomButton>
+                    </Grid>
+                    <Grid item>
+                        <CustomButton 
+                            onClick={ emptyFridge }
+                            variant='contained'
+                            href="/fridge"
+                            id="clear-fridge"
+                        >
+                            Tout prendre
+                        </CustomButton>
+                    </Grid>
+                    <Grid item>
+                        <CustomButton 
+                            onClick={ emptyPassedFood }
+                            variant='contained'
+                            href="/fridge"
+                            id="clean-fridge"
+                        >
+                            Jeter les aliments périmés
+                        </CustomButton>
+                    </Grid>
                 </Grid>
-            </Container>
+            
+                <Container>
+                    <Grid>
+                        <Typography variant="h4" style= {{ color: 'black' }}>{ msg1 }</Typography>
+                    </Grid>
+                </Container>
         </>
     );
 }

@@ -5,7 +5,7 @@ import './FruitsAndVegetables.css';
 
 const FruitsAndVegetables = ({ fruits, vegetables }) => {
     return (
-        <Container className="fruits-vegetables"> 
+        <Container className="fruits-vegetables" maxWidth={false}> 
             <Container className="fruits-vegetables__container">
                 <Grid container spacing={2} className="fruits-vegetables__list"> {
                      fruits.length ? (

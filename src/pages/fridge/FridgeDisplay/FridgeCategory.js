@@ -24,7 +24,7 @@ const FridgeCategory = ({ fridgeList, text, counters, setCounters}) => {
     };
 
     return fridgeList.length ? ( <>
-        <Typography className='fridge-main-compo__label' variant='h4'>
+        <Typography className='fridge-main-compo__label' variant='h4' style={{marginBottom:15, marginTop:5}}>
             { text }
         </Typography>
         <Grid container justify='center'

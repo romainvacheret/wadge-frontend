@@ -17,5 +17,6 @@
 .fridge-main-compo__container {
     width: auto;
     height: auto;
-
+    border: 1px solid black;
+    margin-bottom: 25px;
 }

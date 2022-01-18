@@ -8,12 +8,20 @@ const ModifiableFood = ({ foodAttributes, data, counterProps }) => {
     return (
         <Grid
             container
-            item
             direction='row'
             alignItems='center'
+            justify='flex-start'
         >
-            <FoodCard foodAttributes={ foodAttributes} data={ data }/>
-            <Counter handlePlus={ handlePlus } handleMinus={ handleMinus } counters={ counters } idx={ idx }/>
+            <Grid item>
+                <Grid container direction='column' alignItems='center' >
+                    <Grid item>
+                        <FoodCard foodAttributes={ foodAttributes} data={ data }/>
+                    </Grid>
+                    <Grid item>
+                        <Counter handlePlus={ handlePlus } handleMinus={ handleMinus } counters={ counters } idx={ idx }/>
+                    </Grid>
+                </Grid>
+            </Grid>
         </Grid>
     );
 }
