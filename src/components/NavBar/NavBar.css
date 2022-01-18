@@ -5,11 +5,10 @@
   font-size: medium;
   font-weight: 500;
   background-color: #282c34;
-  position: relative;
+  position: static;
   display: flex;
   align-content: center;
   justify-content: center;
-  width:inherit;
 }
 .navbar__links:hover {
   color: darkorange;

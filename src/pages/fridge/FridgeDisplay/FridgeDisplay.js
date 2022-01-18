@@ -20,16 +20,18 @@ const FridgeDisplay = (props) => {
 
     const initializeCounters = (list) => {
         const tmp = {}
+        console.log(list);
         Object.keys(list).forEach(key => {
             const fList = list[key];
             fList.forEach(food => {
-                food.products = Object.values(food.products);
-                food.products.forEach(product => tmp[product.id] = { 
-                    val: product.quantity, 
-                    max: product.quantity, 
-                    fridgeFood: food.name //TODO -> food.id
-                })
-            });
+                    food.products = Object.values(food.products);
+                    food.products.forEach(product => tmp[product.id] = { 
+                        val: product.quantity, 
+                        max: product.quantity, 
+                        fridgeFood: food.id 
+                    })
+                }
+            );
         })
 
         setCounters(tmp);
@@ -41,35 +43,37 @@ const FridgeDisplay = (props) => {
             .filter(counter => counter.max !== counter.val)
             .map(dict => { return {id: dict.id, quantity: dict.val, fridgeFood: dict.fridgeFood} });
         if(body.length) {
-            axios.post('http://localhost:8080/fridge/update', body);
+            axios.put('http://localhost:8080/fridge', body);
         }
     } 
 
     const emptyFridge = () => {
-        let result = [];
-        Object.keys(fridgeList).forEach(key => {
-            const fList = fridgeList[key];
-            fList.forEach(food => {
-                const ll = food.products.map(product => product.id);
-                result = [...ll.map(p => { return {fridgeFood: food.name, id: p}}), ...result];
-            });
-        });
+        // let result = [];
+        // Object.keys(fridgeList).forEach(key => {
+        //     const fList = fridgeList[key];
+        //     fList.forEach(food => {
+        //         const ll = food.products.map(product => product.id);
+        //         result = [...ll.map(p => { return {fridgeFood: food.name, id: p}}), ...result];
+        //     });
+        // });
 
-        if(result.length) {
-            axios.post('http://localhost:8080/fridge/delete', result);
-        }
+        // if(result.length) {
+        //     // axios.post('http://localhost:8080/fridge/delete', result);
+        // }
+        axios.get('http://localhost:8080/fridge/empty')
     }
 
     const emptyPassedFood = () => {
+        // TODO -> assert is working
         let result = [];
             const fList = fridgeList['EXPIRED'];
             fList.forEach(food => {
                 const ll = food.products.map(product => product.id);
-                result = [...ll.map(p => { return {fridgeFood: food.name, id: p}}), ...result];
+                result = [...ll.map(p => { return {fridgeFood: food.name, id: p, quantity: 0}}), ...result];
             });
 
         if(result.length) {
-            axios.post('http://localhost:8080/fridge/delete', result);
+            axios.put('http://localhost:8080/fridge', result);
         }
     }
 

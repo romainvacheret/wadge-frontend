@@ -51,14 +51,6 @@ const FilterSelect = ({ setRecipeList }) => {
                 <option value="FAVORITE">Mes favories</option> 
                 <option value="REALISE">Recettes Realisées</option>
             </Select><br></br>
-            <form name="food_list" noValidate autoComplete="off">
-                <TextField id="food_list" label="Liste d'ingrédients" variant="outlined" />
-                <CustomButton
-                 variant="contained"
-                 className="button_foodlist"
-                 onClick={ searchList }>Recherche sur Marmiton</CustomButton>
-            </form>
-            
         </Container>
         
     );

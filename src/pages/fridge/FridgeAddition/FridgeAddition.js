@@ -59,7 +59,7 @@ const FridgeAddition = () => {
             }
         });
 
-        axios.post('http://localhost:8080/fridge/addition', result);
+        axios.post('http://localhost:8080/fridge', result);
     }
 
     const vegetables = [];
