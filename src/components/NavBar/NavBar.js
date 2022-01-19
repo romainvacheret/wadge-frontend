@@ -39,7 +39,7 @@ const NavBar = () => {
                 <Tooltip title="balance">
                     <img alt="" src="/scale.png" id="icon-scale" width="30" height="30" onClick={ handleClick }/>
                 </Tooltip>
-                <Popper id={id} open={open} anchorEl={anchorEl} placement=''>
+                <Popper id={id} open={open} anchorEl={anchorEl}>
                     <Scale/>
                 </Popper>
             </ListItemLink>

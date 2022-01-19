@@ -11,7 +11,8 @@ const Filter = ({ tabNumber, setTabNumber, setFoodList, byDays }) => {
         fetchFromUrl(`foods/${month}${byDays ? '/days' : ''}`, setFoodList);
     };
 
-    useEffect(() => getProducts(months[tabNumber]), [tabNumber, byDays, months]);
+    useEffect(() => 
+    getProducts(months[tabNumber]), [tabNumber, byDays, months]);
 
     return (
         <div className="monthfilter__bar">
