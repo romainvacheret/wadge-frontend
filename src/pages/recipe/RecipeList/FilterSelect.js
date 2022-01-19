@@ -1,14 +1,7 @@
 import React, { useEffect} from 'react';
-import { Container, Select, InputLabel, TextField, Button, withStyles} from '@material-ui/core';
+import { Grid, Select, InputLabel} from '@material-ui/core';
 import { postFromUrl, fetchFromUrl } from 'utils';
 const FilterSelect = ({ setRecipeList }) => {
-    
-    const searchList = () => {
-        let result = document.getElementById("food_list").value;
-        result = result.split(",");
-         postFromUrl('recipes/search', result, setRecipeList);
-         
-    }
 
     const handleChange = (event) => {
         const value = event.target.value;
@@ -28,30 +21,27 @@ const FilterSelect = ({ setRecipeList }) => {
     useEffect(() => {
         postFromUrl('recipes', { 'selection': 'EVERYTHING' }, setRecipeList)
     }, [setRecipeList]);
-    
-    const CustomButton = withStyles({
-        root: {
-            background: 'limegreen',
-        '&:hover': {
-            background: '#f19300',
-        },
-    }
-    })(Button);
+
 
     return (
-        <Container>
-            <InputLabel htmlFor="age-native-simple">Filtrage</InputLabel>
-            <Select native onChange={ handleChange } style = {{ color:  "#f19300" }}>
-                <option value="EVERYTHING">Toutes les recettes</option>
-                <option value="USING_FRIDGE">En fonction de mon frigo</option>
-                <option value="BY_DIFFICULTY">En fonction de la difficulté</option>
-                <option value="BY_RATING">En fonction de la note</option>
-                <option value="BY_INGREDIENTS">En fonction du nombre d'ingrédients</option>
-                <option value="BY_UNIT">En fonction du nombre d'unités d'ingrédients</option>
-                <option value="FAVORITE">Mes favories</option> 
-                <option value="REALISE">Recettes Realisées</option>
+        <Grid container direction='column' justifyContent='center' style={{marginLeft: 25}}>
+            <Grid item>
+                <InputLabel htmlFor="age-native-simple" style={{ fontSize: 15  }}>Filtrage</InputLabel>
+            </Grid>
+            <Grid item xs={4}>
+                <Select native onChange={ handleChange } style = {{ color:  "#f19300", fontSize: 15 }}>
+                    <option value="EVERYTHING">Toutes les recettes</option>
+                    <option value="USING_FRIDGE">En fonction de mon frigo</option>
+                    <option value="BY_DIFFICULTY">En fonction de la difficulté</option>
+                    <option value="BY_RATING">En fonction de la note</option>
+                    <option value="BY_INGREDIENTS">En fonction du nombre d'ingrédients</option>
+                    <option value="BY_UNIT">En fonction du nombre d'unités d'ingrédients</option>
+                    <option value="FAVORITE">Mes favories</option> 
+                    <option value="REALISE">Recettes Realisées</option>
             </Select><br></br>
-        </Container>
+            </Grid>
+            
+        </Grid>
         
     );
 };

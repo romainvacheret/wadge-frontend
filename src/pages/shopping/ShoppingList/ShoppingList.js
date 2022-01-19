@@ -45,8 +45,8 @@ const ShoppingList = () => {
     return (
         <>
         <Typography variant="h3" className='shopping-list__title' >Liste des courses</Typography>
+            { ingredients.length ?
             <Grid container direction={"column"}>
-                
                 <Paper className='shopping-list__paper'>
                     <List className="truc" name="truc">
                         { ingredients.map((ingredient, idx) =>
@@ -59,7 +59,7 @@ const ShoppingList = () => {
                                     {ingredient.name} { ingredient.quantity !== '-1' ? (' : ' + ingredient.quantity) : ''}
                                 </ListItemIcon>
                             </ListItem> )
-                        }
+                        } 
                     </List>
                 </Paper>
                 <Button
@@ -67,6 +67,7 @@ const ShoppingList = () => {
                     Sauvegarder les modifications
                 </Button>
             </Grid>
+            : <Typography variant='h4' className='shopping-list__information'>Pas d'ingrédients à acheter</Typography>}
         </>
     );
 }
