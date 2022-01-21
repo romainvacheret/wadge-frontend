@@ -93,7 +93,8 @@ const FridgeDisplay = (props) => {
                         }
                         </Grid>
                 </Container>
-                <Grid container direction='row' justifyContent='center' spacing={2}>
+
+                <Grid container direction='row' justifyContent='center' alignItems='center'>
                     <Grid item>
                         <GreenButton 
                             onClick={ updateFridge }

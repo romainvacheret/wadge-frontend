@@ -58,7 +58,7 @@ const CustomStepper = withStyles({
         height: 8,
         borderRadius: '50%',
         backgroundColor: 'limegreen',
-        color: 'orange'
+        color: 'orange',
     }
 })(Stepper);
 
@@ -159,9 +159,9 @@ const RecipeSteps = ( props ) => {
                 <Grid item xs={6}>
                 <CustomStepper activeStep={activeStep} orientation="vertical">
                     {allSteps.map((label, index) => (
-                        <Step key={ label }>
-                            <StepLabel className="recipe__recipe-step__step"><Typography variant="h5" style= {{ color: '#f19300' }}>{ label } </Typography></StepLabel>
-                            <StepContent>
+                        <Step key={ label } className='recipe__recipe-step'>
+                            <StepLabel className="recipe__recipe-step__step" ><Typography variant="h4" style= {{ color: '#f19300' }}>{ label } </Typography></StepLabel>
+                            <StepContent >
                                 <Grid container>
                                     <Grid item>
                                         <Typography variant="h5">{ steps[index] }</Typography>
