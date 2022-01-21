@@ -54,7 +54,7 @@ const FoodList = () => {
 
     return (
         <>
-            <Typography variant="h3" gutterBottom className="foodlist__title" font-family= "cursive">
+            <Typography variant="h2" gutterBottom className="foodlist__title" font-family= "cursive">
                 Liste des fruits et légumes
             </Typography>
                 <Grid item className="foodlist__searchBar">

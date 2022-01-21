@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { Grid, Button, Typography, withStyles } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 
 import axios from 'axios'
 
@@ -8,10 +8,12 @@ import ModifiableFood from '../../food/ModifiableFood/ModifiableFood';
 import colorList from '../../food/FoodList/color_list.json';
 import FruitsAndVegetables from '../../food/FruitsAndVegetables/FruitsAndVegetables';
 import SearchBar from '../../../components/SearchBar/SearchBar';
+import { FixedGreenButton } from 'components/Buttons/WadgeButtons';
 
 import { fetchFromUrl } from 'utils'; 
 
 import './FridgeAddition.css';
+
 
 const FridgeAddition = () => {
     const [searchFood, setSearchFood] = useState('');
@@ -85,31 +87,23 @@ const FridgeAddition = () => {
     };
     sortFood();
     
-    const CustomButton = withStyles({
-        root: {
-            background: 'limegreen',
-            position: 'fixed',
-        '&:hover': {
-            background: '#f19300',
-        },
-    }
-    })(Button);
+    
 
     return (
         <Grid container direction='column'>
-            <Typography variant="h3" className="fridge-addition__title">
+            <Typography variant="h2" className="fridge-addition__title">
                 Liste des fruits et légumes à ajouter
             </Typography>
             <SearchBar searchFood={ searchFood } handleChange={ handleChange }/>
             <FruitsAndVegetables fruits={ fruits } vegetables={ vegetables }/>
-            <CustomButton 
+            <FixedGreenButton 
                 onClick={ addFoodToFridge }
                 variant='contained' 
                 className="fridge-addition__button"
                 href="/fridge"
             >
                 Ajout au frigo
-            </CustomButton>
+            </FixedGreenButton>
         </Grid>
     );
 }

@@ -44,7 +44,7 @@ const ShoppingList = () => {
 
     return (
         <>
-        <Typography variant="h3" className='shopping-list__title' >Liste des courses</Typography>
+        <Typography variant="h2" className='shopping-list__title' >Liste des courses</Typography>
             { ingredients.length ?
             <Grid container direction={"column"}>
                 <Paper className='shopping-list__paper'>
@@ -67,7 +67,7 @@ const ShoppingList = () => {
                     Sauvegarder les modifications
                 </Button>
             </Grid>
-            : <Typography variant='h4' className='shopping-list__information'>Pas d'ingrédients à acheter</Typography>}
+            : <Typography variant='h4' className='shopping-list__information' style={{fontWeight : "bolder"}}>Pas d'ingrédients à acheter</Typography>}
         </>
     );
 }

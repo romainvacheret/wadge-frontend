@@ -30,7 +30,7 @@ const RecipeList = () => {
    
     return (
         <>
-            <Typography variant="h3" className='recipe__title'> Liste des recettes </Typography><br></br>
+            <Typography variant="h2" className='recipe__title'> Liste des recettes </Typography><br></br>
             <div className='recipe__search'>
                 <FormControl className="recipe__search" name="search_person" noValidate autoComplete="off">
                     <OutlinedInput id="search_person"    placeholder="Nombre de personnes" variant="outlined" 

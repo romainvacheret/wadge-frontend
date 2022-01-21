@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Grid, Container, Button, withStyles } from '@material-ui/core';
+import { Typography, Grid, Container } from '@material-ui/core';
 import './FridgeDisplay.css';
 
 import FridgeCategory from './FridgeCategory';
 
 import { fetchFromUrl } from 'utils'; 
 import axios from "axios";
+import { GreenButton } from 'components/Buttons/WadgeButtons';
 
 const FridgeDisplay = (props) => {
     const [fridgeList, setFridgeList] = useState({});
@@ -77,18 +78,9 @@ const FridgeDisplay = (props) => {
         }
     }
 
-    const CustomButton = withStyles({
-        root: {
-            background: 'limegreen',
-        '&:hover': {
-            background: '#f19300',
-        },
-    }
-    })(Button);
-
     return (
         <>
-            <Typography variant='h3' className='fridge-main-compo__title' > Contenu de votre frigo </Typography>
+            <Typography variant='h2' className='fridge-main-compo__title' > Contenu de votre frigo </Typography>
                 <Container className='fridge-main-compo__container'>
                         <Grid container alignItems='center' direction='column' justifyContent='center'>{
                             Object.keys(fridgeList).length ?( <>
@@ -104,34 +96,34 @@ const FridgeDisplay = (props) => {
                 </Container>
                 <Grid container direction='row' justifyContent='center' spacing={2}>
                     <Grid item>
-                        <CustomButton 
+                        <GreenButton 
                             onClick={ updateFridge }
                             variant='contained'
                             href="/fridge"
                             id="update-fridge"
                         >
                             Prendre les aliments
-                        </CustomButton>
+                        </GreenButton>
                     </Grid>
                     <Grid item>
-                        <CustomButton 
+                        <GreenButton 
                             onClick={ emptyFridge }
                             variant='contained'
                             href="/fridge"
                             id="clear-fridge"
                         >
                             Tout prendre
-                        </CustomButton>
+                        </GreenButton>
                     </Grid>
                     <Grid item>
-                        <CustomButton 
+                        <GreenButton 
                             onClick={ emptyPassedFood }
                             variant='contained'
                             href="/fridge"
                             id="clean-fridge"
                         >
                             Jeter les aliments périmés
-                        </CustomButton>
+                        </GreenButton>
                     </Grid>
                 </Grid>
             
