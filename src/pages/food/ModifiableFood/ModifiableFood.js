@@ -13,7 +13,7 @@ const ModifiableFood = ({ foodAttributes, data, counterProps }) => {
             justify='flex-start'
         >
             <Grid item>
-                <Grid container direction='column' alignItems='center' >
+                <Grid container direction='column' alignItems='center'>
                     <Grid item>
                         <FoodCard foodAttributes={ foodAttributes} data={ data }/>
                     </Grid>

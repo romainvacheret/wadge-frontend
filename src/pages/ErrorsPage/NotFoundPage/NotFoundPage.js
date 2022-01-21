@@ -4,13 +4,15 @@ import { Helmet } from "react-helmet-async";
 import { Typography, Grid } from "@material-ui/core";
 import { GreenButton } from "components/Buttons/WadgeButtons";
 
+import './NotFoundPage.css'
+
 function NotFoundPage() {
   return (
   <div>
     <Helmet title="404 Error" />
     <Grid container direction='column' alignItems="center" justifyContent="center" spacing={3}>
       <Grid item>
-        <img alt=" " src="/logo.png" width="540" height="240"/>
+        <img alt=" " className="logo_404" src="/logo2.png"/>
       </Grid>
       <Grid item>
         <Typography component="h3" variant="h3" align="center" gutterBottom>
