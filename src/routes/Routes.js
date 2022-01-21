@@ -12,9 +12,9 @@ import {
 } from "./index";
 
 
-import NavBar from "../components/NavBar/NavBar"
 import NotFoundPage from "../pages/ErrorsPage/NotFoundPage/NotFoundPage";
 import ErrorLayout from "../layouts/ErrorLayout";
+import NavBarLayout from "layouts/NavBarLayout";
 
 const childRoutes = (Layout, routes) =>
 
@@ -51,10 +51,11 @@ const childRoutes = (Layout, routes) =>
         exact
         render={(props) => (
           <React.Fragment>
-            <Layout ></Layout>
-            <Guard>
-              <Component {...props} />
-            </Guard>
+            <Layout >
+              <Guard>
+                <Component {...props} />
+              </Guard>
+            </Layout>
           </React.Fragment>
         )}
       />
@@ -64,14 +65,14 @@ const childRoutes = (Layout, routes) =>
 const Routes = () => (
   <Router>
     <Switch>
-      {childRoutes(NavBar, homeLayoutRoutes)}
+      {childRoutes(NavBarLayout, homeLayoutRoutes)}
       {childRoutes(ErrorLayout, errorLayoutRoutes)}
-      {childRoutes(NavBar, recipeListLayout)}
-      {childRoutes(NavBar, recipeStepsLayout)}
-      {childRoutes(NavBar, fridgeDisplayLayout)}
-      {childRoutes(NavBar, fridgeAdditionLayout)}
-      {childRoutes(NavBar, foodListLayout)}
-      {childRoutes(NavBar, shopingListLayout)}
+      {childRoutes(NavBarLayout, recipeListLayout)}
+      {childRoutes(NavBarLayout, recipeStepsLayout)}
+      {childRoutes(NavBarLayout, fridgeDisplayLayout)}
+      {childRoutes(NavBarLayout, fridgeAdditionLayout)}
+      {childRoutes(NavBarLayout, foodListLayout)}
+      {childRoutes(NavBarLayout, shopingListLayout)}
 
       <Route
         render={() => (

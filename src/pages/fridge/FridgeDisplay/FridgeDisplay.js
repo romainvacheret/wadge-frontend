@@ -21,7 +21,6 @@ const FridgeDisplay = (props) => {
 
     const initializeCounters = (list) => {
         const tmp = {}
-        console.log(list);
         Object.keys(list).forEach(key => {
             const fList = list[key];
             fList.forEach(food => {
