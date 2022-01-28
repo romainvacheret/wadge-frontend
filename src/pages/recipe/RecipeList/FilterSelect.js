@@ -1,21 +1,10 @@
 import React, { useEffect} from 'react';
 import { Grid, Select, InputLabel} from '@material-ui/core';
-import { postFromUrl, fetchFromUrl } from 'utils';
+import { postFromUrl} from 'utils';
 const FilterSelect = ({ setRecipeList }) => {
 
     const handleChange = (event) => {
-        const value = event.target.value;
-        switch(value) {
-            case 'FAVORITE':
-                fetchFromUrl('recipes/favorites', setRecipeList);
-                break;
-            case 'REALISE':
-                fetchFromUrl('recipes/doneRecipes', setRecipeList);
-                break;
-            default:
-                postFromUrl('recipes', { 'selection': event.target.value }, setRecipeList);
-        }
-        
+        postFromUrl('recipes', { 'selection': event.target.value }, setRecipeList);
     };
 
     useEffect(() => {
@@ -36,8 +25,6 @@ const FilterSelect = ({ setRecipeList }) => {
                     <option value="BY_RATING">En fonction de la note</option>
                     <option value="BY_INGREDIENTS">En fonction du nombre d'ingrédients</option>
                     <option value="BY_UNIT">En fonction du nombre d'unités d'ingrédients</option>
-                    <option value="FAVORITE">Mes favories</option> 
-                    <option value="REALISE">Recettes Realisées</option>
             </Select><br></br>
             </Grid>
             

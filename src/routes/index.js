@@ -15,7 +15,7 @@ const HomePage = async(() =>
 );
 
 const RecipeListPage = async(() =>
-  import('../pages/recipe/RecipeList/RecipeList')
+  import('../pages/recipe/RecipeTab/RecipeTab')
 );
 
 const FoodListPage  = async(() =>

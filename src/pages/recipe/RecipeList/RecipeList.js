@@ -3,17 +3,16 @@ import React, { useState, useEffect } from 'react';
 import './RecipeList.css';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import FilterSelect from './FilterSelect';
-import { postFromUrl } from 'utils';
-import { FormControl, Typography,OutlinedInput } from "@material-ui/core";
+import { FormControl,OutlinedInput } from "@material-ui/core";
 
-const RecipeList = () => {
+const RecipeList = ({aRecipeList}) => {
     const [recipeList, setRecipeList] = useState([]);
     const [servings, setServings] = useState('');
     const [recipes, setRecipes] = useState([]);
 
     useEffect(() => {
-        postFromUrl('recipes', {'selection': 'EVERYTHING'}, setRecipeList)
-    }, []);
+        setRecipeList(aRecipeList)
+    }, [aRecipeList]);
 
     useEffect(() => setRecipes([...recipeList]), [recipeList]);
 
@@ -30,7 +29,6 @@ const RecipeList = () => {
    
     return (
         <>
-            <Typography variant="h2" className='recipe__title'> Liste des recettes </Typography><br></br>
             <div className='recipe__search'>
                 <FormControl className="recipe__search" name="search_person" noValidate autoComplete="off">
                     <OutlinedInput id="search_person"    placeholder="Nombre de personnes" variant="outlined" 
