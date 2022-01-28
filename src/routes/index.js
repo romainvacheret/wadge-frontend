@@ -60,7 +60,6 @@ const errorRoutes = {
 const HomeRoute = {
   id: "Home",
   path: "/",
-  containsHome: true,
   component: HomePage,
 };
 
