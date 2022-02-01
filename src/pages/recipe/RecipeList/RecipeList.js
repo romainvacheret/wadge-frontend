@@ -9,8 +9,9 @@ const RecipeList = ({aRecipeList}) => {
     const [recipeList, setRecipeList] = useState([]);
     const [servings, setServings] = useState('');
     const [recipes, setRecipes] = useState([]);
-
+    
     useEffect(() => {
+        console.log(aRecipeList)
         setRecipeList(aRecipeList)
     }, [aRecipeList]);
 
@@ -37,7 +38,7 @@ const RecipeList = ({aRecipeList}) => {
                 />
                 </FormControl>
             </div>
-            <FilterSelect setRecipeList={ setRecipeList }/>
+            {/* <FilterSelect setRecipeList={ setRecipeList }/> */}
             <div className='recipe__container'> {
              recipes.map((recipe, idx) => 
               ( <RecipeCard recipe={ recipe } key={ idx }/>)

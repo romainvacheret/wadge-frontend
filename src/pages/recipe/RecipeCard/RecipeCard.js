@@ -26,7 +26,7 @@ const RecipeCard = ({ recipe }) => {
 
     useEffect(() => {
         isRendered = true;
-        axios.get('http://localhost:8080/recipes/favorites')
+        axios.get('http://localhost:8080/recipes/tagged/FAVORITE')
         .then((response) =>{
             if (isRendered) {
                 const favoritesList = response.data;
@@ -44,17 +44,17 @@ const RecipeCard = ({ recipe }) => {
                 isRendered = false;
           };
         });
-      
+      // TODO -> ALED les favorites
       const handleAddFavorite=()=>{   
       if(favoriIcon) {
-          axios.post('http://localhost:8080//recipes/removeFavorite', recipe)
+          axios.delete(`http://localhost:8080/recipes/${recipe.id}/tagged/FAVORITE`)
               .then((response) =>{
                   const favoritesList = response.data;
                   setFavorites([...favoritesList]);
               });
       }
       else {
-          axios.post('http://localhost:8080/recipes/addFavorite', recipe);
+          axios.post(`http://localhost:8080/recipes/${recipe.id}/tagged/FAVORITE`);
       }
         setFavoriIcon(!favoriIcon);
   }

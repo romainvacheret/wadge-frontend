@@ -3,6 +3,7 @@ import { Typography, Tabs, Tab, Box, Grid, AppBar } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import RecipeList from '../RecipeList/RecipeList';
 import { fetchFromUrl, postFromUrl } from 'utils';
+import axios from 'axios';
 
 
 const RecipeTab = () => {
@@ -12,11 +13,25 @@ const RecipeTab = () => {
 
 
     useEffect(() => {
-        fetchFromUrl('recipes/favorites', setFavorite);
-        fetchFromUrl('recipes/doneRecipes', setDone);
-        postFromUrl('recipes', {'selection': 'EVERYTHING'}, setAll)
+        // postFromUrl('recipes/tagged/FAVORITE', setFavorite);
+        // postFromUrl('recipes/tagged/DONE', setDone);
+        // postFromUrl('recipes', setAll)
 
-      }, []);
+        axios.get('http://localhost:8080/recipes')
+        .then((response) =>{
+          setAll(response.data);
+        })
+
+        axios.get('http://localhost:8080/recipes/tagged/FAVORITE')
+        .then((response)=> {
+          setFavorite(response);
+        })
+        axios.get('http://localhost:8080/recipes/tagged/DONE')
+        .then((response)=> {
+          setDone(response);
+        })
+
+      }, [setAll, setFavorite, setDone]);
 
     function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -111,7 +126,6 @@ const RecipeTab = () => {
                     <Tab label={"Toutes les Recettes"}  {...a11yProps(0)} style={{ fontSize: 16 } && makeBold("a")}/>
                     <Tab label={"Recettes Faites"} style={{ fontSize: 16 } && makeBold("b")}  {...a11yProps(1)} />
                     <Tab label={"Recettes Favorites"} style={{ fontSize: 16 } && makeBold("c")}  {...a11yProps(2)} />
-                    <Tab label={"Autres"} style={{ fontSize: 16 } && makeBold("d")}  {...a11yProps(3)} />
                 </Tabs>
             </AppBar>
             <Typography component='div' style={{ backgroundColor: 'white', minHeight: '80vh' }} >
@@ -119,13 +133,10 @@ const RecipeTab = () => {
                     <RecipeList aRecipeList={ all }></RecipeList>
                 </TabPanel>
                 <TabPanel value={value} index={1}>
-                    <RecipeList aRecipeList={ done }></RecipeList>
+                    <RecipeList aRecipeList={ all }></RecipeList>
                 </TabPanel>
                 <TabPanel value={value} index={2}>
-                    <RecipeList aRecipeList={ favorite }></RecipeList>
-                </TabPanel>
-                <TabPanel value={value} index={3}>
-                    <RecipeList ></RecipeList>
+                    <RecipeList aRecipeList={ all }></RecipeList>
                 </TabPanel>
             </Typography>
         </Grid>
