@@ -35,6 +35,9 @@ const NavBar = () => {
             <ListItemLink href="/recipes" className='navbar__links' id="nav-recipes">
               Recettes
             </ListItemLink>
+            <ListItemLink href="/recipes/user" className='navbar__links' id="nav-recipes-user">
+              Recettes Utilisateur
+            </ListItemLink>
             <ListItemLink className='navbar__links' id="nav-scale">
                 <Tooltip title="balance">
                     <img alt="" src="/scale.png" id="icon-scale" width="30" height="30" onClick={ handleClick }/>
