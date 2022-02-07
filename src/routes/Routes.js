@@ -5,6 +5,7 @@ import {
   homeLayoutRoutes,
   recipeListLayout,
   recipeStepsLayout,
+  recipeUserLayout,
   foodListLayout,
   fridgeDisplayLayout,
   fridgeAdditionLayout,
@@ -73,6 +74,7 @@ const Routes = () => (
       {childRoutes(NavBarLayout, fridgeAdditionLayout)}
       {childRoutes(NavBarLayout, foodListLayout)}
       {childRoutes(NavBarLayout, shopingListLayout)}
+      {childRoutes(NavBarLayout, recipeUserLayout)}
 
       <Route
         render={() => (

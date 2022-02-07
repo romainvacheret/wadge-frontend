@@ -34,9 +34,14 @@ const RecipeStepsPage  = async(() =>
   import("../pages/recipe/RecipeSteps/RecipeSteps")
   );
 
+const RecipeUserPage = async(() =>
+  import("../pages/recipe/RecipeUser/RecipeUser")
+  );
+
 const ShoppingListPage  = async(() =>
   import('../pages/shopping/ShoppingList/ShoppingList')
   );
+  
 
 // Routes
 
@@ -78,7 +83,12 @@ const RecipeStepsRoute = {
   path: "/recipes/step",
   id: "RecipeSteps",
   component: RecipeStepsPage,
-}
+};
+const RecipeUserRoute = {
+  path: "/recipes/user",
+  id: "RecipeUser",
+  component: RecipeUserPage,
+};
 
 
 const FridgeDisplayRoute = {
@@ -107,6 +117,7 @@ export const recipeStepsLayout = [RecipeStepsRoute]
 export const fridgeDisplayLayout = [FridgeDisplayRoute];
 export const fridgeAdditionLayout = [FridgeAdditionRoute];
 export const shopingListLayout = [ShoppingListRoute];
+export const recipeUserLayout = [RecipeUserRoute];
 
 // Routes using the Error layout
 export const errorLayoutRoutes = [errorRoutes];
