@@ -12,15 +12,15 @@ const RecipeUser = () => {
 
     useEffect(() => {
 
-        // axios.get('http://localhost:8080/recipes/user')
-        // .then((response) =>{
-        //   setAll(response.data);
-        // })
+        axios.post(`http://localhost:8080/user/${user}/scored`)
+        .then((response) =>{
+          set(response.data);
+        })
 
-        // axios.get('http://localhost:8080/recipes/predict')
-        // .then((response)=> {
-        //   setFavorite(response.data);
-        // })
+        axios.get('http://localhost:8080/user/knn')
+        .then((response)=> {
+          setRecipesPredict(response.data);
+        })
 
       }, [setRecipesUser, setRecipesPredict]);
 
