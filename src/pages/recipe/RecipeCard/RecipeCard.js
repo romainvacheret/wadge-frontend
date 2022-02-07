@@ -84,7 +84,8 @@ const RecipeCard = ({ recipe }) => {
 
             </AccordionSummary>
             <AccordionDetails>
-                <Grid>
+                <Grid container>
+                <Grid xs="3">
                     <Typography variant="h5">{ `Recette pour : ${ servings } personnes` }</Typography>
                     <Typography variant="h5">{ `Difficulté : ${ difficulty }/4` }</Typography>
                     <Typography variant="h5">{ `Note : ${ rating }/5` }</Typography>
@@ -106,15 +107,15 @@ const RecipeCard = ({ recipe }) => {
                         </IconButton >
                     </Tooltip>
                 </Grid>
-                <Grid>
+                <Grid xs="7">
                     <ul>
                         <Typography variant="h4" className="recipe__recipe-card__step">Etapes</Typography>
-                        { steps.map((step, idx) => <Grid key={ idx }> { step } </Grid>) }
+                        <Typography variant="h5">{ steps.map((step, idx) => <Grid key={ idx }> { step } </Grid>) }</Typography> 
                     </ul>
                 </Grid>
-                <Grid>
+                <Grid xs="2">
                     <ul>
-                        <Typography variant="h4" className="recipe__recipe-card__step">Ingredients</Typography>
+                        <Typography variant="h4" className="recipe__recipe-card__ingredient">Ingredients</Typography>
                         { ingredients.map((ingredient, idx) =>
                             <Grid key={ idx }>
                                 { colorTypo(liste.get(ingredient.name), ingredient) }
@@ -125,6 +126,7 @@ const RecipeCard = ({ recipe }) => {
                             </Grid> )
                         }
                     </ul>
+                </Grid>
                 </Grid>
             </AccordionDetails>           
         </Accordion>               

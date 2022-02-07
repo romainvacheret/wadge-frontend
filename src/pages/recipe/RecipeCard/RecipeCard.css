@@ -10,3 +10,8 @@
 .recipe__absent__ingredient{
     color: rgb(255, 60, 0);
 }
+
+.recipe__recipe-card__ingredient {
+    color: #f19300;
+    margin-right: 0%;
+}
