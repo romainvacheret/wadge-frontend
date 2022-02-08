@@ -13,14 +13,14 @@ const RecipeList = ({aRecipeList}) => {
     const [recipes, setRecipes] = useState([]);
     
     useEffect(() => {
-        console.log(aRecipeList)
+        // console.log(aRecipeList)
         setRecipeList(aRecipeList)
     }, [aRecipeList]);
 
     useEffect(() => setRecipes([...recipeList]), [recipeList]);
 
     let [page, setPage] = useState(1);
-    const PER_PAGE = 24;
+    const PER_PAGE = 15;
   
     const count = Math.ceil(recipes.length / PER_PAGE);
     const _DATA = usePagination(recipes, PER_PAGE);
@@ -43,14 +43,14 @@ const RecipeList = ({aRecipeList}) => {
    
     return (
         <>
-            <div className='recipe__search'>
+            {/* <div className='recipe__search'>
                 <FormControl className="recipe__search" name="search_person" noValidate autoComplete="off">
                     <OutlinedInput id="search_person"    placeholder="Nombre de personnes" variant="outlined" 
                     value={servings}
                     onChange={ handleChangeRecipe } 
                 />
                 </FormControl>
-            </div>
+            </div> */}
             {/* <FilterSelect setRecipeList={ setRecipeList }/> */}
             <Box p="5">
                 <Grid container direction="column" alignItems="center">
