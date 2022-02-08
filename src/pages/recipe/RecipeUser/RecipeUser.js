@@ -99,7 +99,7 @@ const RecipeUser = () => {
 
     return (
         <Grid className={'oui'}>
-            <Typography variant="h2" className='recipe__title'> Liste de mes recettes </Typography><br></br>
+            <Typography variant="h2" className='recipe__title'> Mes recettes </Typography><br></br>
             <AppBar position="static" elevation={0} color='transparent'>
                 <Tabs 
                     value={value} 
