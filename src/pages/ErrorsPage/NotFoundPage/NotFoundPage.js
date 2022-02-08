@@ -14,7 +14,7 @@ function NotFoundPage() {
       <Grid item>
         <img alt=" " className="logo_404" src="/logo2.png"/>
       </Grid>
-      <Grid item>
+      <Grid item className='404__error__text'>
         <Typography component="h3" variant="h3" align="center" gutterBottom>
         404
         </Typography>
@@ -25,7 +25,7 @@ function NotFoundPage() {
         La page que vous recherchez a peut-être été supprimée.
         </Typography>
       </Grid>
-      <Grid item>
+      <Grid item className='error__to-home__button'>
         <GreenButton
         component={Link}
         to="/"

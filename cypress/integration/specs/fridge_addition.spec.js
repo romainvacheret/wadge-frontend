@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 
-context('Month filter', () => {
+context('Fridge addition', () => {
     beforeEach(() => cy.visit('localhost:3000/fridge/addition'));
     
     it('Checks the title of the page', () => cy.title().should('eq', 'Wadge'));
@@ -12,7 +12,7 @@ context('Month filter', () => {
 
     it('Checks the title', () => cy.contains('Liste des fruits et légumes à ajouter'));
 
-    it('Makes sure all every food is present', () => {
+    it('Makes sure all food is present', () => {
         cy.get('.fridge-addition__food-card').should('have.length', 88);
     });
 

@@ -78,7 +78,7 @@ const RecipeCard = ({ recipe }) => {
                 expandIcon={<ExpandMoreIcon fontSize="large"/>}
                 aria-controls="panel1a-content"
                 id="panel1a-header" >
-                    {favoriIcon === true?<FavoriteIcon style={{ color: "#f19300" }} fontSize="large"/>:<FavoriteBorderIcon style={{ color: "limegreen" }} fontSize="large"/>}
+                    {favoriIcon === true?<FavoriteIcon className='recipe__recipe-card__favorite' style={{ color: "#f19300" }} fontSize="large"/>:<FavoriteBorderIcon className='recipe__recipe-card__favorite' style={{ color: "limegreen" }} fontSize="large"/>}
                 &nbsp;&nbsp;
                     <Typography variant="h4" className="recipe__name" >{ name }</Typography>
 

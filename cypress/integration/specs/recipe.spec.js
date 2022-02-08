@@ -4,7 +4,7 @@
 context('Recipes', () => {
     beforeEach(() => cy.visit('localhost:3000/recipes'));
     
-    it('Checks the title of the page', () => cy.title().should('eq', 'Wadge App'));
+    it('Checks the title of the page', () => cy.title().should('eq', 'Wadge'))
 
     it('Looks for the nav bar', () => cy.get('#navbar'));
 

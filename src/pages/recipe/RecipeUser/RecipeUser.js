@@ -71,7 +71,7 @@ const RecipeUser = () => {
     return (
         <Grid className={'oui'}>
             <Typography variant="h2" className='recipe__title'> Mes recettes </Typography><br></br>
-            <AppBar position="static" elevation={0} color='transparent'>
+            <AppBar id='AppBar' position="static" elevation={0} color='transparent'>
                 <Tabs 
                     value={value} 
                     onChange={handleChange} 
@@ -82,15 +82,15 @@ const RecipeUser = () => {
                         backgroundColor: "#06c106"
                     }}}
                 >
-                    <Tab label={"Recettes scorées"}  {...a11yProps(0)} style={{ fontSize: 16 } && makeBold("a")}/>
-                    <Tab label={"Recettes Proposées"} style={{ fontSize: 16 } && makeBold("b")}  {...a11yProps(1)} />
+                    <Tab className='recipes__scored__title' label={"Recettes scorées"}  {...a11yProps(0)} style={{ fontSize: 16 } && makeBold("a")}/>
+                    <Tab className='recipes__predict__title' label={"Recettes Proposées"} style={{ fontSize: 16 } && makeBold("b")}  {...a11yProps(1)} />
                 </Tabs>
             </AppBar>
             <Typography component='div' style={{ backgroundColor: 'white', minHeight: '80vh' }} >
-                <TabPanel value={value} index={0} >
-                    <RecipeList aRecipeList={ recipesWoScore }></RecipeList>
+                <TabPanel className=''value={value} index={0} >
+                    <RecipeList className='recipes__scored__title' aRecipeList={ recipesWoScore }></RecipeList>
                 </TabPanel>
-                <TabPanel value={value} index={1}>
+                <TabPanel className='recipes__predict__title' value={value} index={1}>
                     <RecipeList aRecipeList={ recipesPredict }></RecipeList>
                 </TabPanel>
             </Typography>

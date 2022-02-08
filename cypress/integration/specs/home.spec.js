@@ -4,7 +4,7 @@
 context('Home page', () => {
     beforeEach(() => cy.visit('localhost:3000/'))
     
-    it('Checks the title', () => cy.title().should('eq', 'Wadge App'))
+    it('Checks the title', () => cy.title().should('eq', 'Wadge'))
 
     it('Makes sure the logo is present and clickable', () => {
         cy.get('.home__image').should('have.attr', 'src', 'logo.png')
