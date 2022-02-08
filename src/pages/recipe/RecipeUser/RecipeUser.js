@@ -91,20 +91,6 @@ const RecipeUser = () => {
           default:
             return {}
         }
-      case 2:
-        switch (letter) {
-          case "c":
-            return { fontWeight: 'bold' }
-          default:
-            return {}
-        }
-      case 3:
-        switch (letter) {
-          case "d":
-            return { fontWeight: 'bold' }
-          default:
-            return {}
-        }
       default:
         return null
     }

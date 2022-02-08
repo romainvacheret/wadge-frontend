@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import './RecipeList.css';
 import RecipeCard from '../RecipeCard/RecipeCard';
-import FilterSelect from './FilterSelect';
-import { FormControl,OutlinedInput, Box, Grid } from "@material-ui/core";
+import { Box, Grid } from "@material-ui/core";
 import { Pagination } from "@material-ui/lab";
 import usePagination from "./Pagination";
 
@@ -43,15 +42,6 @@ const RecipeList = ({aRecipeList}) => {
    
     return (
         <>
-            {/* <div className='recipe__search'>
-                <FormControl className="recipe__search" name="search_person" noValidate autoComplete="off">
-                    <OutlinedInput id="search_person"    placeholder="Nombre de personnes" variant="outlined" 
-                    value={servings}
-                    onChange={ handleChangeRecipe } 
-                />
-                </FormControl>
-            </div> */}
-            {/* <FilterSelect setRecipeList={ setRecipeList }/> */}
             <Box p="5">
                 <Grid container direction="column" alignItems="center">
                     <Pagination className='recipe__pagination'
