@@ -86,10 +86,12 @@ const RecipeCard = ({ recipe }) => {
             <AccordionDetails>
                 <Grid container>
                 <Grid xs="3">
-                    <Typography variant="h5">{ `Recette pour : ${ servings } personnes` }</Typography>
-                    <Typography variant="h5">{ `Difficulté : ${ difficulty }/4` }</Typography>
-                    <Typography variant="h5">{ `Note : ${ rating }/5` }</Typography>
-                    <Typography variant="h5">{ `Préparation : ${ preparation } mins` }</Typography>
+                    <Typography variant="h5">{ `Recette pour : ${ servings !== -1 ? '' + servings : ''  } personnes` }</Typography>
+                    <Typography variant="h5">{ `Difficulté : ${ difficulty !== -1 ? '' + difficulty : '' }/4` }</Typography>
+                    <Typography variant="h5">{ `Note : ${ rating !== -1 ? '' + rating : '' }/5` }</Typography>
+                   {
+                       preparation !== -1 ? <Typography variant="h5">{ `Préparation : ${ preparation}  mins` }</Typography> : <Typography variant="h5" style={{fontWeight:"bolder"}}>Pas de temps de préparation</Typography>
+                   }
                     <Tooltip title="Accéder à la recette">
                         <Link to={{
                             pathname: '/recipes/step',
