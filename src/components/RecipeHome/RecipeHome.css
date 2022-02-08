@@ -1,0 +1,14 @@
+.home-recipe-compo__container {
+    width: auto;
+    height: auto;
+    border: 2px solid black;
+}
+
+.home-recipe__title{
+    color: limegreen;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-bottom: 5%;
+    margin-top: 5%;
+}

@@ -1,0 +1,22 @@
+.fridge-main-compo__title {
+    color: limegreen;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-bottom: 1%;
+}
+
+
+.fridge-main-compo__label {
+    color:  #f19300;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.fridge-main-compo__container {
+    width: auto;
+    height: auto;
+    border: 2px solid black;
+    margin-bottom: 2vh;
+}

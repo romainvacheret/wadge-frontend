@@ -4,7 +4,7 @@
 context('Month filter', () => {
     beforeEach(() => cy.visit('localhost:3000/fridge/addition'));
     
-    it('Checks the title of the page', () => cy.title().should('eq', 'Wadge App'));
+    it('Checks the title of the page', () => cy.title().should('eq', 'Wadge'));
 
     it('Looks for the nav bar', () => cy.get('#navbar'));
 
@@ -30,5 +30,8 @@ context('Month filter', () => {
     });
 
     // TODO Check the buttons +/-
+    it('Check the +/- buttons', () => {
+        cy.get('.fridge-addition__counter').should('increase');
+    });
 
 })
