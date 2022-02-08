@@ -4,11 +4,10 @@ import './RecipeList.css';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import { Box, Grid } from "@material-ui/core";
 import { Pagination } from "@material-ui/lab";
-import usePagination from "./Pagination";
+import usePagination from "./usePagination";
 
 const RecipeList = ({aRecipeList}) => {
     const [recipeList, setRecipeList] = useState([]);
-    const [servings, setServings] = useState('');
     const [recipes, setRecipes] = useState([]);
     
     useEffect(() => {
@@ -27,17 +26,6 @@ const RecipeList = ({aRecipeList}) => {
     const handleChange = (e, p) => {
       setPage(p);
       _DATA.jump(p);
-    };
-
-    const handleChangeRecipe = (event) => {
-        const value = event.target.value;
-        setServings(value);
-        if(value === '') {
-            setRecipes([...recipeList]);
-        } else if(value > 0) {
-            setRecipes([...recipeList.filter(recipe => recipe.servings === value)]);
-        }
-        
     };
    
     return (

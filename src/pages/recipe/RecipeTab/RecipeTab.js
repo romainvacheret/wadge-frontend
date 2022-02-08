@@ -31,25 +31,29 @@ const RecipeTab = () => {
     };
 
     const makeBold = (letter) => {
-    switch (value) {
-      case 0:
-        switch (letter) {
-          case "a":
-            return { fontWeight: 'bold' }
-          default:
-            return {}
-        }
+      switch (value) {
+        case 0:
+          switch (letter) {
+            case "a":
+              return { fontWeight: 'bold' }
+            case "b":
+              return {}
+            default:
+              return {}
+          }
 
-      case 1:
-        switch (letter) {
-          case "b":
-            return { fontWeight: 'bold' }
-          default:
-            return {}
-        }
-      default:
-        return null
-    }
+        case 1:
+          switch (letter) {
+            case "b":
+              return { fontWeight: 'bold' }
+            case "a":
+              return {}
+            default:
+              return {}
+          }
+        default:
+          return null
+      }
   }
 
 
