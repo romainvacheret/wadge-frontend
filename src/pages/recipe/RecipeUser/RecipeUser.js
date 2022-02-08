@@ -8,21 +8,32 @@ import axios from 'axios';
 const RecipeUser = () => {
     const[recipesUser, setRecipesUser] = useState([]);
     const[recipesPredict, setRecipesPredict] = useState([]);
-
-
+    const[recipesWoScore, setWoScore] = useState([]);
+    const user = "1";
     useEffect(() => {
 
-        axios.post(`http://localhost:8080/user/${user}/scored`)
+        axios.get(`http://localhost:8080/users/${user}`)
         .then((response) =>{
-          set(response.data);
+            setRecipesUser(response.data);          
         })
 
-        axios.get('http://localhost:8080/user/knn')
+
+        axios.get('http://localhost:8080/users/knn')
         .then((response)=> {
-          setRecipesPredict(response.data);
+         setRecipesPredict(response.data);
         })
 
       }, [setRecipesUser, setRecipesPredict]);
+    
+
+    useEffect(() => {
+      makeRecipesWoScore()
+    }, [setWoScore, recipesUser])
+
+    const makeRecipesWoScore = () => {
+      setWoScore(recipesUser.flatMap(recipe => recipe.recipe));
+      console.log(recipesWoScore);
+    }
 
     function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -80,20 +91,6 @@ const RecipeUser = () => {
           default:
             return {}
         }
-      case 2:
-        switch (letter) {
-          case "c":
-            return { fontWeight: 'bold' }
-          default:
-            return {}
-        }
-      case 3:
-        switch (letter) {
-          case "d":
-            return { fontWeight: 'bold' }
-          default:
-            return {}
-        }
       default:
         return null
     }
@@ -120,7 +117,7 @@ const RecipeUser = () => {
             </AppBar>
             <Typography component='div' style={{ backgroundColor: 'white', minHeight: '80vh' }} >
                 <TabPanel value={value} index={0} >
-                    <RecipeList aRecipeList={ recipesUser }></RecipeList>
+                    <RecipeList aRecipeList={ recipesWoScore }></RecipeList>
                 </TabPanel>
                 <TabPanel value={value} index={1}>
                     <RecipeList aRecipeList={ recipesPredict }></RecipeList>
