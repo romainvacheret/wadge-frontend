@@ -1,13 +1,13 @@
-# Wadge-BackEnd
+# Wadge-FrontEnd
 
-![Java CI](https://github.com/RomainVacheret/Wadge-BackEnd/workflows/Java%20CI/badge.svg)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/RomainVacheret/Wadge-BackEnd)
-[![License](https://img.shields.io/github/license/RomainVacheret/Wadge-BackEnd.svg?style=flat-square)](LICENSE)
-[![Code Quality](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-BackEnd&metric=alert_status)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-BackEnd)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-BackEnd&metric=sqale_index)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-BackEnd)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-BackEnd&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-BackEnd)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-BackEnd&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-BackEnd)
-[![codecov](https://codecov.io/gh/RomainVacheret/Wadge-BackEnd/branch/master/graph/badge.svg?token=5HD33M3ONC)](https://codecov.io/gh/RomainVacheret/Wadge-BackEnd)
+[![Build Status](https://img.shields.io/travis/com/RomainVacheret/Wadge-FrontEnd/master)](https://travis-ci.com/github/RomainVacheret/Wadge-FrontEnd)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/RomainVacheret/Wadge-FrontEnd)
+[![License](https://img.shields.io/github/license/RomainVacheret/Wadge-FrontEnd.svg?style=flat-square)](LICENSE)
+[![Code Quality](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-FrontEnd&metric=alert_status)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-FrontEnd)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-FrontEnd&metric=sqale_index)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-FrontEnd)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-FrontEnd&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-FrontEnd)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-FrontEnd&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-FrontEnd)
+[![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io/)
 
 # Que faisons nous ?
 Wadge est une application utilisable par tous, qui propose une gestion d'un frigo virtuel.  
