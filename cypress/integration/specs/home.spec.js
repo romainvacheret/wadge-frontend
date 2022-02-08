@@ -37,6 +37,9 @@ context('Home page', () => {
     it('Checks the link to the recipies', () => {
         cy.get('#nav-recipes').should('have.attr', 'href', '/recipes')
     })
+    it('Checks the link to the User recipes', () => {
+        cy.get('#nav-recipes-user').should('have.attr', 'href', '/recipes/user')
+    })
 
     it('Checks the scale', () => {
         cy.get('#icon-scale').should('have.attr', 'src', '/scale.png')

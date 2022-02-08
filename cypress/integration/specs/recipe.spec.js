@@ -3,9 +3,8 @@
 
 context('Recipes', () => {
     beforeEach(() => {
-        cy.visit('localhost:3000/recipes')
         cy.intercept('GET', `http://localhost:8080/recipes`, { fixture: `recipes_list/recipes.json` })
-
+        cy.visit('localhost:3000/recipes')
     });
     
     it('Checks the title of the page', () => cy.title().should('eq', 'Wadge'))
@@ -16,7 +15,7 @@ context('Recipes', () => {
     it('Makes sure tabs are clickable and contains expected titles', () => {
         cy.get('.recipes__all__title').children().click({ multiple:true, force:true });
     
-        cy.get('.recipes__all__title').children().should('have.text', 'Toutes les Recettes  ');
+        cy.get('.recipes__all__title').contains('Toutes les Recettes');
         //cy.get('.recipes__favorite__title').children().should('have.text', 'Recettes Favorites  ');
     });
 
@@ -26,6 +25,6 @@ context('Recipes', () => {
 
     it('Makes sure the recipe cards are clickable and contains expected titles', () => {
         cy.get('.recipe__container').children().should('contains', 'name')
-        cy.get('.accordion__details').children().should('contain', 'Etapes').and('contain', 'Ingredients');
+        cy.get('.accordion__details').children().should('contains', 'Etapes').and('contains', 'Ingredients');
     });
 })
