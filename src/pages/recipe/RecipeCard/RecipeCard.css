@@ -1,0 +1,17 @@
+.recipe__recipe-card__step {
+    color: #f19300;
+}
+.recipe__present__ingredient {
+    color: limegreen;
+}
+.recipe__partiellement__ingredient {
+    color: #e9bf03;
+}
+.recipe__absent__ingredient{
+    color: rgb(255, 60, 0);
+}
+
+.recipe__recipe-card__ingredient {
+    color: #f19300;
+    margin-right: 0%;
+}

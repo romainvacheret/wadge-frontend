@@ -1,0 +1,27 @@
+.monthfilter__bar {
+    display: flex;
+    justify-content: center;
+}
+
+.monthfilter-bar__tab {
+    font-size: medium;
+    width: 200px;
+    height: 30px;
+    background: #282c34;
+    color: limegreen;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    cursor: pointer;
+    border: 2px solid #333;
+    margin: 1px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: 500;
+}
+
+.monthfilter-bar__tab__current {
+    background: #282c34;
+    color: #f19300;
+    font-weight: 500;
+}

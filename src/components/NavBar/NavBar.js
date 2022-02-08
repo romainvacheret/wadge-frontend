@@ -24,16 +24,20 @@ const NavBar = () => {
               Fruits et Légumes
             </ListItemLink>
             <ListItemLink href="/fridge" className='navbar__links' id="nav-fridge">
-              Frigo
+              Mon frigo
+            </ListItemLink>
+            <ListItemLink href="/recipes/user" className='navbar__links' id="nav-recipes-user">
+              Mes recettes
             </ListItemLink>
             <ListItemLink href="/fridge/addition" className='navbar__links' id="nav-fridge-addition">
               Ajout au frigo
             </ListItemLink>
+            
+            <ListItemLink href="/recipes" className='navbar__links' id="nav-recipes">
+              Toutes les recettes
+            </ListItemLink>
             <ListItemLink href="/shopping_list" className='navbar__links' id="nav-shopping">
               Liste des courses
-            </ListItemLink>
-            <ListItemLink href="/recipes" className='navbar__links' id="nav-recipes">
-              Recettes
             </ListItemLink>
             <ListItemLink className='navbar__links' id="nav-scale">
                 <Tooltip title="balance">
