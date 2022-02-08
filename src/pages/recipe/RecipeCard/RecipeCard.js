@@ -73,7 +73,7 @@ const RecipeCard = ({ recipe }) => {
 
     return (
       
-        <Accordion data-testid='recipe-card__accordion'>
+        <Accordion data-testid='recipe-card__accordion' className='recipe__accordion'>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon fontSize="large"/>}
                 aria-controls="panel1a-content"
@@ -83,7 +83,7 @@ const RecipeCard = ({ recipe }) => {
                     <Typography variant="h4" className="recipe__name" >{ name }</Typography>
 
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails className="accordion__details">
                 <Grid container>
                 <Grid xs="3">
                     <Typography variant="h5">{ `Recette pour : ${ servings !== -1 ? '' + servings : ''  } personnes` }</Typography>

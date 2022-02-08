@@ -10,4 +10,5 @@ context(' Shopping List ', () => {
 
     it('Checks Shopping title', () => cy.get('.shopping-list__title').contains('Liste des courses'))
 
+    
 })

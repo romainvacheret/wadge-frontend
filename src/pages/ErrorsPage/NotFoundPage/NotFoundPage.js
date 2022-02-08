@@ -31,6 +31,7 @@ function NotFoundPage() {
         to="/"
         variant="contained"
         mt={2}
+        className='button__to-home'
         >
         Retour à l'accueil
         </GreenButton>

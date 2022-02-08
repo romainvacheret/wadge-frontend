@@ -2,7 +2,11 @@
 
 
 context('Fridge addition', () => {
-    beforeEach(() => cy.visit('localhost:3000/fridge/addition'));
+    beforeEach(() =>{ 
+        cy.visit('localhost:3000/fridge/addition')
+        cy.intercept('GET', `http://localhost:8080/foods/`, { fixture: `food/food_list.json` })
+
+});
     
     it('Checks the title of the page', () => cy.title().should('eq', 'Wadge'));
 
@@ -13,12 +17,14 @@ context('Fridge addition', () => {
     it('Checks the title', () => cy.contains('Liste des fruits et légumes à ajouter'));
 
     it('Makes sure all food is present', () => {
-        cy.get('.fridge-addition__food-card').should('have.length', 88);
+        cy.get('.fruits__container').children().should('have.length', 46);
+        cy.get('.vegetables__container').children().should('have.length', 42);
     });
 
     it('Makes sure each food has its counter', () => {
-        cy.get('.fridge-addition__counter').should('have.length', 88);
+        cy.get('.fruits-vegetables').should('have.length', 1);
     });
+
 
     it('Checks that sub titles are present', () => {
         cy.contains('Légumes');

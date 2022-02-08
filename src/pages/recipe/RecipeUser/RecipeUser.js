@@ -87,8 +87,8 @@ const RecipeUser = () => {
                 </Tabs>
             </AppBar>
             <Typography component='div' style={{ backgroundColor: 'white', minHeight: '80vh' }} >
-                <TabPanel className=''value={value} index={0} >
-                    <RecipeList className='recipes__scored__title' aRecipeList={ recipesWoScore }></RecipeList>
+                <TabPanel className='recipes__scored__title' value={value} index={0} >
+                    <RecipeList aRecipeList={ recipesWoScore }></RecipeList>
                 </TabPanel>
                 <TabPanel className='recipes__predict__title' value={value} index={1}>
                     <RecipeList aRecipeList={ recipesPredict }></RecipeList>

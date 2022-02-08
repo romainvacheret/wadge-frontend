@@ -16,8 +16,9 @@ context(' 404 error page ', () => {
 
 
     it('Checks the home return button & clickable', () => {
-        cy.get('.error__to-home__button').children().should('have.attr','to', '/' )
-        cy.get('.error__to-home__button').children().children().click({ multiple: true });
+        cy.get('.button__to-home').should('have.attr','href', '/' )
+        cy.get('.button__to-home').children().should('have.text', "Retour à l'accueil")
+        cy.get('.button__to-home').click({ multiple: true });
 
     })
 })

@@ -60,7 +60,7 @@ const RecipeTab = () => {
     return (
         <Grid className={'oui'}>
             <Typography variant="h2" className='recipe__title'> Liste des recettes </Typography><br></br>
-            <AppBar position="static" elevation={0} color='transparent'>
+            <AppBar id='AppBar' position="static" elevation={0} color='transparent'>
                 <Tabs 
                     value={value} 
                     onChange={handleChange} 
@@ -71,15 +71,15 @@ const RecipeTab = () => {
                         backgroundColor: "#06c106"
                     }}}
                 >
-                    <Tab label={"Toutes les Recettes"}  {...a11yProps(0)} style={{ fontSize: 16 } && makeBold("a")}/>
-                    <Tab label={"Recettes Favorites"} style={{ fontSize: 16 } && makeBold("b")}  {...a11yProps(1)} />
+                    <Tab className='recipes__all__title' label={"Toutes les Recettes"}  {...a11yProps(0)} style={{ fontSize: 16 } && makeBold("a")}/>
+                    <Tab className='recipes__favorite__title' label={"Recettes Favorites"} style={{ fontSize: 16 } && makeBold("b")}  {...a11yProps(1)} />
                 </Tabs>
             </AppBar>
             <Typography component='div' style={{ backgroundColor: 'white', minHeight: '80vh' }} >
-                <TabPanel value={value} index={0} >
+                <TabPanel className='recipes__all__title' value={value} index={0} >
                     <RecipeList aRecipeList={ all }></RecipeList>
                 </TabPanel>
-                <TabPanel value={value} index={1}>
+                <TabPanel className='recipes__favorite__title' value={value} index={1}>
                     <RecipeList aRecipeList={ favorite }></RecipeList>
                 </TabPanel>
             </Typography>
