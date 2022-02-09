@@ -1,8 +1,11 @@
 /// <reference types="cypress" />
 
 
-context('Month filter', () => {
-    beforeEach(() => cy.visit('localhost:3000/fridge/addition'));
+context('Fridge addition', () => {
+    beforeEach(() =>{ 
+        cy.intercept('GET', `http://localhost:8080/foods/`, { fixture: `food/food_list.json` })
+        cy.visit('localhost:3000/fridge/addition')
+});
     
     it('Checks the title of the page', () => cy.title().should('eq', 'Wadge'));
 
@@ -12,13 +15,19 @@ context('Month filter', () => {
 
     it('Checks the title', () => cy.contains('Liste des fruits et légumes à ajouter'));
 
-    it('Makes sure all every food is present', () => {
-        cy.get('.fridge-addition__food-card').should('have.length', 88);
+    it('Makes sure all food is present', () => {
+        cy.get('.fruits__container').children().should('have.length', 45);
+        cy.get('.vegetables__container').children().should('have.length', 43);
+
+
+        
     });
 
     it('Makes sure each food has its counter', () => {
-        cy.get('.fridge-addition__counter').should('have.length', 88);
+        cy.intercept('GET', `http://localhost:8080/foods/`, { fixture: `food/food_list.json` })
+        cy.get('.fruits-vegetables').should('have.length', 1);
     });
+
 
     it('Checks that sub titles are present', () => {
         cy.contains('Légumes');
@@ -31,7 +40,7 @@ context('Month filter', () => {
 
     // TODO Check the buttons +/-
     it('Check the +/- buttons', () => {
-        cy.get('.fridge-addition__counter').should('increase');
+        cy.get('.addition__counter__button').contains('have.attr', 'onClick');
     });
 
 })
