@@ -27,11 +27,11 @@ const Counter = ({counters, idx, handlePlus, handleMinus}) => {
     return (
         <Grid container className="fridge-addition__counter">
                 <Typography >
-            <CustomButton onClick={ () => handleMinus(idx) } > 
+            <CustomButton className="addition__counter__button" onClick={ () => handleMinus(idx) } > 
                 <IndeterminateCheckBoxIcon fontSize="large"/>
             </CustomButton>
                 {counters[idx].val}
-            <CustomButton2 onClick={ () => handlePlus(idx) } >
+            <CustomButton2 className="addition__counter__button" onClick={ () => handlePlus(idx) } >
                 <AddBoxIcon fontSize="large"/>
             </CustomButton2>
                 </Typography>

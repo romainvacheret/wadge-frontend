@@ -73,23 +73,25 @@ const RecipeCard = ({ recipe }) => {
 
     return (
       
-        <Accordion data-testid='recipe-card__accordion'>
+        <Accordion data-testid='recipe-card__accordion' className='recipe__accordion'>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon fontSize="large"/>}
                 aria-controls="panel1a-content"
                 id="panel1a-header" >
-                    {favoriIcon === true?<FavoriteIcon style={{ color: "#f19300" }} fontSize="large"/>:<FavoriteBorderIcon style={{ color: "limegreen" }} fontSize="large"/>}
+                    {favoriIcon === true?<FavoriteIcon className='recipe__recipe-card__favorite' style={{ color: "#f19300" }} fontSize="large"/>:<FavoriteBorderIcon className='recipe__recipe-card__favorite' style={{ color: "limegreen" }} fontSize="large"/>}
                 &nbsp;&nbsp;
                     <Typography variant="h4" className="recipe__name" >{ name }</Typography>
 
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails className="accordion__details">
                 <Grid container>
                 <Grid xs="3">
-                    <Typography variant="h5">{ `Recette pour : ${ servings } personnes` }</Typography>
-                    <Typography variant="h5">{ `Difficulté : ${ difficulty }/4` }</Typography>
-                    <Typography variant="h5">{ `Note : ${ rating }/5` }</Typography>
-                    <Typography variant="h5">{ `Préparation : ${ preparation } mins` }</Typography>
+                    <Typography variant="h5">{ `Recette pour : ${ servings !== -1 ? '' + servings : ''  } personnes` }</Typography>
+                    <Typography variant="h5">{ `Difficulté : ${ difficulty !== -1 ? '' + difficulty : '' }/4` }</Typography>
+                    <Typography variant="h5">{ `Note : ${ rating !== -1 ? '' + rating : '' }/5` }</Typography>
+                   {
+                       preparation !== -1 ? <Typography variant="h5">{ `Préparation : ${ preparation}  mins` }</Typography> : <Typography variant="h5" style={{fontWeight:"bolder"}}>Pas de temps de préparation</Typography>
+                   }
                     <Tooltip title="Accéder à la recette">
                         <Link to={{
                             pathname: '/recipes/step',

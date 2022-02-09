@@ -4,7 +4,7 @@
 context('Home page', () => {
     beforeEach(() => cy.visit('localhost:3000/'))
     
-    it('Checks the title', () => cy.title().should('eq', 'Wadge App'))
+    it('Checks the title', () => cy.title().should('eq', 'Wadge'))
 
     it('Makes sure the logo is present and clickable', () => {
         cy.get('.home__image').should('have.attr', 'src', 'logo.png')
@@ -36,6 +36,9 @@ context('Home page', () => {
 
     it('Checks the link to the recipies', () => {
         cy.get('#nav-recipes').should('have.attr', 'href', '/recipes')
+    })
+    it('Checks the link to the User recipes', () => {
+        cy.get('#nav-recipes-user').should('have.attr', 'href', '/recipes/user')
     })
 
     it('Checks the scale', () => {
